@@ -1,0 +1,89 @@
+/* Registration Page Styles extracted from inline <style> in register.html */
+.registration-page {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+.registration-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.registration-card:hover {
+    transform: translateY(-5px);
+}
+.record-title {
+    color: #2c3e50;
+    font-weight: 600;
+}
+.form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #e0e6ed;
+    transition: all 0.3s;
+}
+.form-control:focus {
+    border-color: #4a80f0;
+    box-shadow: 0 0 0 3px rgba(74, 128, 240, 0.15);
+}
+.btn-primary {
+    background-color: #4a80f0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.btn-primary:hover {
+    background-color: #3a6fd4;
+    transform: translateY(-2px);
+}
+.btn-outline-primary {
+    border-color: #4a80f0;
+    color: #4a80f0;
+}
+.btn-outline-primary:hover {
+    background-color: #4a80f0;
+    color: white;
+}
+.password-strength-msg {
+    margin-top: 8px;
+}
+.password-strength-msg .chip {
+    background: #f1f5fe;
+    color: #4a80f0;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.input-group-text {
+    background-color: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+}
+.dropzone {
+    border: 2px dashed #e0e6ed;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s;
+}
+.dropzone:hover {
+    border-color: #4a80f0;
+    background: #f1f5fe;
+}
+.page-header {
+    background: linear-gradient(135deg, #4a80f0 0%, #3a6fd4 100%);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.nav-tabs .nav-link.active {
+    color: #4a80f0;
+    font-weight: 500;
+}

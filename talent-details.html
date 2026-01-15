@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Kalenjin Vibes | Talent Details</title>
+    <meta name="author" content="Kalenjin Vibes">
+    <meta name="description" content="Book talented artists, DJs, producers, and MCs for your events.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo.jpg">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Sweetalert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="assets/css/talents.css">
+    <!-- Theme CSS Files -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Universal CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z93DQW5D1S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Z93DQW5D1S');
+    </script>
+</head>
+<body>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="menu-overlay"></div>
+        <div class="menu-container">
+            <div class="menu-header">
+                <img src="assets/img/lg.png" style="width:33%" alt="Kalenjin Vibes Logo" class="menu-logo">
+                <button class="menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="menu-nav">
+                <ul>
+                    <li>
+                        <a href="index.html" class="menu-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="eventslist.html" class="menu-link">
+                            <i class="fas fa-calendar"></i>
+                            <span>Events</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="talentlist.html" class="menu-link">
+                            <i class="fas fa-users"></i>
+                            <span>Talents</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="shop.html" class="menu-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Shop</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="menu-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="menu-footer">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1FLtLAQsxZ/" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/+254797265275" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <p class="copyright">© <script>document.write(new Date().getFullYear())</script> Kalenjin Vibes</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="vs-header header-layout4">
+        <!-- Top Bar -->
+        <div class="header-top-bar" style="background-color: #000; color: #fff;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6 d-lg-none">
+                        <div class="header-social">
+                            <a href="https://www.facebook.com/share/1ShpdQ2gxc/" class=""><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class=""><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@kalenjinvibes" class=""><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 d-lg-none text-end">
+                        <div class="header-auth-links ms-auto" style="display: flex; justify-content: flex-end;">
+                            <a href="app" class="auth-btn mobile-auth-btn">
+                                <i class="fas fa-sign-in-alt me-1"></i> Login
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 d-none d-lg-block">
+                        <div class="header-contact-info">
+                            <ul>
+                                <li>
+                                    <i class="fas fa-envelope" style="color: #BA0909;"></i>
+                                    <a href="mailto:kalenjinvibezke@gmail.com" style="color:white">kalenjinvibezke@gmail.com</a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt" style="color: #BA0909;"></i>
+                                    <span>Nairobi, Kenya</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-lg-block text-md-end">
+                        <div class="header-top-right">
+                            <div class="header-social">
+                                <a href="https://www.facebook.com/share/1ShpdQ2gxc/" class=""><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class=""><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@kalenjinvibes" class=""><i class="fab fa-tiktok"></i></a>
+                            </div>
+                            <div class="header-auth-links ms-3">
+                                <a href="app" class="auth-btn" style="background-color: #BA0909; color: white; padding: 5px 15px; border-radius: 4px; text-decoration: none; font-weight: 500;">
+                                    <i class="fas fa-sign-in-alt me-1"></i> Login
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="main-header" style="background-color: white;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-6">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="assets/img/logocopy.jpg" alt="Kalenjin Vibes Logo" class="img-fluid" style="max-height: 60px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <nav class="main-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html" style="color: #333;"><i class="fas fa-home me-1"></i> Home</a>
+                                </li>
+                                <li>
+                                    <a href="eventslist.html" style="color: #333;"><i class="fas fa-calendar-alt me-1"></i> Events</a>
+                                </li>
+                                <li class="active">
+                                    <a href="talentlist.html" style="color: #333;"><i class="fas fa-users me-1"></i> Talents</a>
+                                </li>
+                                <li>
+                                    <a href="shop.html" style="color: #333;"><i class="fas fa-cart-shopping me-1"></i> Shop</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" style="color: #333;"><i class="fas fa-envelope me-1"></i> Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-6 text-end">
+                        <div class="header-actions d-flex justify-content-end align-items-center">
+                            <button class="search-toggle me-3" style="background: none; border: none; color: #333;">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button class="vs-menu-toggle d-inline-block d-lg-none" style="background: none; border: none; padding: 0;">
+                                <i class="fas fa-bars" style="color: black; font-size: 1.5rem;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #BA0909; color: white;">
+                        <h5 class="modal-title" style="color:white;">Search Events</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="searchForm">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="query" id="searchInput" placeholder="Search for events..." autocomplete="off">
+                                <button class="btn btn-danger" type="submit">Search</button>
+                            </div>
+                        </form>
+                        <div id="searchResults" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcumb-wrapper background-image" style="background-image: url('assets/img/breadcumb/breadcumb-bg.jpg');">
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title">Kalenjin Vibes Talents</h1>
+                <div class="breadcumb-menu-wrap">
+                    <ul class="breadcumb-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="talentlist.html">Talents</a></li>
+                        <li id="currentTalentName">Loading...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Talent Details Section -->
+    <section class="space-bottom">
+        <div class="outer-wrap">
+            <div class="container">
+                <div class="shadow-content1">
+                    <div class="row mx-auto">
+                        <div class="col-lg-8">
+                            <!-- Loading Spinner -->
+                            <div id="loadingDetails" class="text-center py-5">
+                                <div class="spinner-border text-danger" role="status">
+                                    <span class="visually-hidden">Loading talent details...</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Error Message -->
+                            <div id="errorMessage" class="alert alert-danger" style="display: none;">
+                                Talent not found. Please go back to the <a href="talentlist.html">talents list</a>.
+                            </div>
+                            
+                            <!-- Talent Details Content (will be populated dynamically) -->
+                            <div id="talentDetails" style="display: none;">
+                                <div class="filter-active tour-booking-active">
+                                    <div class="filter-item tab-content1">
+                                        <div class="info-image">
+                                            <img id="talentImage" src="" alt="Talent Image">
+                                        </div>
+                                        
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-md-6">
+                                                <h2 class="tab-title" id="talentName"></h2>
+                                            </div>
+                                            <div class="col-auto">
+                                                <p class="tour-price"><strong id="talentRole"></strong></p>
+                                            </div>
+                                        </div>
+                                        
+                                        <p id="talentDescription"></p>
+                                        
+                                        <!-- Booking Form -->
+                                        <form id="bookingForm" action="#" method="POST">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h2 class="h4">Booking Details</h2>
+                                                    <div class="row">
+                                                        <div class="col-md-6 form-group">
+                                                            <input type="text" class="form-control" placeholder="First Name" name="first_name" required>
+                                                        </div>
+                                                        <div class="col-md-6 form-group">
+                                                            <input type="text" class="form-control" placeholder="Last Name" name="last_name" required>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <input type="text" class="form-control" placeholder="Event Name" name="event_name" required>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <input type="text" class="form-control" placeholder="Location" name="location" required>
+                                                        </div>
+                                                        <div class="col-md-6 form-group">
+                                                            <input type="date" class="form-control" placeholder="Event Schedule" name="event_date" required>
+                                                        </div>
+                                                        <div class="col-md-6 form-group">
+                                                            <input type="number" class="form-control" placeholder="Budget in Ksh" name="amount" required>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <input type="text" class="form-control" placeholder="Phone number" name="phone_number" required>
+                                                        </div>
+                                                        <div class="col-12 form-group">
+                                                            <input type="email" class="form-control" placeholder="Email Address" name="email" required>
+                                                        </div>
+                                                        <input type="hidden" id="talentIdInput" name="talent_id" value="">
+                                                        <input type="hidden" id="talentNameInput" name="talent_name" value="">
+                                                        <div class="col-12 form-group">
+                                                            <textarea rows="5" class="form-control" placeholder="Notes about your Bookings" name="notes"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row place-order pt-lg-2">
+                                                    <button type="submit" class="vs-btn style4">SUBMIT</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-wrapper footer-layout1 shape-mockup-wrap">
+        <div class="container ">
+            <div class="footer-newsletter2 py-5">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="newsletter-style2">
+                            <div class="newsletter-img">
+                                <img src="assets/img/call.png" style="width:80%" alt="image">
+                            </div>
+                            <h3 class="newsletter-text">Call Us 24/7</h3>
+                            <a href="tel:+254797265275">+254797265275</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="newsletter-style2">
+                            <div class="newsletter-img">
+                                <img src="assets/img/share.png" style="width:80%" alt="image">
+                            </div>
+                            <h3 class="newsletter-text">Write To Us</h3>
+                            <a href="mailto:kalenjinvibezke@gmail.com">kalenjinvibezke@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <form class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="vs-btn style4" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area2">
+            <div class="container">
+                <div class="row g-5 justify-content-between">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget footer-widget">
+                            <div class="vs-widget-about">
+                                <div class="footer-logo">
+                                    <a href="#"><img src="assets/img/lg.png" alt="Kalenjin Vibes" style="width:60%" class="logo"></a>
+                                </div>
+                                <p class="footer-text">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
+                                <div class="social-style1">
+                                    <a href="https://www.facebook.com/share/1ShpdQ2gxc/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.tiktok.com/@kalenjinvibes" target="_blank"><i class="fab fa-tiktok"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-2">
+                        <div class="widget widget_nav_menu footer-widget">
+                            <h3 class="widget_title">Useful Links</h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    <li><a href="index.html"><i class="far fa-angle-right"></i> Home</a></li>
+                                    <li><a href="eventslist.html"><i class="far fa-angle-right"></i> Events</a></li>
+                                    <li><a href="talentlist.html"><i class="far fa-angle-right"></i> Talents</a></li>
+                                    <li><a href="contact.html"><i class="far fa-angle-right"></i> Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-2">
+                        <div class="widget widget_nav_menu footer-widget footer-contact">
+                            <h3 class="widget_title">Contact</h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi - Kenya</a></li>
+                                    <li><a href="mailto:kalenjinvibezke@gmail.com"><i class="fas fa-envelope"></i> kalenjinvibezke@gmail.com</a></li>
+                                    <li>
+                                        <a href="tel:+254797265275"><i class="fas fa-phone-alt"></i> +254701 576 004</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright-wrap">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-auto">
+                        <p class="copyright-text">Copyright <i class="fal fa-copyright"></i>
+                            <script>document.write(new Date().getFullYear())</script> <a href="#">Kalenjin Vibes</a>.
+                            All Rights Reserved
+                        </p>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <div class="copyright-menu">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top -->
+    <a href="#" class="scrollToTop scroll-btn show"><i class="far fa-arrow-up"></i></a>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+254797265275" class="whatsapp-button" target="_blank">
+        <img src="assets/img/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Theme JS Files -->
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    
+    <!-- Universal JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Talent System JS -->
+    <script src="assets/js/talents.js"></script>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle menu
+            const menuToggle = document.querySelector('.vs-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Close menu
+            const closeBtn = document.querySelector('.menu-close');
+            const overlay = document.querySelector('.menu-overlay');
+            
+            function closeMenu() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+            
+            // Close menu when clicking links
+            const menuLinks = document.querySelectorAll('.menu-link');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Search modal functionality
+            const searchModal = new bootstrap.Modal(document.getElementById('searchModal'));
+            const searchToggle = document.querySelector('.search-toggle');
+            
+            if (searchToggle) {
+                searchToggle.addEventListener('click', function() {
+                    searchModal.show();
+                    document.getElementById('searchInput').focus();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

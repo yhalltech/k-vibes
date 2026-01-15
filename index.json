@@ -1,0 +1,141 @@
+{
+  "upcomingEvents": [
+    {
+      "id": 20,
+      "title": "Kalenjin Vibes Night",
+      "date": "January 23, 2026",
+      "location": "Winter Villa Resort & Spa - Embu",
+      "price": "Ksh 350",
+      "image": "./index_files/euz647_1a8ycov9.png",
+      "link": "eventslist-details.html?event=20"
+    }
+  ],
+  "pastEvents": [
+    {
+      "id": "past-1",
+      "title": "Kirinyaga Kitwek Night Edition",
+      "date": "December 12, 2025",
+      "location": "Gems Garden & Resort - Along Kutus- Kerugoya Rd",
+      "image": "./index_files/yoe_j12zt9g530h.jpeg"
+    },
+    {
+      "id": "past-2",
+      "title": "Kalee Vybes",
+      "date": "November 21, 2025",
+      "location": "Ridgeways Gardens - Meru along Meru Maua Road",
+      "image": "./index_files/2zkfo1qb85a9g4s.png"
+    },
+    {
+      "id": "past-3",
+      "title": "Kalenjin Night Experience - Muranga Edition",
+      "date": "November 7, 2025",
+      "location": "The Dalton Grand Hotel - Muranga",
+      "image": "./index_files/qctynz0wsd83voi.png"
+    },
+    {
+      "id": "past-4",
+      "title": "Kotab Gaa Night Vibes",
+      "date": "October 18, 2025",
+      "location": "Champions Club",
+      "image": "./index_files/zhmv6pa5ou8kq_2.jpeg"
+    },
+    {
+      "id": "past-5",
+      "title": "Kikuyu Urban Festival",
+      "date": "December 12, 2025",
+      "location": "The Embassy - Thika Road Roasters Next to Shell",
+      "image": "./index_files/ixs91enbmwydqgp.jpg"
+    },
+    {
+      "id": "past-6",
+      "title": "Kalenjin Vibes Night Experience - Embu",
+      "date": "October 9, 2025",
+      "location": "Winter Villa Resort & Spa - Embu",
+      "image": "./index_files/74iaelf38_dn9ot.png"
+    },
+    {
+      "id": "past-7",
+      "title": "Park & Chill",
+      "date": "September 27, 2025",
+      "location": "Airmans Pavillion - Makutano Meru",
+      "image": "./index_files/7whit24lvdjbyax.png"
+    },
+    {
+      "id": "past-8",
+      "title": "Kitwek Kalenjin Night",
+      "date": "October 3, 2025",
+      "location": "Pavilion Lounge",
+      "image": "./index_files/kgvi5hzn92sqtp3.png"
+    },
+    {
+      "id": "past-9",
+      "title": "Kalenjin Vibes Experience",
+      "date": "October 18, 2025",
+      "location": "Thika - Capricon Lounge",
+      "image": "./index_files/0tgpf972wi_jrm4.png"
+    },
+    {
+      "id": "past-10",
+      "title": "Kalenjin Vibes Experience",
+      "date": "September 27, 2025",
+      "location": "Chuka - Marine Park Resort",
+      "image": "./index_files/lc36h_osytidfp7.png"
+    },
+    {
+      "id": "past-11",
+      "title": "Kalenjin Night",
+      "date": "September 20, 2025",
+      "location": "Alva Resort (Lela)",
+      "image": "./index_files/bh9icpzotjln3e7.png"
+    },
+    {
+      "id": "past-12",
+      "title": "Kalenjin Night Experience",
+      "date": "September 13, 2025",
+      "location": "Checkmate Lounge - Meru",
+      "image": "./index_files/hrby3fsaznugv_0.jpeg"
+    },
+    {
+      "id": "past-13",
+      "title": "Kirema Album Launch -Urban Mugithi Vibes",
+      "date": "July 5, 2025",
+      "location": "Balanites Launch - Ruai",
+      "image": "./index_files/pckql74_2oj9m1z.jpeg"
+    },
+    {
+      "id": "past-14",
+      "title": "URBAN MUGITHI",
+      "date": "July 4, 2025",
+      "location": "Midwest Lounge & Grill - MWIKI",
+      "image": "./index_files/gldrikujc5z9bos.png"
+    },
+    {
+      "id": "past-15",
+      "title": "KEEPKAA ENT PRESENTS - ZING CITY",
+      "date": "June 7, 2025",
+      "location": "Groove Lounge - Kipsitet",
+      "image": "./index_files/bkrslygvejq7489.png"
+    },
+    {
+      "id": "past-16",
+      "title": "KALEE NIGHT - Thika Edition",
+      "date": "May 24, 2025",
+      "location": "The Green Garnet Club - Thika",
+      "image": "./index_files/h6ljeck4qtdbgx_.jpeg"
+    },
+    {
+      "id": "past-17",
+      "title": "Comeback Event - Hasira44 Music Support",
+      "date": "May 2, 2025",
+      "location": "Balcony Lounge (Magadi Road)",
+      "image": "./index_files/MERU.webp"
+    },
+    {
+      "id": "past-18",
+      "title": "Kalenjin Vibes Night",
+      "date": "April 12, 2025",
+      "location": "CheckMate Lounge - Meru",
+      "image": "./index_files/MERU.webp"
+    }
+  ]
+}

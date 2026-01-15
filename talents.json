@@ -1,0 +1,76 @@
+{
+  "talents": [
+    {
+      "id": 28,
+      "name": "Fleva",
+      "role": "ARTIST",
+      "image": "assets/img/dykf2axzhem53oq.jpg",
+      "description": "Book Fleva for your entertainment needs. With years of experience in live performances and studio recordings, Fleva brings energy and passion to every event.",
+      "category": "artists"
+    },
+    {
+      "id": 29,
+      "name": "Mwetich",
+      "role": "DJ",
+      "image": "assets/img/mu31l6phsdk08v7.jpeg",
+      "description": "Book DJ Mwetich for your entertainment purposes. Specializing in electronic, house, and afrobeats, DJ Mwetich knows how to keep the dance floor packed all night.",
+      "category": "djs"
+    },
+    {
+      "id": 31,
+      "name": "Kakuu",
+      "role": "ARTIST",
+      "image": "assets/img/h4ke7gq2tmlpvos.jpeg",
+      "description": "Book Kakuu for your entertainment needs. A versatile performer with a unique style that blends traditional and modern sounds.",
+      "category": "artists"
+    },
+    {
+      "id": 32,
+      "name": "Hasira",
+      "role": "ARTIST",
+      "image": "assets/img/4pbqdyh8l01f6_e.jpeg",
+      "description": "Book Hasira for your entertainment needs. Known for powerful vocals and engaging stage presence that captivates any audience.",
+      "category": "artists"
+    },
+    {
+      "id": 33,
+      "name": "ManTariba",
+      "role": "ARTIST",
+      "image": "assets/img/rpce1_6iwqxh0au.jpg",
+      "description": "Book ManTariba for your entertainment needs. A rising star with a fresh approach to contemporary music.",
+      "category": "artists"
+    },
+    {
+      "id": 35,
+      "name": "MbKAKI",
+      "role": "ARTIST",
+      "image": "assets/img/8jmvs3an0hyrztp.jpeg",
+      "description": "Book MbKAKI for your entertainment needs. Experience high-energy performances that leave audiences wanting more.",
+      "category": "artists"
+    },
+    {
+      "id": 53,
+      "name": "Ocs",
+      "role": "MC",
+      "image": "assets/img/ni4ce9jsrwq1mk0.jpeg",
+      "description": "Book Ocs for your MC needs. Professional event hosting with charisma and excellent crowd control skills.",
+      "category": "mcs"
+    },
+    {
+      "id": 54,
+      "name": "Topiazo",
+      "role": "PRODUCER",
+      "image": "assets/img/9tq4afx5yvu68sk.jpg",
+      "description": "Book Topiazo for production needs. Expertise in sound engineering, mixing, and mastering for studio and live events.",
+      "category": "producers"
+    },
+    {
+      "id": 159,
+      "name": "CashvilleSigilai",
+      "role": "ARTIST",
+      "image": "assets/img/xq5ztfvok43_e0s.jpg",
+      "description": "Book CashvilleSigilai for your entertainment needs. Bringing urban vibes and contemporary sounds to every performance.",
+      "category": "artists"
+    }
+  ]
+}

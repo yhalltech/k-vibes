@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Kalenjin Vibes | Payments</title>
+  <meta name="author" content="Kalenjin Vibes">
+  <meta name="description" content="Secure payment processing for events, talent bookings, and merchandise.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="assets/img/logo.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- SweetAlert2 CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z93DQW5D1S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z93DQW5D1S');
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Universal Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  
+  <!-- PAYMENTS PAGE CSS -->
+  <link rel="stylesheet" href="assets/css/payments.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="vs-header header-layout4">
+    <!-- Your existing header code -->
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcumb-wrapper background-image" style="background-image: url('assets/img/breadcumb/breadcumb-bg.jpg');">
+    <div class="container z-index-common">
+      <div class="breadcumb-content">
+        <h3 class="breadcumb-title">Complete Payment</h3>
+        <div class="breadcumb-menu-wrap">
+          <ul class="breadcumb-menu">
+            <li><a href="index.html">Home</a></li>
+            <li>Payments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Form Section -->
+  <div class="container py-5">
+    <div class="col-xxl-6 col-xl-8 col-lg-10 col-md-12 bg-light card dashboard-bg-box mx-auto">
+      <div class="card-body p-4">
+        <!-- Order Summary -->
+        <div id="orderSummary" class="mb-4" style="display: none;">
+          <div class="order-summary-box">
+            <h5 class="mb-3" style="color: #333; font-weight: 600;">Order Summary</h5>
+            <div id="order-items" style="margin-bottom: 15px;"></div>
+            <div class="order-total">
+              <div class="d-flex justify-content-between align-items-center">
+                <span>Total Amount:</span>
+                <span id="total-amount-display">Ksh 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Booking Summary -->
+        <div id="bookingSummary" class="mb-4" style="display: none;">
+          <h4 class="mb-3">Booking Summary</h4>
+          <div class="alert alert-info">
+            <p><strong>Talent:</strong> <span id="summaryTalentName"></span></p>
+            <p><strong>Event:</strong> <span id="summaryEventName">Kalenjin Vibes Night</span></p>
+            <p><strong>Date:</strong> <span id="summaryEventDate"></span></p>
+            <p><strong>Location:</strong> <span id="summaryLocation"></span></p>
+            <p><strong>Amount:</strong> Ksh <span id="summaryAmount"></span></p>
+          </div>
+        </div>
+
+        <!-- Payment Form -->
+        <form id="payment-form">
+          <input type="hidden" id="bookingType" name="booking_type" value="">
+          <input type="hidden" id="bookingTalentId" name="talent_id" value="">
+          <input type="hidden" id="bookingTalentName" name="talent_name" value="">
+          <input type="hidden" id="bookingEventName" name="event_name" value="Kalenjin Vibes Night">
+          <input type="hidden" id="bookingLocation" name="location" value="">
+          <input type="hidden" id="bookingEventDate" name="event_date" value="">
+          <input type="hidden" id="bookingAmount" name="amount" value="">
+          <input type="hidden" id="bookingNotes" name="notes" value="">
+          
+          <!-- Contact Information -->
+          <div class="mb-4">
+            <h5 class="mb-3" style="color: #333; font-weight: 600;">Contact Information</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="form-group">
+                  <label for="full_name"><i class="fas fa-user"></i> Full Name <span class="text-danger">*</span></label>
+                  <input class="form-control" id="full_name" name="full_name" type="text" placeholder="Enter your full name" required>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-group">
+                  <label for="email"><i class="fas fa-envelope"></i> Email <span class="text-danger">*</span></label>
+                  <input class="form-control" id="email" name="email" type="email" placeholder="your@email.com" required>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-group">
+                  <label for="phone_number"><i class="fas fa-phone"></i> Phone Number <span class="text-danger">*</span></label>
+                  <input class="form-control" id="phone_number" name="phone_number" type="text" placeholder="e.g 07XX XXX XXX" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Method Selection -->
+          <div class="form-group mb-4">
+            <label for="payment_method" style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 10px; text-align: center; display: block;">
+              <i class="fas fa-credit-card"></i> Select Payment Method
+            </label>
+            <select class="form-control" id="payment_method" name="payment_method" required style="max-width: 300px; margin: 0 auto; display: block;">
+              <option value="">Choose payment method...</option>
+              <option value="mpesa">📱 M-Pesa (Till Number)</option>
+              <option value="paybill">🏢 Paybill</option>
+            </select>
+          </div>
+
+          <!-- M-Pesa Instructions -->
+          <div id="mpesa-details" style="display: none;">
+            <div class="alert alert-info">
+              <div class="form-group text-center mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/2560px-M-PESA_LOGO-01.svg.png" style="width:30%; max-width: 200px;" class="img-fluid" alt="M-Pesa">
+              </div>
+              <div class="form-group text-center mb-3">
+                <h4><u>LIPA NA MPESA</u></h4>
+              </div>
+              <ul>
+                <li>1. Go to M-PESA on your phone</li>
+                <li>2. Select <strong>Lipa Na M-PESA</strong></li>
+                <li>3. Select <strong>Buy Goods and Services</strong></li>
+                <li>4. Enter Till Number: <strong style="color: #28a745; font-size: 18px;">123456</strong></li>
+                <li>5. Enter Amount: <strong id="mpesaAmount" style="color: #28a745; font-size: 18px;">Ksh 0</strong></li>
+                <li>6. Enter your M-PESA PIN and confirm</li>
+                <li>7. After payment, enter the Transaction Code below</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Paybill Instructions -->
+          <div id="paybill-details" style="display: none;">
+            <div class="alert alert-info">
+              <div class="form-group text-center mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/2560px-M-PESA_LOGO-01.svg.png" style="width:30%; max-width: 200px;" class="img-fluid" alt="M-Pesa">
+              </div>
+              <div class="form-group text-center mb-3">
+                <h4><u>LIPA NA MPESA - PAYBILL</u></h4>
+              </div>
+              <ul>
+                <li>1. Go to M-PESA on your phone</li>
+                <li>2. Select <strong>Lipa Na M-PESA</strong></li>
+                <li>3. Select <strong>Pay Bill</strong></li>
+                <li>4. Enter Business Number: <strong style="color: #28a745; font-size: 18px;">542542</strong></li>
+                <li>5. Enter Account Number: <strong style="color: #28a745; font-size: 18px;">79233</strong></li>
+                <li>6. Enter Amount: <strong id="paybillAmount" style="color: #28a745; font-size: 18px;">Ksh 0</strong></li>
+                <li>7. Enter your M-PESA PIN and confirm</li>
+                <li>8. After payment, enter the Transaction Code below</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Transaction Reference -->
+          <div class="form-group mb-4" id="transaction-reference-group" style="display: none;">
+            <label for="transaction_reference">
+              <i class="fas fa-receipt"></i> Transaction Code
+            </label>
+            <input type="text" class="form-control" id="transaction_reference" name="transaction_reference" placeholder="Enter your M-Pesa code (e.g., QX2A3B4C5D)" required>
+            <small class="form-text text-muted mt-2">
+              <i class="fas fa-info-circle"></i> Enter the transaction code you received via SMS after completing the payment
+            </small>
+            <div id="transaction-error" class="text-danger mt-2" style="display: none;">
+              <i class="fas fa-exclamation-circle"></i> You must enter transaction code
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex gap-3 justify-content-center mt-4">
+            <button type="submit" class="btn btn-success" id="complete-purchase-btn">
+              <i class="fas fa-check-circle"></i> Complete Payment
+            </button>
+            <button type="button" class="btn btn-secondary" id="cancel-btn">
+              <i class="fas fa-times"></i> Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper footer-layout1 shape-mockup-wrap">
+    <!-- Your existing footer code -->
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/+254797265275" class="whatsapp-button" target="_blank">
+    <img src="assets/img/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- JavaScript Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <!-- PAYMENTS PAGE JAVASCRIPT -->
+  <script src="assets/js/payments.js"></script>
+
+</body>
+</html>
