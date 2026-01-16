@@ -870,7 +870,6 @@
       @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
     }
   </style>
->>>>>>> 1c9b756927f2f645ac5cf23b5f1d290058f4b452
 </head>
 <body>
 
@@ -930,7 +929,7 @@
     <!-- Menu Footer -->
     <div class="menu-footer">
       <div class="social-icons">
-        <a href="https://www.facebook.com/share/1FLtLAQsxZ/" class="social-icon">
+        <a href="#" class="social-icon">
           <i class="fab fa-facebook-f"></i>
         </a>
         <a href="https://wa.me/+254797265275" class="social-icon">
@@ -1023,9 +1022,9 @@ document.addEventListener('DOMContentLoaded', function() {
       <!-- For mobile: Social icons on left -->
       <div class="col-6 d-lg-none">
         <div class="header-social">
-          <a href="https://www.facebook.com/share/1ShpdQ2gxc/" class=""><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class=""><i class="fab fa-facebook-f"></i></a>
           <a href="#" class=""><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@kalenjinvibesofficial?_t=ZM-8xtFlMOVam0&amp;_r=1" class=""><i class="fab fa-tiktok"></i></a>
+          <a href="#" class=""><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
       
@@ -1056,9 +1055,9 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="col-md-6 d-none d-lg-block text-md-end">
         <div class="header-top-right">
           <div class="header-social">
-            <a href="https://www.facebook.com/share/1ShpdQ2gxc/" class=""><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class=""><i class="fab fa-facebook-f"></i></a>
             <a href="#" class=""><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@kalenjinvibesofficial?_t=ZM-8xtFlMOVam0&amp;_r=1" class=""><i class="fab fa-tiktok"></i></a>
+            <a href="#" class=""><i class="fab fa-tiktok"></i></a>
           </div>
             <div class="header-auth-links ms-3">
               <a href="app/index.html" class="auth-btn primary">
@@ -1101,7 +1100,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </ul>
           </nav>
         </div>
-<<<<<<< HEAD
         <div class="col-lg-2 col-6 text-end">
           <div class="header-actions d-flex justify-content-end align-items-center">
             <button class="search-toggle me-3">
@@ -1117,7 +1115,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </button>
           </div>
         </div>
-=======
        <div class="col-lg-2 col-6 text-end">
   <div class="header-actions d-flex justify-content-end align-items-center">
     <button class="search-toggle me-3">
@@ -1132,7 +1129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </button>
   </div>
 </div>
->>>>>>> 1c9b756927f2f645ac5cf23b5f1d290058f4b452
       </div>
     </div>
   </div>
@@ -1319,13 +1315,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="text-primary text-2xl font-bold mb-4">KALENJIN VIBES</h2>
             <p class="text-gray-300 mb-6">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
             <div class="flex space-x-4">
-              <a href="https://www.facebook.com/share/1ShpdQ2gxc/" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+              <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
                 <i class="fab fa-facebook-f"></i>
               </a>
               <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="https://www.tiktok.com/@kalenjinvibesofficial" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+              <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
                 <i class="fab fa-tiktok"></i>
               </a>
             </div>
@@ -1397,390 +1393,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <img src="./index_files/WhatsApp.svg" alt="WhatsApp">
 </a>
 
-<!-- Cart Component will be automatically inserted by cart.js -->
-
-<<<<<<< HEAD
-<!-- ==============================
-=======
-<script>
-// Function to fetch and display events from JSON
-async function loadEvents() {
-  try {
-    // Fetch events data from JSON file
-    const response = await fetch('index.json');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    
-    // Store events globally for search functionality
-    window.upcomingEvents = data.upcomingEvents || [];
-    window.pastEvents = data.pastEvents || [];
-    
-    // Load upcoming events
-    const upcomingContainer = document.getElementById('upcomingEventsContainer');
-    if (window.upcomingEvents.length > 0) {
-      upcomingContainer.innerHTML = '';
-      window.upcomingEvents.forEach(event => {
-        const eventHTML = createEventCard(event, false);
-        upcomingContainer.innerHTML += eventHTML;
-      });
-    } else {
-      upcomingContainer.innerHTML = `
-        <div class="col-12 text-center">
-          <p class="text-gray-600">No upcoming events at the moment. Check back soon!</p>
-        </div>
-      `;
-    }
-    
-    // Load first 4 past events
-    const pastContainer = document.getElementById('pastEventsContainer');
-    if (window.pastEvents.length > 0) {
-      pastContainer.innerHTML = '';
-      // Display first 4 past events on homepage
-      const displayEvents = window.pastEvents.slice(0, 4);
-      displayEvents.forEach(event => {
-        const eventHTML = createEventCard(event, true);
-        pastContainer.innerHTML += eventHTML;
-      });
-    } else {
-      pastContainer.innerHTML = `
-        <div class="col-12 text-center">
-          <p class="text-gray-600">No past events available.</p>
-        </div>
-      `;
-    }
-    
-  } catch (error) {
-    console.error('Error loading events:', error);
-    
-    // Show error messages
-    document.getElementById('upcomingEventsContainer').innerHTML = `
-      <div class="col-12 text-center">
-        <p class="text-red-600">Unable to load events. Please try again later.</p>
-      </div>
-    `;
-    
-    document.getElementById('pastEventsContainer').innerHTML = `
-      <div class="col-12 text-center">
-        <p class="text-red-600">Unable to load past events. Please try again later.</p>
-      </div>
-    `;
-  }
-}
-
-// Create event card HTML
-function createEventCard(event, isPast = false) {
-  const eventLink = event.link || (isPast ? 'past-events.html' : 'eventslist-details.html?event=' + event.id);
-  
-  return `
-    <div class="col-xl-3 col-lg-4 col-md-6 mb-8">
-      <div class="event-card">
-        <div class="event-img">
-          <a href="${eventLink}">
-            <img class="w-100 h-100" src="${event.image}" alt="${event.title}" loading="lazy">
-          </a>
-        </div>
-        <div class="event-content">
-          <h5 class="event-title">
-            <a href="${eventLink}">${event.title}</a>
-          </h5>
-          <div class="event-meta">
-            <span><i class="fas fa-map-marker-alt"></i> ${event.location}</span>
-          </div>
-          <div class="event-date-meta">
-            <i class="fas fa-calendar-alt"></i>
-            <span>${event.date}</span>
-            ${isPast ? '<span class="past-event-badge">Past Event</span>' : ''}
-          </div>
-          ${!isPast ? `
-          <div class="event-footer">
-            <div class="event-price">
-              ${event.price || 'Free'}
-            </div>
-            <a href="${eventLink}" class="btn btn-sm btn-buy-ticket">${event.price ? 'Buy Ticket' : 'View Details'}</a>
-          </div>
-          ` : ''}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-// Real-time search functionality
-function initializeSearch() {
-  const searchInput = document.getElementById('eventSearch');
-  const searchResults = document.getElementById('searchResults');
-  const clearSearchBtn = document.getElementById('clearSearch');
-  const upcomingContainer = document.getElementById('upcomingEventsContainer');
-  
-  // Show/hide clear button
-  searchInput.addEventListener('input', function() {
-    clearSearchBtn.style.display = this.value ? 'block' : 'none';
-  });
-  
-  // Clear search
-  clearSearchBtn.addEventListener('click', function() {
-    searchInput.value = '';
-    searchResults.style.display = 'none';
-    clearSearchBtn.style.display = 'none';
-    // Restore all events
-    displayAllUpcomingEvents();
-  });
-  
-  // Real-time search
-  searchInput.addEventListener('input', function() {
-    const searchTerm = this.value.toLowerCase().trim();
-    
-    if (searchTerm.length === 0) {
-      searchResults.style.display = 'none';
-      displayAllUpcomingEvents();
-      return;
-    }
-    
-    // Filter upcoming events
-    const filteredEvents = window.upcomingEvents.filter(event => {
-      const searchableText = `
-        ${event.title.toLowerCase()}
-        ${event.location.toLowerCase()}
-        ${event.date.toLowerCase()}
-        ${(event.description || '').toLowerCase()}
-        ${(event.category || '').toLowerCase()}
-      `;
-      return searchableText.includes(searchTerm);
-    });
-    
-    // Update search results dropdown
-    updateSearchResults(filteredEvents);
-    
-    // Filter displayed events
-    filterDisplayedEvents(filteredEvents);
-  });
-  
-  // Close search results when clicking outside
-  document.addEventListener('click', function(event) {
-    if (!event.target.closest('.search-input-container')) {
-      searchResults.style.display = 'none';
-    }
-  });
-}
-
-// Update search results dropdown
-function updateSearchResults(events) {
-  const searchResults = document.getElementById('searchResults');
-  
-  if (events.length === 0) {
-    searchResults.innerHTML = `
-      <div class="no-results">
-        <i class="fas fa-search"></i>
-        <p>No events found matching your search</p>
-      </div>
-    `;
-    searchResults.style.display = 'block';
-    return;
-  }
-  
-  let resultsHTML = '';
-  events.slice(0, 5).forEach(event => {
-    resultsHTML += `
-      <div class="search-result-item" data-event-id="${event.id}">
-        <div class="search-result-title">${event.title}</div>
-        <div class="search-result-meta">
-          <span><i class="fas fa-map-marker-alt"></i> ${event.location}</span>
-          <span><i class="fas fa-calendar-alt"></i> ${event.date}</span>
-        </div>
-      </div>
-    `;
-  });
-  
-  if (events.length > 5) {
-    resultsHTML += `
-      <div class="search-result-item text-center">
-        <small>...and ${events.length - 5} more events</small>
-      </div>
-    `;
-  }
-  
-  searchResults.innerHTML = resultsHTML;
-  searchResults.style.display = 'block';
-  
-  // Add click event to search results
-  document.querySelectorAll('.search-result-item[data-event-id]').forEach(item => {
-    item.addEventListener('click', function() {
-      const eventId = this.getAttribute('data-event-id');
-      const event = window.upcomingEvents.find(e => e.id == eventId);
-      if (event) {
-        const eventLink = event.link || 'eventslist-details.html?event=' + event.id;
-        window.location.href = eventLink;
-      }
-    });
-  });
-}
-
-// Filter displayed events
-function filterDisplayedEvents(filteredEvents) {
-  const upcomingContainer = document.getElementById('upcomingEventsContainer');
-  
-  if (filteredEvents.length === 0) {
-    upcomingContainer.innerHTML = `
-      <div class="col-12 text-center">
-        <p class="text-gray-600">No upcoming events match your search criteria.</p>
-      </div>
-    `;
-    return;
-  }
-  
-  upcomingContainer.innerHTML = '';
-  filteredEvents.forEach(event => {
-    const eventHTML = createEventCard(event, false);
-    upcomingContainer.innerHTML += eventHTML;
-  });
-}
-
-// Display all upcoming events
-function displayAllUpcomingEvents() {
-  const upcomingContainer = document.getElementById('upcomingEventsContainer');
-  
-  if (!window.upcomingEvents || window.upcomingEvents.length === 0) {
-    upcomingContainer.innerHTML = `
-      <div class="col-12 text-center">
-        <p class="text-gray-600">No upcoming events at the moment. Check back soon!</p>
-      </div>
-    `;
-    return;
-  }
-  
-  upcomingContainer.innerHTML = '';
-  window.upcomingEvents.forEach(event => {
-    const eventHTML = createEventCard(event, false);
-    upcomingContainer.innerHTML += eventHTML;
-  });
-}
-
-// Cart functionality
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function updateCartBadge() {
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById('cartBadge').textContent = totalItems;
-}
-
-function renderCart() {
-  const cartBody = document.getElementById('cartBody');
-  const cartFooter = document.getElementById('cartFooter');
-  const cartTotal = document.getElementById('cartTotal');
-  
-  if (cart.length === 0) {
-    cartBody.innerHTML = '<div class="cart-empty"><i class="fas fa-shopping-cart"></i><p>Your cart is empty</p></div>';
-    cartFooter.style.display = 'none';
-    return;
-  }
-  
-  cartFooter.style.display = 'block';
-  let total = 0;
-  
-  cartBody.innerHTML = cart.map((item, index) => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    return `
-      <div class="cart-item">
-        <img src="${item.image || 'assets/img/placeholder.jpg'}" alt="${item.name}" class="cart-item-image">
-        <div class="cart-item-details">
-          <div class="cart-item-title">${item.name}</div>
-          <div class="cart-item-price">Ksh ${item.price.toLocaleString()}</div>
-          <div class="cart-item-quantity">
-            <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
-            <span>${item.quantity}</span>
-            <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
-          </div>
-        </div>
-        <button class="cart-item-remove" onclick="removeFromCart(${index})">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-    `;
-  }).join('');
-  
-  cartTotal.textContent = `Ksh ${total.toLocaleString()}`;
-}
-
-function updateQuantity(index, change) {
-  cart[index].quantity += change;
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartBadge();
-  renderCart();
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartBadge();
-  renderCart();
-}
-
-function addToCart(item) {
-  const existingItem = cart.find(cartItem => cartItem.id === item.id);
-  if (existingItem) {
-    existingItem.quantity += item.quantity || 1;
-  } else {
-    cart.push({...item, quantity: item.quantity || 1});
-  }
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartBadge();
-  renderCart();
-}
-
-// Cart toggle
-document.getElementById('cartToggle').addEventListener('click', function() {
-  document.getElementById('cartSidebar').classList.add('active');
-  document.getElementById('cartOverlay').classList.add('active');
-});
-
-document.getElementById('cartClose').addEventListener('click', function() {
-  document.getElementById('cartSidebar').classList.remove('active');
-  document.getElementById('cartOverlay').classList.remove('active');
-});
-
-document.getElementById('cartOverlay').addEventListener('click', function() {
-  document.getElementById('cartSidebar').classList.remove('active');
-  this.classList.remove('active');
-});
-
-// Initialize cart
-updateCartBadge();
-renderCart();
-
-// Make addToCart available globally
-window.addToCart = addToCart;
-
-// Scroll to top functionality
-const scrollToTopBtn = document.querySelector('.scrollToTop');
-window.addEventListener('scroll', function() {
-  if (window.pageYOffset > 300) {
-    scrollToTopBtn.classList.add('show');
-  } else {
-    scrollToTopBtn.classList.remove('show');
-  }
-});
-
-scrollToTopBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-// Load events and initialize search when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  loadEvents().then(() => {
-    initializeSearch();
-  });
-});
-</script>
 
   <!-- ==============================
 >>>>>>> 1c9b756927f2f645ac5cf23b5f1d290058f4b452
