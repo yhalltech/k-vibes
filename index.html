@@ -25,6 +25,23 @@
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#BA0909',
+            secondary: '#222',
+            light: '#f8f9fa',
+            dark: '#1a1a1a'
+          }
+        }
+      }
+    }
+  </script>
+  
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
@@ -242,16 +259,7 @@
       display: block;
     }
 
-    /* Section Spacing */
-    .section-spacing {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      margin-bottom: 40px;
-    }
-
-    /* Event Card Hover Effects */
+    /* Event Card Styles */
     .event-card {
       transition: all 0.3s ease;
       background: white;
@@ -372,29 +380,7 @@
       display: inline-block;
     }
 
-    /* About Section */
-    .about-list1 {
-      list-style: none;
-      padding-left: 0;
-      color: #666666;
-      margin-bottom: 25px;
-    }
-
-    .about-list1 li {
-      margin-bottom: 12px;
-      position: relative;
-      padding-left: 25px;
-      line-height: 1.5;
-    }
-
-    .about-list1 li i {
-      color: #BA0909;
-      position: absolute;
-      left: 0;
-      top: 3px;
-    }
-
-    /* Button Hover Effects */
+    /* Button Styles */
     .vs-btn.style4 {
       background-color: #BA0909;
       border-color: #BA0909;
@@ -875,10 +861,6 @@
         width: 85%;
       }
       
-      .section-spacing {
-        padding: 40px 0;
-      }
-      
       .sec-title {
         font-size: 24px;
       }
@@ -981,13 +963,45 @@
       border-color: #BA0909;
     }
 
-    /* Background colors */
-    .bg-light-grey {
-      background-color: #f8f9fa !important;
+    /* Tailwind-enhanced classes */
+    .tw-section {
+      @apply py-16;
     }
 
-    .bg-white {
-      background-color: #ffffff !important;
+    .tw-container {
+      @apply container mx-auto px-4;
+    }
+
+    .tw-card {
+      @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+    }
+
+    .tw-card-img {
+      @apply w-full h-64 object-cover;
+    }
+
+    .tw-card-content {
+      @apply p-6;
+    }
+
+    .tw-card-title {
+      @apply text-xl font-bold text-gray-800 mb-3;
+    }
+
+    .tw-card-text {
+      @apply text-gray-600 mb-4;
+    }
+
+    .tw-btn-primary {
+      @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-800 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg;
+    }
+
+    .tw-btn-secondary {
+      @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-300;
+    }
+
+    .tw-grid {
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
     }
   </style>
 </head>
@@ -1358,13 +1372,11 @@ $(document).ready(function() {
 </section>
 
 <!-- Upcoming Events Section -->
-<section class="section-spacing bg-light-grey">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center mb-5">
-        <h2 class="sec-title">Upcoming Events</h2>
-        <p class="sec-subtitle">Discover our exciting upcoming events</p>
-      </div>
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="sec-title">Upcoming Events</h2>
+      <p class="sec-subtitle">Discover our exciting upcoming events</p>
     </div>
     
     <div class="row" id="upcomingEventsContainer">
@@ -1380,17 +1392,15 @@ $(document).ready(function() {
 </section>
 
 <!-- Past Events Section -->
-<section class="section-spacing bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center mb-5">
-        <h2 class="sec-title">Past Events</h2>
-        <p class="sec-subtitle">Relive our memorable past events</p>
-      </div>
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="sec-title">Past Events</h2>
+      <p class="sec-subtitle">Relive our memorable past events</p>
     </div>
     
     <div class="row" id="pastEventsContainer">
-      <!-- Past events will be loaded here from JSON -->
+      <!-- First 4 past events will be loaded here from JSON -->
       <div class="col-12 text-center">
         <div class="loading-spinner">
           <i class="fas fa-spinner fa-spin"></i>
@@ -1398,18 +1408,25 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
+    
+    <!-- View All Past Events Button -->
+    <div class="text-center mt-12">
+      <a href="past-events.html" class="vs-btn style4">
+        <i class="fas fa-history me-2"></i> View All Past Events
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- About Section -->
-<section class="section-spacing bg-light-grey">
-  <div class="container">
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
     <div class="row align-items-center">
-      <div class="col-lg-6 mb-5 mb-lg-0">
+      <div class="col-lg-6 mb-10 lg:mb-0">
         <div class="about-content">
-          <div class="title-area mb-4">
+          <div class="title-area mb-6">
             <h2 class="sec-title h1">Elevate Your Event With Premium Talent!</h2>
-            <p class="sec-text" style="color: #666666;">Welcome to Kalenjin Vibes, your one-stop solution for all your entertainment and event needs. We specialize in event ticketing, connecting you with top-notch DJs, Producers, Artists, Mcs, Videographers and Photographers to bring your vision to life.</p>
+            <p class="sec-text text-gray-600">Welcome to Kalenjin Vibes, your one-stop solution for all your entertainment and event needs. We specialize in event ticketing, connecting you with top-notch DJs, Producers, Artists, Mcs, Videographers and Photographers to bring your vision to life.</p>
           </div>
           <ul class="about-list1">
             <li><i class="fas fa-check-circle"></i> Creative Producers – Sound architects for your vision</li>
@@ -1419,27 +1436,29 @@ $(document).ready(function() {
             <li><i class="fas fa-check-circle"></i> Quality Visuals – Moments captured brilliantly</li>
             <li><i class="fas fa-check-circle"></i> Event Ticketing – Easy access, zero stress</li>
           </ul>
-          <a href="talentlist.html" class="vs-btn style4 mt-3">Book A Talent</a>
+          <a href="talentlist.html" class="vs-btn style4 mt-6">Book A Talent</a>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="img-box3">
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <img class="img-fluid rounded" src="./index_files/vd.webp" alt="Video Production" style="box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+          <div class="grid grid-cols-2 gap-6">
+            <div class="mb-6">
+              <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/vd.webp" alt="Video Production">
             </div>
-            <div class="col-md-6 mb-3">
-              <img class="img-fluid rounded" src="./index_files/dj.webp" alt="DJ Performance" style="box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div class="mb-6">
+              <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/dj.webp" alt="DJ Performance">
             </div>
-            <div class="col-md-6">
-              <img class="img-fluid rounded" src="./index_files/p.webp" alt="Event Photography" style="box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div>
+              <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/p.webp" alt="Event Photography">
             </div>
-            <div class="col-md-6">
-              <div class="about-cta rounded" style="background: #BA0909; height: 100%; display: flex; align-items: center; justify-content: center; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div>
+              <div class="bg-primary rounded-lg h-full flex items-center justify-center p-8 shadow-lg">
                 <div class="text-center">
-                  <h3 style="color: white; font-weight: 700;">Need Help?</h3>
-                  <p style="color: white; margin-bottom: 20px;">Contact our event specialists</p>
-                  <a href="contact.html" class="btn btn-light" style="border-radius: 5px; font-weight: 600;">Contact Us</a>
+                  <h3 class="text-white text-2xl font-bold mb-3">Need Help?</h3>
+                  <p class="text-white mb-6">Contact our event specialists</p>
+                  <a href="contact.html" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300">
+                    Contact Us
+                  </a>
                 </div>
               </div>
             </div>
@@ -1451,104 +1470,104 @@ $(document).ready(function() {
 </section>
 
 <!-- Footer Section -->
-<footer class="footer-wrapper footer-layout1">
-    <div class="container">
-      <div class="footer-newsletter2 py-5">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-            <div class="newsletter-style2">
-              <div class="newsletter-img">
-                <img src="./index_files/call.png" style="width:60px" alt="Call Us">
-              </div>
-              <h3 class="newsletter-text">Call Us 24/7</h3>
-              <a href="tel:+254797265275">+254797265275</a>
+<footer class="bg-gray-900 text-white pt-16">
+    <div class="container mx-auto px-4">
+      <div class="py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div class="text-center">
+            <div class="mb-4">
+              <img src="./index_files/call.png" alt="Call Us" class="w-16 mx-auto">
             </div>
+            <h3 class="text-xl font-semibold mb-2">Call Us 24/7</h3>
+            <a href="tel:+254797265275" class="text-primary font-semibold hover:text-red-400 transition-colors duration-300">+254797265275</a>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-            <div class="newsletter-style2">
-              <div class="newsletter-img">
-                <img src="./index_files/share.png" style="width:60px" alt="Email Us">
-              </div>
-              <h3 class="newsletter-text">Write To Us</h3>
-              <a href="mailto:kalenjinvibezke@gmail.com">kalenjinvibezke@gmail.com</a>
+          
+          <div class="text-center">
+            <div class="mb-4">
+              <img src="./index_files/share.png" alt="Email Us" class="w-16 mx-auto">
             </div>
+            <h3 class="text-xl font-semibold mb-2">Write To Us</h3>
+            <a href="mailto:kalenjinvibezke@gmail.com" class="text-primary font-semibold hover:text-red-400 transition-colors duration-300">kalenjinvibezke@gmail.com</a>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <form class="form-group">
-              <input type="email" class="form-control" placeholder="Enter your email">
-              <button class="vs-btn style4" type="submit">Subscribe</button>
+          
+          <div>
+            <form class="flex">
+              <input type="email" class="flex-grow px-4 py-3 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-primary" placeholder="Enter your email">
+              <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-lg font-semibold hover:bg-red-800 transition-colors duration-300">
+                Subscribe
+              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="widget-area2">
-      <div class="container">
-        <div class="row g-5 justify-content-between">
-          <div class="col-md-6 col-xl-3">
-            <div class="widget footer-widget">
-              <div class="vs-widget-about">
-                <div class="footer-logo mb-3">
-                  <h2 style="color: #BA0909; font-weight: 700;">KALENJIN VIBES</h2>
-                </div>
-                <p class="footer-text">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
-                <div class="social-style1">
-                  <a href="https://www.facebook.com/share/1ShpdQ2gxc/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@kalenjinvibesofficial" target="_blank"><i class="fab fa-tiktok"></i></a>
-                </div>
-              </div>
+    <div class="bg-gray-800 py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <h2 class="text-primary text-2xl font-bold mb-4">KALENJIN VIBES</h2>
+            <p class="text-gray-300 mb-6">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/share/1ShpdQ2gxc/" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.tiktok.com/@kalenjinvibesofficial" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                <i class="fab fa-tiktok"></i>
+              </a>
             </div>
           </div>
           
-          <div class="col-md-6 col-xl-2">
-            <div class="widget widget_nav_menu footer-widget">
-              <h3 class="widget_title">Useful Links</h3>
-              <div class="menu-all-pages-container">
-                <ul class="menu">
-                  <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                  <li><a href="eventslist.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
-                  <li><a href="talentlist.html"><i class="fas fa-users"></i> Talents</a></li>
-                  <li><a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop</a></li>
-                  <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                </ul>
-              </div>
-            </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-primary">Useful Links</h3>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-home mr-3 text-primary"></i> Home</a></li>
+              <li><a href="eventslist.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-calendar-alt mr-3 text-primary"></i> Events</a></li>
+              <li><a href="talentlist.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-users mr-3 text-primary"></i> Talents</a></li>
+              <li><a href="shop.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-shopping-cart mr-3 text-primary"></i> Shop</a></li>
+              <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-envelope mr-3 text-primary"></i> Contact Us</a></li>
+            </ul>
           </div>
           
-          <div class="col-md-6 col-xl-3">
-            <div class="widget widget_nav_menu footer-widget footer-contact">
-              <h3 class="widget_title">Contact</h3>
-              <div class="menu-all-pages-container">
-                <ul class="menu">
-                  <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi - Kenya</a></li>
-                  <li><a href="mailto:kalenjinvibezke@gmail.com"><i class="fas fa-envelope"></i> kalenjinvibezke@gmail.com</a></li>
-                  <li><a href="tel:+254797265275"><i class="fas fa-phone-alt"></i> +254797265275</a></li>
-                </ul>
-              </div>
-            </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-primary">Contact</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                <span class="text-gray-300">Nairobi - Kenya</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope text-primary mr-3 mt-1"></i>
+                <a href="mailto:kalenjinvibezke@gmail.com" class="text-gray-300 hover:text-primary transition-colors duration-300">kalenjinvibezke@gmail.com</a>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone-alt text-primary mr-3 mt-1"></i>
+                <a href="tel:+254797265275" class="text-gray-300 hover:text-primary transition-colors duration-300">+254797265275</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="container">
-      <div class="copyright-wrap">
-        <div class="row justify-content-between align-items-center">
-          <div class="col-lg-auto">
-            <p class="copyright-text">Copyright <i class="fal fa-copyright"></i>
+    <div class="border-t border-gray-700 py-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-gray-400 text-sm">
+              Copyright <i class="fal fa-copyright"></i>
               <script>document.write(new Date().getFullYear())</script>
-              <a href="index.html"> Kalenjin Vibes</a>.
+              <a href="index.html" class="text-primary hover:text-red-400"> Kalenjin Vibes</a>.
               All Rights Reserved
             </p>
           </div>
-          <div class="col-auto d-none d-lg-block">
-            <div class="copyright-menu">
-              <ul class="list-unstyled">
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-              </ul>
+          <div class="hidden md:block">
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors duration-300">Privacy</a>
+              <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors duration-300">Terms &amp; Conditions</a>
             </div>
           </div>
         </div>
@@ -1606,7 +1625,7 @@ async function loadEvents() {
       upcomingContainer.innerHTML = '';
       data.upcomingEvents.forEach(event => {
         const eventHTML = `
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+          <div class="col-xl-3 col-lg-4 col-md-6 mb-8">
             <div class="event-card">
               <div class="event-img">
                 <a href="${event.link || 'eventslist.html'}">
@@ -1639,20 +1658,20 @@ async function loadEvents() {
     } else {
       upcomingContainer.innerHTML = `
         <div class="col-12 text-center">
-          <p>No upcoming events at the moment. Check back soon!</p>
+          <p class="text-gray-600">No upcoming events at the moment. Check back soon!</p>
         </div>
       `;
     }
     
-    // Load past events
+    // Load first 4 past events
     const pastContainer = document.getElementById('pastEventsContainer');
     if (data.pastEvents && data.pastEvents.length > 0) {
       pastContainer.innerHTML = '';
-      // Display first 8 past events
-      const displayEvents = data.pastEvents.slice(0, 8);
+      // Display first 4 past events on homepage
+      const displayEvents = data.pastEvents.slice(0, 4);
       displayEvents.forEach(event => {
         const eventHTML = `
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+          <div class="col-xl-3 col-lg-4 col-md-6 mb-8">
             <div class="event-card">
               <div class="event-img">
                 <img class="w-100 h-100" src="${event.image}" alt="${event.title}">
@@ -1673,19 +1692,10 @@ async function loadEvents() {
         `;
         pastContainer.innerHTML += eventHTML;
       });
-      
-      // Add "View More" button if there are more events
-      if (data.pastEvents.length > 8) {
-        pastContainer.innerHTML += `
-          <div class="col-12 text-center mt-4">
-            <a href="eventslist.html?filter=past" class="vs-btn style4">View All Past Events</a>
-          </div>
-        `;
-      }
     } else {
       pastContainer.innerHTML = `
         <div class="col-12 text-center">
-          <p>No past events available.</p>
+          <p class="text-gray-600">No past events available.</p>
         </div>
       `;
     }
@@ -1696,13 +1706,13 @@ async function loadEvents() {
     // Show error messages
     document.getElementById('upcomingEventsContainer').innerHTML = `
       <div class="col-12 text-center">
-        <p>Unable to load events. Please try again later.</p>
+        <p class="text-red-600">Unable to load events. Please try again later.</p>
       </div>
     `;
     
     document.getElementById('pastEventsContainer').innerHTML = `
       <div class="col-12 text-center">
-        <p>Unable to load past events. Please try again later.</p>
+        <p class="text-red-600">Unable to load past events. Please try again later.</p>
       </div>
     `;
   }
@@ -1828,6 +1838,14 @@ scrollToTopBtn.addEventListener('click', function(e) {
 // Load events when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
   loadEvents();
+  
+  // Make past events clickable to load past-events.html
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.event-card') && e.target.closest('#pastEventsContainer')) {
+      e.preventDefault();
+      window.location.href = 'past-events.html';
+    }
+  });
 });
 </script>
 
