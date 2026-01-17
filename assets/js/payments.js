@@ -1,15 +1,12 @@
-// Enhanced Payment Form - ALWAYS VISIBLE Copy Buttons
+// Enhanced Payments Page - Works with Cart & All Payment Types
 $(document).ready(function() {
+    console.log('💳 Payments: Initializing...');
+    
     const urlParams = new URLSearchParams(window.location.search);
     const bookingType = urlParams.get('type');
-    const totalAmount = urlParams.get('total');
+    const totalAmount = parseFloat(urlParams.get('total') || 0);
     
-    $('#bookingEventName').val('Kalenjin Vibes');
-    
-    window.cartData = null;
-    window.pendingOrderData = null;
-    
-    // COPY FUNCTIONALITY - ALWAYS VISIBLE
+    // Copy to clipboard function - ALWAYS VISIBLE
     window.copyToClipboard = function(text, buttonId) {
         navigator.clipboard.writeText(text).then(function() {
             const btn = document.getElementById(buttonId);
@@ -19,7 +16,7 @@ $(document).ready(function() {
             btn.style.background = 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)';
             btn.style.color = 'white';
             
-            showCopyToast('✓ Copied to clipboard!');
+            showToast('✓ Copied to clipboard!', 'success');
             
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
@@ -28,11 +25,11 @@ $(document).ready(function() {
             }, 2000);
         }).catch(function(err) {
             console.error('Copy failed:', err);
-            showCopyToast('Failed to copy', 'error');
+            showToast('Failed to copy', 'error');
         });
     };
     
-    function showCopyToast(message, type = 'success') {
+    function showToast(message, type = 'success') {
         const toast = document.createElement('div');
         toast.style.cssText = `
             position: fixed;
@@ -50,61 +47,31 @@ $(document).ready(function() {
         `;
         toast.textContent = message;
         
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-        `;
-        if (!document.querySelector('[data-toast-style]')) {
-            style.setAttribute('data-toast-style', 'true');
-            document.head.appendChild(style);
-        }
-        
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 3000);
     }
     
-    function updatePaymentAmounts() {
-        const totalAmount = parseFloat($('#bookingAmount').val() || 
-            $('#summaryAmount').text().replace(/[^0-9.-]+/g, "") || 
-            urlParams.get('total') || 
-            $('#total-amount-display').text().replace(/[^0-9.-]+/g, "") || 
-            0);
-        
-        if (totalAmount > 0) {
-            const formattedAmount = 'Ksh ' + totalAmount.toLocaleString();
-            $('#mpesaAmount').text(formattedAmount);
-            $('#paybillAmount').text(formattedAmount);
-        }
+    // Load cart data if cart checkout
+    if (bookingType === 'cart') {
+        loadCartCheckout();
     }
     
-    function handlePaymentTypes() {
-        if (bookingType === 'cart') {
-            handleCartCheckout();
-        } else if (bookingType === 'talent_booking') {
-            handleTalentBooking();
-        } else if (localStorage.getItem('pendingTicketOrder')) {
-            handleEventTickets();
-        } else if (totalAmount) {
-            handleGeneralCheckout();
-        }
-        setTimeout(updatePaymentAmounts, 100);
-    }
-    
-    function handleCartCheckout() {
-        const cart = JSON.parse(localStorage.getItem('kalenjinvibes_cart')) || [];
-        window.cartData = cart;
+    function loadCartCheckout() {
+        // Get cart from storage
+        const cartData = JSON.parse(localStorage.getItem('kalenjin_vibes_cart') || '[]');
+        const customerInfo = JSON.parse(localStorage.getItem('checkout_customer_info') || '{}');
         
-        if (cart.length > 0) {
+        if (cartData.length > 0) {
             $('#orderSummary').show();
-            const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const displayTotal = parseFloat(totalAmount) || cartTotal;
             
+            // Display cart items
             let cartItemsHtml = '';
-            cart.forEach(item => {
+            let cartTotal = 0;
+            
+            cartData.forEach(item => {
                 const itemTotal = item.price * item.quantity;
+                cartTotal += itemTotal;
+                
                 cartItemsHtml += `
                     <div class="order-item d-flex justify-content-between mb-2">
                         <span>${item.quantity}x ${item.name}</span>
@@ -114,93 +81,57 @@ $(document).ready(function() {
             });
             
             $('#order-items').html(cartItemsHtml);
-            $('#total-amount-display').text('Ksh ' + displayTotal.toLocaleString());
             
+            const shipping = 9.99;
+            const tax = cartTotal * 0.08;
+            const finalTotal = totalAmount || (cartTotal + shipping + tax);
+            
+            $('#total-amount-display').text('Ksh ' + finalTotal.toLocaleString());
+            
+            // Pre-fill customer info if available
+            if (customerInfo.name) $('#full_name').val(customerInfo.name);
+            if (customerInfo.email) $('#email').val(customerInfo.email);
+            if (customerInfo.phone) $('#phone_number').val(customerInfo.phone);
+            
+            $('#bookingType').val('cart_checkout');
+            $('#bookingAmount').val(finalTotal.toFixed(2));
+            
+            // Show summary
             $('#bookingSummary').show().html(`
                 <h4 class="mb-3">🛒 Shopping Cart Order</h4>
                 <div class="alert alert-info">
                     <p><strong>Order Type:</strong> Shopping Cart Purchase</p>
-                    <p><strong>Total Items:</strong> ${cart.length}</p>
-                    <p><strong>Total Amount:</strong> Ksh ${displayTotal.toLocaleString()}</p>
-                </div>
-            `);
-            
-            $('#bookingType').val('cart_checkout');
-            $('#bookingAmount').val(displayTotal);
-        }
-    }
-    
-    function handleTalentBooking() {
-        $('#bookingSummary').show();
-        $('#summaryTalentName').text(urlParams.get('talent_name') || 'N/A');
-        $('#summaryEventName').text('Kalenjin Vibes');
-        $('#summaryEventDate').text(urlParams.get('event_date') || 'N/A');
-        $('#summaryLocation').text(urlParams.get('location') || 'N/A');
-        const talentAmount = parseFloat(urlParams.get('amount') || 0);
-        $('#summaryAmount').text(talentAmount.toLocaleString());
-        
-        $('#bookingType').val('talent_booking');
-        $('#bookingAmount').val(talentAmount || '');
-    }
-    
-    function handleEventTickets() {
-        try {
-            const orderData = JSON.parse(localStorage.getItem('pendingTicketOrder'));
-            window.pendingOrderData = orderData;
-            
-            if (orderData.ticketData && orderData.ticketData.length > 0) {
-                $('#orderSummary').show();
-                
-                const orderItemsHtml = orderData.ticketData.map(ticket => 
-                    `<div class="order-item d-flex justify-content-between mb-2">
-                        <span>${ticket.quantity}x ${ticket.category}</span>
-                        <span style="font-weight: 600;">Ksh ${(ticket.quantity * ticket.price).toLocaleString()}</span>
-                    </div>`
-                ).join('');
-                
-                $('#order-items').html(orderItemsHtml);
-                const totalAmount = parseFloat(orderData.subtotal || 0);
-                $('#total-amount-display').text('Ksh ' + totalAmount.toLocaleString());
-                
-                $('#bookingType').val('event_tickets');
-                $('#bookingAmount').val(totalAmount);
-            }
-        } catch (e) {
-            console.error('Error:', e);
-        }
-    }
-    
-    function handleGeneralCheckout() {
-        const amount = parseFloat(totalAmount || 0);
-        if (amount > 0) {
-            $('#bookingAmount').val(amount);
-            $('#bookingSummary').show().html(`
-                <h4 class="mb-3">💳 Payment Summary</h4>
-                <div class="alert alert-info">
-                    <p><strong>Amount:</strong> Ksh ${amount.toLocaleString()}</p>
+                    <p><strong>Total Items:</strong> ${cartData.length}</p>
+                    <p><strong>Subtotal:</strong> Ksh ${cartTotal.toLocaleString()}</p>
+                    <p><strong>Shipping:</strong> Ksh ${shipping.toFixed(2)}</p>
+                    <p><strong>Tax (8%):</strong> Ksh ${tax.toFixed(2)}</p>
+                    <p><strong>Total Amount:</strong> Ksh ${finalTotal.toLocaleString()}</p>
                 </div>
             `);
         }
     }
     
-    handlePaymentTypes();
-    
+    // Update payment amounts when method changes
     $('#payment_method').on('change', function() {
         const method = $(this).val();
         $('#mpesa-details, #paybill-details, #transaction-reference-group').hide();
         $('#transaction_reference').removeAttr('required');
         
+        const amount = parseFloat($('#bookingAmount').val() || totalAmount || 0);
+        
         if (method === 'mpesa') {
             $('#mpesa-details, #transaction-reference-group').show();
             $('#transaction_reference').attr('required', 'required');
             
-            // Add ALWAYS VISIBLE copy button for Till Number
+            $('#mpesaAmount').text('Ksh ' + amount.toLocaleString());
+            
+            // Add copy button for Till Number
             setTimeout(() => {
                 const tillNumber = '3049015';
                 const tillHtml = `
                     <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                         <span>4. Enter Till Number: <strong style="color: #28a745; font-size: 20px;">${tillNumber}</strong></span>
-                        <button type="button" class="copy-btn-inline" id="copyTillBtn" onclick="copyToClipboard('${tillNumber}', 'copyTillBtn')">
+                        <button type="button" class="copy-btn-inline" id="copyTillBtn" onclick="copyToClipboard('${tillNumber}', 'copyTillBtn')" style="padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">
                             <i class="far fa-copy"></i> Copy
                         </button>
                     </div>
@@ -212,7 +143,9 @@ $(document).ready(function() {
             $('#paybill-details, #transaction-reference-group').show();
             $('#transaction_reference').attr('required', 'required');
             
-            // Add ALWAYS VISIBLE copy buttons for Paybill
+            $('#paybillAmount').text('Ksh ' + amount.toLocaleString());
+            
+            // Add copy buttons for Paybill
             setTimeout(() => {
                 const businessNumber = '542542';
                 const accountNumber = '79233';
@@ -220,7 +153,7 @@ $(document).ready(function() {
                 const businessHtml = `
                     <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                         <span>4. Business Number: <strong style="color: #28a745; font-size: 20px;">${businessNumber}</strong></span>
-                        <button type="button" class="copy-btn-inline" id="copyBusinessBtn" onclick="copyToClipboard('${businessNumber}', 'copyBusinessBtn')">
+                        <button type="button" class="copy-btn-inline" id="copyBusinessBtn" onclick="copyToClipboard('${businessNumber}', 'copyBusinessBtn')" style="padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">
                             <i class="far fa-copy"></i> Copy
                         </button>
                     </div>
@@ -229,7 +162,7 @@ $(document).ready(function() {
                 const accountHtml = `
                     <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                         <span>5. Account Number: <strong style="color: #28a745; font-size: 20px;">${accountNumber}</strong></span>
-                        <button type="button" class="copy-btn-inline" id="copyAccountBtn" onclick="copyToClipboard('${accountNumber}', 'copyAccountBtn')">
+                        <button type="button" class="copy-btn-inline" id="copyAccountBtn" onclick="copyToClipboard('${accountNumber}', 'copyAccountBtn')" style="padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">
                             <i class="far fa-copy"></i> Copy
                         </button>
                     </div>
@@ -239,18 +172,9 @@ $(document).ready(function() {
                 $('#paybill-details ul li:nth-child(5)').html(accountHtml);
             }, 100);
         }
-        
-        updatePaymentAmounts();
     });
     
-    $('#cancel-btn').on('click', function(e) {
-        e.preventDefault();
-        if (confirm('Cancel payment?')) {
-            localStorage.removeItem('pendingTicketOrder');
-            window.location.href = 'index.html';
-        }
-    });
-    
+    // Form submission
     $('#payment-form').on('submit', function(e) {
         e.preventDefault();
         
@@ -260,33 +184,64 @@ $(document).ready(function() {
             phone: $('#phone_number').val().trim(),
             payment_method: $('#payment_method').val(),
             transaction_code: $('#transaction_reference').val().trim(),
-            amount: $('#bookingAmount').val() || '0'
+            amount: $('#bookingAmount').val() || totalAmount.toFixed(2)
         };
         
+        // Validation
         if (!formData.full_name || !formData.email || !formData.phone || !formData.payment_method || !formData.transaction_code) {
             alert('Please fill all required fields');
             return false;
         }
         
+        // Build WhatsApp message
         let message = `💳 PAYMENT CONFIRMATION\n\n`;
-        message += `━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+        message += `━━━━━━━━━━━━━━━━━━━━━━\n\n`;
         message += `📧 ${formData.full_name}\n`;
         message += `📞 ${formData.phone}\n`;
         message += `💰 Ksh ${parseFloat(formData.amount).toLocaleString()}\n`;
-        message += `🔢 ${formData.transaction_code}\n\n`;
+        message += `🔢 ${formData.transaction_code}\n`;
+        message += `💳 ${formData.payment_method.toUpperCase()}\n\n`;
+        
+        if (bookingType === 'cart') {
+            const cartData = JSON.parse(localStorage.getItem('kalenjin_vibes_cart') || '[]');
+            message += `🛒 CART ITEMS:\n`;
+            cartData.forEach(item => {
+                message += `• ${item.quantity}x ${item.name} - Ksh ${(item.price * item.quantity).toLocaleString()}\n`;
+            });
+            message += `\n`;
+        }
+        
         message += `✅ Kalenjin Vibes Payment`;
         
         const whatsappUrl = `https://wa.me/254797265275?text=${encodeURIComponent(message)}`;
         
+        // Show loading
         const submitBtn = $('#complete-purchase-btn');
         submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Processing...').prop('disabled', true);
         
         setTimeout(() => {
             window.open(whatsappUrl, '_blank');
-            showCopyToast('✓ Redirecting to WhatsApp...');
+            showToast('✓ Redirecting to WhatsApp...');
+            
+            // Clear cart if cart checkout
+            if (bookingType === 'cart') {
+                localStorage.removeItem('kalenjin_vibes_cart');
+                localStorage.removeItem('checkout_customer_info');
+            }
+            
             setTimeout(() => window.location.href = 'index.html', 2000);
         }, 1000);
         
         return false;
     });
+    
+    // Cancel button
+    $('#cancel-btn').on('click', function(e) {
+        e.preventDefault();
+        if (confirm('Cancel payment and return to homepage?')) {
+            window.location.href = 'index.html';
+        }
+    });
+    
+    console.log('✅ Payments: Ready');
 });

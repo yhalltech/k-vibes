@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Contact Us | Kalenjin Vibes</title>
-    <meta name="author" content="kalenjin vobes">
+    <meta name="author" content="kalenjin vibes">
     <meta name="description" content="Contact Kalenjin Vibes for event planning, artist bookings, DJ services, and entertainment solutions.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -14,7 +14,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
@@ -33,6 +33,10 @@
               secondary: '#222',
               light: '#f8f9fa',
               dark: '#1a1a1a'
+            },
+            fontFamily: {
+              'jost': ['Jost', 'sans-serif'],
+              'poppins': ['Poppins', 'sans-serif']
             }
           }
         }
@@ -44,48 +48,36 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/header.css">
-    <script src="assets/js/footer.js"></script>
-     <script src="assets/js/header.js"></script>
     
     <style>
-        /* Contact Section */
-        .contact-section {
-            padding: 80px 0;
-            background-color: #f8f9fa;
+        :root {
+            --primary: #BA0909;
+            --primary-light: #e53e3e;
+            --secondary: #2d3748;
+            --accent: #4f46e5;
+            --gradient-1: linear-gradient(135deg, #BA0909 0%, #e53e3e 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         
-        .contact-info-card {
-            background: white;
-            border-radius: 10px;
-            padding: 40px;
-            height: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
         }
         
-        .contact-form {
-            background: white;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Jost', sans-serif;
         }
         
-        /* Breadcrumb Styles */
+        /* Enhanced Breadcrumb Section */
         .breadcumb-wrapper {
             position: relative;
-            padding: 100px 0;
+            padding: 100px 0 60px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/slider/blog.jpg');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .breadcumb-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(186, 9, 9, 0.8));
+            background-attachment: fixed;
         }
         
         .breadcumb-content {
@@ -93,79 +85,260 @@
             z-index: 2;
             text-align: center;
             color: white;
+            animation: fadeInUp 1s ease;
         }
         
         .breadcumb-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #ffcccb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .breadcumb-menu {
+        .breadcrumb-menu {
             display: flex;
             justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
         }
         
-        .breadcumb-menu li {
-            margin: 0 10px;
-        }
-        
-        .breadcumb-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .breadcumb-menu a:hover {
+        .breadcrumb-menu a {
             color: #ffcccb;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        .breadcumb-menu li:not(:last-child)::after {
-            content: '/';
-            margin-left: 10px;
+        .breadcrumb-menu a:hover {
+            color: white;
+        }
+        
+        .breadcrumb-separator {
             color: rgba(255, 255, 255, 0.5);
         }
         
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+        /* Enhanced Contact Section - COMPACT */
+        .contact-section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        /* Compact Animated Cards */
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(186, 9, 9, 0.1);
+        }
+        
+        .contact-form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+        }
+        
+        /* Compact Contact Info Items */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-info-item:hover {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin-right: 15px;
+            flex-shrink: 0;
+            background: var(--gradient-1);
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(186, 9, 9, 0.2);
+        }
+        
+        .contact-info-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #374151;
+            font-family: 'Jost', sans-serif;
+        }
+        
+        .contact-info-content p,
+        .contact-info-content a {
+            color: #6b7280;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .contact-info-content a:hover {
+            color: var(--primary);
+        }
+        
+        /* COMPACT Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-family: 'Jost', sans-serif;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(186, 9, 9, 0.1);
+        }
+        
+        .form-control::placeholder {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+        
+        /* Compact Gradient Button */
+        .gradient-btn {
+            background: var(--gradient-1);
+            color: white;
+            padding: 14px 25px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            font-family: 'Jost', sans-serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(186, 9, 9, 0.25);
+        }
+        
+        /* Compact WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
             transition: all 0.3s ease;
             text-decoration: none;
         }
         
         .whatsapp-button:hover {
-            transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
         }
         
         .whatsapp-button img {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             filter: brightness(0) invert(1);
         }
         
-        /* Scroll to Top */
+        /* Compact Scroll to Top */
         .scrollToTop {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
+            bottom: 100px;
+            right: 25px;
             z-index: 1000;
-            background: #BA0909;
+            background: var(--gradient-1);
             color: white;
             width: 50px;
             height: 50px;
@@ -174,7 +347,7 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(186, 9, 9, 0.2);
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
@@ -186,26 +359,120 @@
         }
         
         .scrollToTop:hover {
-            background: #9c0707;
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(186, 9, 9, 0.3);
         }
         
-        @media (max-width: 768px) {
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design - Optimized for Desktop */
+        @media (min-width: 768px) {
+            /* Special desktop optimizations */
+            .contact-section .container {
+                max-width: 1200px;
+            }
+            
+            .contact-card,
+            .contact-form-card {
+                padding: 25px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+            
+            .gradient-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            
+            .contact-info-item {
+                padding: 12px;
+                margin-bottom: 20px;
+            }
+            
+            .section-subtitle {
+                font-size: 0.95rem;
+                max-width: 450px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .contact-section {
+                padding: 50px 0;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .contact-form-card {
+                padding: 30px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .breadcumb-title {
+                font-size: 2rem;
+            }
+            
             .contact-section {
                 padding: 40px 0;
             }
             
-            .contact-info-card,
-            .contact-form {
-                padding: 25px;
+            .contact-card,
+            .contact-form-card {
+                padding: 20px;
+                margin-bottom: 20px;
             }
             
-            .breadcumb-wrapper {
-                padding: 70px 0;
+            .whatsapp-button,
+            .scrollToTop {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                left: 20px;
             }
             
+            .scrollToTop {
+                right: 20px;
+                bottom: 80px;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .breadcumb-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .contact-info-item {
+                padding: 12px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .gradient-btn {
+                padding: 12px 20px;
+                font-size: 14px;
             }
         }
     </style>
@@ -214,125 +481,140 @@
     <!-- Header will be loaded here -->
     <div id="header-container"></div>
 
-    <!-- Breadcrumb Section -->
-    <div class="breadcumb-wrapper" style="background-image: url('assets/img/slider/blog.jpg');">
+    <!-- Compact Breadcrumb Section -->
+    <div class="breadcumb-wrapper">
         <div class="container mx-auto px-4">
             <div class="breadcumb-content">
-                <div class="breadcumb-menu-wrap">
-                    <ul class="breadcumb-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Contact Us</li>
-                    </ul>
-                    <h1 class="breadcumb-title">Contact Us</h1>
+                <h1 class="breadcumb-title mb-4">Contact Us</h1>
+                <div class="breadcrumb-menu">
+                    <a href="/">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>Contact</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Contact Section -->
+    <!-- Compact Contact Section -->
     <section class="contact-section">
         <div class="container mx-auto px-4">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <p style="font-size: 1.1rem; color: #666; line-height: 1.6;">
-                        Get in touch for any inquiries, support needs, or a tailored quote for exclusive event solutions.
+            <div class="row justify-center mb-8">
+                <div class="col-lg-6 text-center">
+                    <p class="section-subtitle">
+                        Get in touch for any inquiries, support, or tailored quotes for your event needs.
                     </p>
-                    <hr style="width: 100px; border-top: 2px solid #BA0909; margin: 30px auto;">
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto rounded-full mb-6"></div>
                 </div>
             </div>
             
-            <div class="row">
-                <!-- Contact Info -->
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <div class="contact-info-card">
-                        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 30px; color: #333;">Contact Information</h3>
+            <div class="row justify-center">
+                <!-- Contact Information -->
+                <div class="col-lg-4 mb-6 lg:mb-0 lg:pr-4">
+                    <div class="contact-card">
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Contact Info</h3>
                         
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: flex-start;">
-                                <i class="fas fa-phone-alt" style="color: #BA0909; font-size: 20px; margin-right: 15px; margin-top: 5px;"></i>
-                                <div>
-                                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 5px; color: #555;">Phone Number</h4>
-                                    <a href="tel:+254797265275" style="color: #333; font-size: 18px; font-weight: 500; margin: 0; text-decoration: none;">
-                                        +254 797 265 275
-                                    </a>
-                                </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Phone</h4>
+                                <a href="tel:+254797265275" class="text-sm font-semibold hover:text-primary">
+                                    +254 797 265 275
+                                </a>
                             </div>
                         </div>
                         
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: flex-start;">
-                                <i class="fas fa-envelope" style="color: #BA0909; font-size: 20px; margin-right: 15px; margin-top: 5px;"></i>
-                                <div>
-                                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 5px; color: #555;">Email Address</h4>
-                                    <a href="mailto:kalenjinvibezke@gmail.com" style="color: #333; font-size: 18px; font-weight: 500; margin: 0; text-decoration: none;">
-                                        kalenjinvibezke@gmail.com
-                                    </a>
-                                </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Email</h4>
+                                <a href="mailto:kalenjinvibezke@gmail.com" class="text-sm font-semibold hover:text-primary">
+                                    kalenjinvibezke@gmail.com
+                                </a>
                             </div>
                         </div>
                         
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: flex-start;">
-                                <i class="fas fa-map-marker-alt" style="color: #BA0909; font-size: 20px; margin-right: 15px; margin-top: 5px;"></i>
-                                <div>
-                                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 5px; color: #555;">Business Address</h4>
-                                    <p style="color: #333; font-size: 18px; font-weight: 500; margin: 0;">Nairobi, Kenya</p>
-                                </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Location</h4>
+                                <p class="text-sm font-semibold">Nairobi, Kenya</p>
                             </div>
                         </div>
                         
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: flex-start;">
-                                <i class="fas fa-clock" style="color: #BA0909; font-size: 20px; margin-right: 15px; margin-top: 5px;"></i>
-                                <div>
-                                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 5px; color: #555;">Business Hours</h4>
-                                    <p style="color: #333; font-size: 18px; font-weight: 500; margin: 0;">Mon - Sun: 9:00 AM - 10:00 PM</p>
-                                </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Hours</h4>
+                                <p class="text-sm font-semibold">Mon-Sun: 9AM - 10PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <h4 class="text-sm font-semibold mb-3 text-gray-800">Follow Us</h4>
+                            <div class="flex gap-3">
+                                <a href="#" class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white hover:scale-110 transition-transform text-sm">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-600 to-pink-800 flex items-center justify-center text-white hover:scale-110 transition-transform text-sm">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center text-white hover:scale-110 transition-transform text-sm">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="col-lg-7">
-                    <div class="contact-form">
-                        <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 30px; color: #333;">Send Us a Message</h3>
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Send Message</h3>
                         <form action="#" method="post" id="contactForm">
-                            <div class="mb-4">
-                                <label for="fullName" class="form-label" style="font-weight: 600; color: #555;">Your Full Name</label>
-                                <input type="text" class="form-control" id="fullName" name="full_name" placeholder="Enter your name" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                            <div class="form-group">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="full_name" placeholder="Enter your name" required>
                             </div>
                             
-                            <div class="row mb-4">
-                                <div class="col-md-6">
-                                    <label for="email" class="form-label" style="font-weight: 600; color: #555;">Email Address</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="phone" class="form-label" style="font-weight: 600; color: #555;">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+254 XXX XXX XXX" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+254 XXX XXX XXX" required>
                                 </div>
                             </div>
                             
-                            <div class="mb-4">
-                                <label for="service" class="form-label" style="font-weight: 600; color: #555;">Service Category</label>
-                                <select class="form-select" id="service" name="service_name" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                                    <option value="" selected disabled>Select Service</option>
+                            <div class="form-group">
+                                <label for="service" class="form-label">Service Needed</label>
+                                <select class="form-control" id="service" name="service_name" required>
+                                    <option value="" selected disabled>Select service</option>
                                     <option value="Ticket Booking">Ticket Booking</option>
                                     <option value="Talent Booking">Talent Booking</option>
                                     <option value="Event Planning">Event Planning</option>
                                     <option value="DJ Services">DJ Services</option>
-                                    <option value="Other">Other Inquiry</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             
-                            <div class="mb-4">
-                                <label for="message" class="form-label" style="font-weight: 600; color: #555;">Your Message</label>
-                                <textarea class="form-control" id="message" name="details" rows="5" placeholder="Type your message here..." required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="details" rows="4" placeholder="Tell us about your needs..." required></textarea>
                             </div>
                             
-                            <button type="submit" class="btn w-100" style="background-color: #BA0909; color: white; padding: 15px; font-size: 18px; font-weight: 600; border-radius: 8px; border: none; transition: all 0.3s;">
-                                Send Message <i class="fas fa-paper-plane ms-2"></i>
+                            <button type="submit" class="gradient-btn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
@@ -351,7 +633,7 @@
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/+254797265275?text=Hello%20Kalenjin%20Vibes,%20I%20would%20like%20to%20inquire%20about%20your%20services" 
-       class="whatsapp-button" target="_blank">
+       class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
         <img src="assets/img/WhatsApp.svg" alt="WhatsApp">
     </a>
     
@@ -407,60 +689,61 @@
         
         // Initialize footer
         function initFooter() {
-            // Set current year in footer
             document.querySelectorAll('.current-year').forEach(element => {
                 element.textContent = new Date().getFullYear();
             });
         }
         
-        // Contact Form Submission
+        // Compact Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Basic form validation
             const formData = new FormData(this);
-            let isValid = true;
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
             
-            // Check required fields
-            if (!formData.get('full_name') || !formData.get('email') || !formData.get('phone') || !formData.get('service_name') || !formData.get('details')) {
-                isValid = false;
-            }
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Quick validation
+            let isValid = true;
+            const requiredFields = ['full_name', 'email', 'phone', 'service_name', 'details'];
+            
+            requiredFields.forEach(field => {
+                if (!formData.get(field)) isValid = false;
+            });
             
             if (!isValid) {
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Please fill all required fields',
-                    text: 'All fields are required to send your message.',
-                    confirmButtonColor: '#BA0909'
+                    title: 'Missing Info',
+                    text: 'Please fill all fields.',
+                    confirmButtonColor: '#BA0909',
+                    confirmButtonText: 'OK'
                 });
+                
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
                 return;
             }
             
-            // Simulate form submission
-            Swal.fire({
-                title: 'Sending Message...',
-                text: 'Please wait while we send your message.',
-                allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-            
-            // Simulate API call delay
+            // Simulate sending
             setTimeout(() => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Message Sent!',
-                    text: 'Thank you for contacting us. We will get back to you shortly.',
-                    confirmButtonColor: '#BA0909'
+                    text: 'We\'ll contact you soon.',
+                    confirmButtonColor: '#BA0909',
+                    confirmButtonText: 'Great!'
                 }).then(() => {
-                    // Reset form
                     document.getElementById('contactForm').reset();
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
                 });
-            }, 1500);
+            }, 1000);
         });
         
-        // Scroll to top functionality
+        // Scroll to top
         document.addEventListener('DOMContentLoaded', function() {
             const scrollBtn = document.querySelector('.scrollToTop');
             
@@ -477,6 +760,18 @@
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
+                });
+            });
+            
+            // Focus form inputs
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#BA0909';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#e5e7eb';
                 });
             });
         });

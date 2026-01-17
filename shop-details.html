@@ -243,18 +243,7 @@
 
     <!-- Breadcrumb -->
     <div class="breadcumb-wrapper" style="background-image: url('assets/img/breadcumb/breadcumb-bg.jpg');">
-        <div class="container mx-auto px-4">
-            <div class="breadcumb-content">
-                <h3 class="breadcumb-title">Product Details</h3>
-                <div class="breadcumb-menu-wrap">
-                    <ul class="breadcumb-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li id="productName">Loading...</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <div class="container mx-auto px-4"></div>
     </div>
 
     <!-- Product Details -->
@@ -828,6 +817,183 @@
                 }
             });
         });
+    </script>
+    <script>
+        // Shop Details Page - Enhanced with Full Cart Integration
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🛍️ Shop Details: Initializing...');
+    
+    // Product Database
+    const products = {
+        '1': {
+            id: '1',
+            title: 'Kalenjin Vibes T-Shirt',
+            price: 650,
+            image: 'app/uploads/files/hh.png',
+            description: '"Threads of resilience, stitched with dreams." Show your support for Kalenjin Vibes with this premium quality T-shirt. Made from 100% cotton for maximum comfort.',
+            colors: ['MAROON', 'NAVY BLUE', 'WHITE', 'BLACK', 'CREAM'],
+            sizes: ['ML', 'XL', 'XXL'],
+            category: 'T-Shirts',
+            sku: 'KV-TS-001',
+            inStock: true
+        },
+        '2': {
+            id: '2',
+            title: 'Modern Cow Boy Hat',
+            price: 100,
+            image: 'assets/img/products/p-1-1.png',
+            description: 'Stylish modern cowboy hat perfect for any occasion. Quality material and comfortable fit.',
+            colors: ['Brown', 'Black', 'Tan'],
+            sizes: ['M', 'L', 'XL'],
+            category: 'Hats',
+            sku: 'KV-HAT-001',
+            inStock: true
+        },
+        '3': {
+            id: '3',
+            title: 'Cat Eye Sunglasses',
+            price: 10,
+            image: 'assets/img/products/p-1-2.png',
+            description: 'Fashionable cat eye sunglasses with UV protection. Trendy design for the modern individual.',
+            colors: ['Black', 'Tortoise', 'Red'],
+            sizes: ['One Size'],
+            category: 'Sunglasses',
+            sku: 'KV-SUN-001',
+            inStock: true
+        }
+    };
+    
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product') || '1';
+    const product = products[productId] || products['1'];
+    
+    // Update page with product data
+    updateProductDetails(product);
+    
+    // Handle Add to Cart
+    const addToCartForm = document.getElementById('addToCartForm');
+    if (addToCartForm) {
+        addToCartForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: product.id,
+                name: product.title,
+                price: product.price,
+                image: product.image,
+                color: document.getElementById('colorSelect').value,
+                size: document.getElementById('sizeSelect').value,
+                quantity: parseInt(document.getElementById('quantity').value)
+            };
+            
+            console.log('Adding to cart:', formData);
+            
+            // Wait for cart to be ready
+            if (window.cart && typeof window.cart.addItem === 'function') {
+                window.cart.addItem(formData);
+            } else {
+                // Fallback: wait and try again
+                setTimeout(() => {
+                    if (window.cart && typeof window.cart.addItem === 'function') {
+                        window.cart.addItem(formData);
+                    } else {
+                        alert('Cart is loading... Please try again in a moment.');
+                    }
+                }, 500);
+            }
+        });
+    }
+    
+    // Quantity controls
+    const minusBtn = document.querySelector('.quantity-btn.minus');
+    const plusBtn = document.querySelector('.quantity-btn.plus');
+    const quantityInput = document.getElementById('quantity');
+    
+    if (minusBtn && quantityInput) {
+        minusBtn.addEventListener('click', function() {
+            let value = parseInt(quantityInput.value);
+            if (value > 1) {
+                quantityInput.value = value - 1;
+            }
+        });
+    }
+    
+    if (plusBtn && quantityInput) {
+        plusBtn.addEventListener('click', function() {
+            let value = parseInt(quantityInput.value);
+            if (value < 10) {
+                quantityInput.value = value + 1;
+            }
+        });
+    }
+    
+    // Thumbnail switching
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const imageUrl = this.dataset.image;
+            document.getElementById('mainProductImage').src = imageUrl;
+            
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    
+    // Tab switching
+    document.querySelectorAll('[data-tab]').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabName = this.dataset.tab;
+            
+            document.querySelectorAll('[data-tab]').forEach(t => {
+                t.classList.remove('border-primary', 'text-primary');
+                t.classList.add('border-transparent');
+            });
+            this.classList.add('border-primary', 'text-primary');
+            this.classList.remove('border-transparent');
+            
+            document.querySelectorAll('.tab-pane').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`${tabName}Tab`).classList.remove('hidden');
+        });
+    });
+    
+    function updateProductDetails(product) {
+        // Update basic info
+        document.getElementById('productTitle').textContent = product.title;
+        document.getElementById('productPrice').textContent = `Ksh ${product.price.toLocaleString()}`;
+        document.getElementById('productDescription').textContent = product.description;
+        document.getElementById('productName').textContent = product.title;
+        document.getElementById('mainProductImage').src = product.image;
+        
+        // Update hidden form fields
+        document.getElementById('productId').value = product.id;
+        document.getElementById('productNameInput').value = product.title;
+        document.getElementById('productImage').value = product.image;
+        document.getElementById('productPriceValue').value = product.price;
+        
+        // Update page title
+        document.title = `Kalenjin Vibes | ${product.title}`;
+        
+        // Update color options
+        const colorSelect = document.getElementById('colorSelect');
+        if (colorSelect && product.colors) {
+            colorSelect.innerHTML = product.colors.map(color => 
+                `<option value="${color}">${color}</option>`
+            ).join('');
+        }
+        
+        // Update size options
+        const sizeSelect = document.getElementById('sizeSelect');
+        if (sizeSelect && product.sizes) {
+            sizeSelect.innerHTML = product.sizes.map(size => 
+                `<option value="${size}">${size}</option>`
+            ).join('');
+        }
+    }
+    
+    console.log('✅ Shop Details: Ready');
+});
     </script>
 </body>
 </html>

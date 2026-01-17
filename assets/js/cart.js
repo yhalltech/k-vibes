@@ -1,128 +1,73 @@
-// cart.js - SIMPLE WORKING VERSION
+// Complete Shopping Cart System - Fully Functional
 class ShoppingCart {
     constructor() {
         this.items = [];
-        this.init();
+        this.initialized = false;
+        this.storageKey = 'kalenjin_vibes_cart';
     }
 
     init() {
-        console.log('🛒 Cart initializing...');
+        if (this.initialized) {
+            console.log('🛒 Cart already initialized');
+            return;
+        }
         
-        // Load cart from localStorage
+        console.log('🛒 Initializing cart...');
+        
+        // Load saved cart
         this.loadFromStorage();
-        
-        // Bind events
-        this.bindEvents();
         
         // Update display
         this.updateCartDisplay();
         
-        // Make available globally
+        // Make globally available
         window.cart = this;
+        window.addToCart = (item) => this.addItem(item);
         
-        console.log('🛒 Cart ready!');
-    }
-
-    bindEvents() {
-        console.log('Binding cart events...');
-        
-        // Cart icon click
-        const cartIcon = document.getElementById('cartIconBtn');
-        if (cartIcon) {
-            cartIcon.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.openCart();
-            });
-        }
-
-        // Close button
-        const cartClose = document.getElementById('cartClose');
-        if (cartClose) {
-            cartClose.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.closeCart();
-            });
-        }
-
-        // Overlay click
-        const overlay = document.getElementById('cartOverlay');
-        if (overlay) {
-            overlay.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.closeCart();
-            });
-        }
-
-        // Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.closeCart();
-            }
-        });
-    }
-
-    openCart() {
-        console.log('Opening cart...');
-        
-        const sidebar = document.getElementById('cartSidebar');
-        const overlay = document.getElementById('cartOverlay');
-        
-        if (sidebar && overlay) {
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    closeCart() {
-        console.log('Closing cart...');
-        
-        const sidebar = document.getElementById('cartSidebar');
-        const overlay = document.getElementById('cartOverlay');
-        
-        if (sidebar && overlay) {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+        this.initialized = true;
+        console.log('✅ Cart ready with', this.items.length, 'items');
     }
 
     addItem(item) {
-        console.log('Adding item:', item);
+        console.log('🛒 Adding item:', item);
         
         // Validate item
         if (!item || !item.id || !item.name || !item.price) {
-            console.error('Invalid item:', item);
+            console.error('❌ Invalid item:', item);
+            this.showNotification('Invalid product data', 'error');
             return false;
         }
 
-        // Check if item already exists
-        const existingItem = this.items.find(i => i.id === item.id);
+        // Check if item exists
+        const existingIndex = this.items.findIndex(i => 
+            i.id === item.id && 
+            i.color === item.color && 
+            i.size === item.size
+        );
         
-        if (existingItem) {
-            existingItem.quantity++;
+        if (existingIndex !== -1) {
+            // Update quantity
+            this.items[existingIndex].quantity = 
+                parseInt(this.items[existingIndex].quantity) + 
+                parseInt(item.quantity || 1);
+            this.showNotification(`Updated ${item.name} quantity`);
         } else {
+            // Add new item
             this.items.push({
-                ...item,
-                quantity: 1,
-                image: item.image || 'https://via.placeholder.com/80'
+                id: item.id,
+                name: item.name,
+                price: parseFloat(item.price),
+                image: item.image || 'https://via.placeholder.com/80',
+                quantity: parseInt(item.quantity || 1),
+                color: item.color || '',
+                size: item.size || ''
             });
+            this.showNotification(`Added ${item.name} to cart`);
         }
 
-        // Update display and storage
         this.updateCartDisplay();
         this.saveToStorage();
-        
-        // Show notification
-        this.showNotification(`Added ${item.name} to cart!`);
-        
-        // Auto-open cart on mobile
-        if (window.innerWidth < 768) {
-            setTimeout(() => this.openCart(), 300);
-        }
+        this.openCart();
         
         return true;
     }
@@ -131,11 +76,9 @@ class ShoppingCart {
         if (this.items[index]) {
             const itemName = this.items[index].name;
             this.items.splice(index, 1);
-            
             this.updateCartDisplay();
             this.saveToStorage();
-            
-            this.showNotification(`Removed ${itemName} from cart`);
+            this.showNotification(`Removed ${itemName}`);
         }
     }
 
@@ -153,40 +96,44 @@ class ShoppingCart {
         }
     }
 
+    clearCart() {
+        if (confirm('Clear all items from cart?')) {
+            this.items = [];
+            this.updateCartDisplay();
+            this.saveToStorage();
+            this.showNotification('Cart cleared');
+        }
+    }
+
     updateCartDisplay() {
         const body = document.getElementById('cartBody');
         const footer = document.getElementById('cartFooter');
         const totalEl = document.getElementById('cartTotal');
         const badge = document.getElementById('cartBadge');
 
-        if (!body || !footer || !totalEl || !badge) {
-            console.error('Cart elements not found!');
-            return;
-        }
+        if (!body || !footer || !totalEl || !badge) return;
 
         // Update badge
         const totalItems = this.getTotalItems();
         badge.textContent = totalItems;
         badge.style.display = totalItems > 0 ? 'flex' : 'none';
 
-        // Update body
+        // Empty cart state
         if (this.items.length === 0) {
             body.innerHTML = `
-                <div class="cart-empty">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <p class="text-muted">Add items from the shop to get started</p>
-                    <a href="shop.html" class="btn-browse">Browse Shop</a>
+                <div class="cart-empty" style="text-align: center; padding: 60px 20px;">
+                    <i class="fas fa-shopping-cart" style="font-size: 72px; color: #e5e7eb; margin-bottom: 20px;"></i>
+                    <p style="font-size: 18px; font-weight: 500; color: #777; margin-bottom: 10px;">Your cart is empty</p>
+                    <p style="font-size: 14px; color: #999; margin-bottom: 25px;">Add items from the shop to get started</p>
+                    <a href="shop.html" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #BA0909 0%, #8B0000 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Browse Shop</a>
                 </div>
             `;
             footer.style.display = 'none';
             return;
         }
 
-        // Show footer
+        // Show footer with items
         footer.style.display = 'block';
-
-        // Calculate total
         let total = 0;
         let itemsHTML = '';
 
@@ -194,19 +141,30 @@ class ShoppingCart {
             const itemTotal = item.price * item.quantity;
             total += itemTotal;
 
+            const extras = [];
+            if (item.color) extras.push(`Color: ${item.color}`);
+            if (item.size) extras.push(`Size: ${item.size}`);
+            const extrasText = extras.length > 0 ? `<p style="font-size: 12px; color: #666; margin: 5px 0;">${extras.join(' • ')}</p>` : '';
+
             itemsHTML += `
-                <div class="cart-item" data-id="${item.id}">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-price">Ksh ${item.price.toLocaleString()}</div>
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn decrease" onclick="cart.updateQuantity(${index}, -1)">-</button>
-                            <span class="quantity-display">${item.quantity}</span>
-                            <button class="quantity-btn increase" onclick="cart.updateQuantity(${index}, 1)">+</button>
+                <div class="cart-item" style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); gap: 15px; transition: all 0.3s ease;">
+                    <img src="${item.image}" alt="${item.name}" 
+                         style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px; border: 2px solid #f5f5f5; background: #f9f9f9;"
+                         onerror="this.src='https://via.placeholder.com/80'">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="font-weight: 600; color: #333; margin-bottom: 5px; font-size: 16px;">${item.name}</div>
+                        ${extrasText}
+                        <div style="color: #BA0909; font-weight: 700; font-size: 18px; margin-bottom: 10px;">Ksh ${item.price.toLocaleString()}</div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <button onclick="window.cart.updateQuantity(${index}, -1)" 
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #e0e0e0; background: white; cursor: pointer; font-weight: bold; transition: all 0.2s;">-</button>
+                            <span style="min-width: 40px; text-align: center; font-weight: 600; font-size: 16px; background: #f8f9fa; padding: 4px 8px; border-radius: 6px;">${item.quantity}</span>
+                            <button onclick="window.cart.updateQuantity(${index}, 1)" 
+                                    style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #e0e0e0; background: white; cursor: pointer; font-weight: bold; transition: all 0.2s;">+</button>
                         </div>
                     </div>
-                    <button class="cart-item-remove" onclick="cart.removeItem(${index})">
+                    <button onclick="window.cart.removeItem(${index})" 
+                            style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%); border: none; color: white; padding: 10px; border-radius: 10px; width: 40px; height: 40px; cursor: pointer; transition: all 0.3s;">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
@@ -225,42 +183,66 @@ class ShoppingCart {
         return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
     }
 
-    clearCart() {
-        this.items = [];
-        this.updateCartDisplay();
-        this.saveToStorage();
-        this.showNotification('Cart cleared!');
+    openCart() {
+        const sidebar = document.getElementById('cartSidebar');
+        const overlay = document.getElementById('cartOverlay');
+        
+        if (sidebar && overlay) {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
-    showNotification(message) {
-        // Remove existing notification
+    closeCart() {
+        const sidebar = document.getElementById('cartSidebar');
+        const overlay = document.getElementById('cartOverlay');
+        
+        if (sidebar && overlay) {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    showNotification(message, type = 'success') {
         const existing = document.querySelector('.cart-notification');
         if (existing) existing.remove();
 
-        // Create new notification
         const notification = document.createElement('div');
         notification.className = 'cart-notification';
         notification.innerHTML = `
-            <i class="fas fa-check-circle"></i>
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
             <span>${message}</span>
         `;
 
-        document.body.appendChild(notification);
+        notification.style.cssText = `
+            position: fixed !important;
+            top: 20px !important;
+            right: 20px !important;
+            background: linear-gradient(135deg, ${type === 'success' ? '#25D366 0%, #1DA851' : '#ff4444 0%, #cc0000'} 100%) !important;
+            color: white !important;
+            padding: 15px 25px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            z-index: 100000 !important;
+            animation: slideInRight 0.3s ease !important;
+            font-weight: 600 !important;
+            font-size: 15px !important;
+            border: 2px solid white !important;
+        `;
 
-        // Remove after 3 seconds
-        setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 300);
-        }, 3000);
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
     }
 
     saveToStorage() {
         try {
-            localStorage.setItem('kalenjinCart', JSON.stringify(this.items));
+            localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+            console.log('💾 Cart saved:', this.items.length, 'items');
         } catch (e) {
             console.error('Failed to save cart:', e);
         }
@@ -268,49 +250,41 @@ class ShoppingCart {
 
     loadFromStorage() {
         try {
-            const saved = localStorage.getItem('kalenjinCart');
-            if (saved) {
-                this.items = JSON.parse(saved);
-            }
+            const saved = localStorage.getItem(this.storageKey);
+            this.items = saved ? JSON.parse(saved) : [];
+            console.log('📦 Cart loaded:', this.items.length, 'items');
         } catch (e) {
             console.error('Failed to load cart:', e);
             this.items = [];
         }
     }
+
+    // Get cart data for checkout
+    getCartData() {
+        return {
+            items: this.items,
+            totalItems: this.getTotalItems(),
+            totalPrice: this.getTotalPrice()
+        };
+    }
 }
 
-// Initialize cart when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing cart...');
-    
-    // Wait for cart elements to be loaded
-    function initCart() {
-        const cartIcon = document.getElementById('cartIconBtn');
-        const cartSidebar = document.getElementById('cartSidebar');
-        
-        if (cartIcon && cartSidebar) {
-            console.log('Cart elements found, creating cart...');
-            window.cartInstance = new ShoppingCart();
-            console.log('Cart created successfully:', window.cartInstance);
-            
-            // Add global function to add items
-            window.addToCart = function(item) {
-                if (window.cartInstance) {
-                    return window.cartInstance.addItem(item);
-                }
-                return false;
-            };
-            
-        } else {
-            console.log('Waiting for cart elements...');
-            setTimeout(initCart, 100);
+// Initialize when header is loaded
+document.addEventListener('header-loaded', function() {
+    console.log('📦 Header loaded - initializing cart...');
+    setTimeout(() => {
+        if (!window.cart) {
+            window.cart = new ShoppingCart();
+            window.cart.init();
         }
-    }
-    
-    initCart();
+    }, 100);
 });
 
-// Add this to your shop page to test:
-// <button onclick="addToCart({id: 1, name: 'Test Product', price: 1000, image: 'https://via.placeholder.com/80'})">
-//     Add to Cart
-// </button>
+// Fallback initialization
+setTimeout(() => {
+    if (!window.cart) {
+        console.log('📦 Fallback cart initialization...');
+        window.cart = new ShoppingCart();
+        window.cart.init();
+    }
+}, 2000);

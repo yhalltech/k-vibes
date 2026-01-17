@@ -533,3 +533,106 @@
         font-size: 16px;
     }
 }
+/* MOBILE-SPECIFIC STYLES */
+@media (max-width: 767px) {
+    .cart-sidebar {
+        width: 100% !important;
+        right: -100% !important;
+    }
+    
+    .cart-header {
+        padding: 15px !important;
+    }
+    
+    .cart-header h3 {
+        font-size: 18px !important;
+    }
+    
+    .cart-close {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 16px !important;
+    }
+    
+    .cart-body {
+        padding: 15px !important;
+    }
+    
+    .cart-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 15px !important;
+    }
+    
+    .cart-item-image {
+        width: 120px !important;
+        height: 120px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .cart-item-details {
+        width: 100% !important;
+    }
+    
+    .cart-item-title {
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .cart-item-price {
+        font-size: 20px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .cart-item-quantity {
+        justify-content: center !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .cart-item-remove {
+        width: 100% !important;
+        height: 45px !important;
+        border-radius: 10px !important;
+        margin-top: 10px !important;
+    }
+    
+    .cart-footer {
+        padding: 20px 15px !important;
+    }
+    
+    .cart-total {
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .cart-total span:first-child {
+        font-size: 16px !important;
+    }
+    
+    .cart-total span:last-child {
+        font-size: 20px !important;
+    }
+    
+    .cart-checkout-btn {
+        padding: 16px !important;
+        font-size: 16px !important;
+    }
+    
+    /* Empty cart mobile */
+    .cart-empty {
+        padding: 40px 20px !important;
+    }
+    
+    .cart-empty i {
+        font-size: 60px !important;
+    }
+    
+    .cart-empty p {
+        font-size: 16px !important;
+    }
+    
+    .btn-browse {
+        padding: 12px 25px !important;
+        font-size: 16px !important;
+    }
+}
