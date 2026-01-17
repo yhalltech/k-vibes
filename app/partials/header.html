@@ -1,0 +1,197 @@
+<!-- partials/header.html -->
+<header class="vs-header header-layout4">
+  <!-- Top Bar -->
+  <div class="header-top-bar bg-black text-white py-2">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <!-- Desktop Contact Info -->
+        <div class="hidden md:flex items-center space-x-6">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-envelope text-primary"></i>
+            <a href="mailto:kalenjinvibezke@gmail.com" class="text-sm hover:text-primary transition-colors">kalenjinvibezke@gmail.com</a>
+          </div>
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-map-marker-alt text-primary"></i>
+            <span class="text-sm">Nairobi, Kenya</span>
+          </div>
+        </div>
+        
+        <!-- Desktop Right Side -->
+        <div class="hidden md:flex items-center space-x-4">
+          <div class="flex items-center space-x-3">
+            <a href="#" class="social-link" data-platform="facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" data-platform="instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" data-platform="tiktok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+          <a href="app/index.html" class="bg-primary text-white px-4 py-2 rounded text-sm font-semibold hover:bg-red-800 transition-colors ml-4">
+            <i class="fas fa-sign-in-alt mr-1"></i> Login
+          </a>
+        </div>
+        
+        <!-- Mobile Social & Login -->
+        <div class="flex md:hidden w-full justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <a href="#" class="text-white hover:text-primary" data-platform="facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-white hover:text-primary" data-platform="instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-white hover:text-primary" data-platform="tiktok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+          <a href="app/index.html" class="text-white hover:text-primary text-sm">
+            <i class="fas fa-sign-in-alt mr-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <div class="main-header bg-white shadow-sm">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <div class="w-1/4">
+          <a href="index.html" class="logo">
+            <h1 class="text-xl font-bold text-primary">KALENJIN VIBES</h1>
+          </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">
+            <i class="fas fa-home mr-2"></i> Home
+          </a>
+          <a href="eventslist.html" class="text-gray-700 hover:text-primary transition-colors">
+            <i class="fas fa-calendar-alt mr-2"></i> Events
+          </a>
+          <a href="talentlist.html" class="text-gray-700 hover:text-primary transition-colors">
+            <i class="fas fa-users mr-2"></i> Talents
+          </a>
+          <a href="shop.html" class="text-gray-700 hover:text-primary transition-colors">
+            <i class="fas fa-cart-shopping mr-2"></i> Shop
+          </a>
+          <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors">
+            <i class="fas fa-envelope mr-2"></i> Contact
+          </a>
+        </nav>
+        
+        <!-- Header Actions -->
+        <div class="flex items-center space-x-4">
+          <button class="search-toggle text-gray-700 hover:text-primary">
+            <i class="fas fa-search"></i>
+          </button>
+          <div class="cart-icon-wrapper relative">
+            <i class="fas fa-shopping-bag text-gray-700 hover:text-primary cursor-pointer"></i>
+            <span class="cart-badge absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" style="display: none;">0</span>
+          </div>
+          <button class="vs-menu-toggle md:hidden text-gray-700">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <div class="menu-overlay"></div>
+  <div class="menu-container">
+    <div class="menu-header">
+      <button class="menu-close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <nav class="menu-nav">
+      <ul>
+        <li>
+          <a href="index.html" class="menu-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="eventslist.html" class="menu-link">
+            <i class="fas fa-calendar"></i>
+            <span>Events</span>
+          </a>
+        </li>
+        <li>
+          <a href="talentlist.html" class="menu-link">
+            <i class="fas fa-users"></i>
+            <span>Talents</span>
+          </a>
+        </li>
+        <li>
+          <a href="shop.html" class="menu-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Shop</span>
+          </a>
+        </li>
+        <li>
+          <a href="contact.html" class="menu-link">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="menu-footer">
+      <div class="social-icons">
+        <a href="#" class="social-link" data-platform="facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/+254797265275" class="social-link" data-platform="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      <p class="copyright">© <span class="current-year">2024</span> Kalenjin Vibes</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Mobile Menu JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  // Toggle menu
+  const menuToggle = document.querySelector('.vs-menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // Close menu
+  const closeBtn = document.querySelector('.menu-close');
+  const overlay = document.querySelector('.menu-overlay');
+  
+  function closeMenu() {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
+  
+  // Close menu when clicking links
+  const menuLinks = document.querySelectorAll('.menu-link');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+});
+</script>

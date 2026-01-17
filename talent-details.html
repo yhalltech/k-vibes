@@ -5,237 +5,200 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Kalenjin Vibes | Talent Details</title>
     <meta name="author" content="Kalenjin Vibes">
-    <meta name="description" content="Book talented artists, DJs, producers, and MCs for your events.">
+    <meta name="description" content="Talent details and booking information">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/img/logo.jpg">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#BA0909',
+                        secondary: '#222',
+                        light: '#f8f9fa',
+                        dark: '#1a1a1a'
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Sweetalert2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="assets/css/talents.css">
-    <!-- Theme CSS Files -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Universal CSS -->
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- Custom CSS Files -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z93DQW5D1S"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Z93DQW5D1S');
-    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/talents.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    
+    <style>
+        /* Compact Breadcrumb Styles */
+        .breadcumb-wrapper {
+            position: relative;
+            padding: 40px 0 30px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .breadcumb-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(186, 9, 9, 0.8));
+        }
+        
+        .breadcumb-content {
+            position: relative;
+            z-index: 2;
+            text-align: right;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .breadcumb-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .breadcumb-menu {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .breadcumb-menu li {
+            margin: 0 5px;
+        }
+        
+        .breadcumb-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        
+        .breadcumb-menu a:hover {
+            color: white;
+        }
+        
+        .breadcumb-menu li:not(:last-child)::after {
+            content: '/';
+            margin-left: 8px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button-talent-details {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-button-talent-details:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .whatsapp-button-talent-details img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+        
+        /* Talent Details Styles */
+        .talent-detail-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .talent-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .breadcumb-wrapper {
+                padding: 30px 0 20px;
+            }
+            
+            .breadcumb-title {
+                font-size: 1.2rem;
+            }
+            
+            .breadcumb-content {
+                text-align: center;
+            }
+            
+            .breadcumb-menu {
+                justify-content: center;
+                font-size: 0.85rem;
+            }
+            
+            .whatsapp-button-talent-details {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                left: 15px;
+            }
+            
+            .whatsapp-button-talent-details img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <div class="menu-overlay"></div>
-        <div class="menu-container">
-            <div class="menu-header">
-                <img src="assets/img/lg.png" style="width:33%" alt="Kalenjin Vibes Logo" class="menu-logo">
-                <button class="menu-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <nav class="menu-nav">
-                <ul>
-                    <li>
-                        <a href="index.html" class="menu-link">
-                            <i class="fas fa-home"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="eventslist.html" class="menu-link">
-                            <i class="fas fa-calendar"></i>
-                            <span>Events</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="talentlist.html" class="menu-link">
-                            <i class="fas fa-users"></i>
-                            <span>Talents</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html" class="menu-link">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>Shop</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html" class="menu-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <div class="menu-footer">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1FLtLAQsxZ/" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://wa.me/+254797265275" class="social-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-                <p class="copyright">© <script>document.write(new Date().getFullYear())</script> Kalenjin Vibes</p>
-            </div>
-        </div>
-    </div>
+    <!-- Include Header -->
+    <div id="header-container"></div>
 
-    <!-- Header -->
-    <header class="vs-header header-layout4">
-        <!-- Top Bar -->
-        <div class="header-top-bar" style="background-color: #000; color: #fff;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-6 d-lg-none">
-                        <div class="header-social">
-                            <a href="https://www.facebook.com/share/1ShpdQ2gxc/" class=""><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class=""><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@kalenjinvibes" class=""><i class="fab fa-tiktok"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="col-6 d-lg-none text-end">
-                        <div class="header-auth-links ms-auto" style="display: flex; justify-content: flex-end;">
-                            <a href="app" class="auth-btn mobile-auth-btn">
-                                <i class="fas fa-sign-in-alt me-1"></i> Login
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 d-none d-lg-block">
-                        <div class="header-contact-info">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-envelope" style="color: #BA0909;"></i>
-                                    <a href="mailto:kalenjinvibezke@gmail.com" style="color:white">kalenjinvibezke@gmail.com</a>
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt" style="color: #BA0909;"></i>
-                                    <span>Nairobi, Kenya</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-none d-lg-block text-md-end">
-                        <div class="header-top-right">
-                            <div class="header-social">
-                                <a href="https://www.facebook.com/share/1ShpdQ2gxc/" class=""><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class=""><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.tiktok.com/@kalenjinvibes" class=""><i class="fab fa-tiktok"></i></a>
-                            </div>
-                            <div class="header-auth-links ms-3">
-                                <a href="app" class="auth-btn" style="background-color: #BA0909; color: white; padding: 5px 15px; border-radius: 4px; text-decoration: none; font-weight: 500;">
-                                    <i class="fas fa-sign-in-alt me-1"></i> Login
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Header -->
-        <div class="main-header" style="background-color: white;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-2 col-6">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="assets/img/logocopy.jpg" alt="Kalenjin Vibes Logo" class="img-fluid" style="max-height: 60px;">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 d-none d-lg-block">
-                        <nav class="main-menu">
-                            <ul>
-                                <li>
-                                    <a href="index.html" style="color: #333;"><i class="fas fa-home me-1"></i> Home</a>
-                                </li>
-                                <li>
-                                    <a href="eventslist.html" style="color: #333;"><i class="fas fa-calendar-alt me-1"></i> Events</a>
-                                </li>
-                                <li class="active">
-                                    <a href="talentlist.html" style="color: #333;"><i class="fas fa-users me-1"></i> Talents</a>
-                                </li>
-                                <li>
-                                    <a href="shop.html" style="color: #333;"><i class="fas fa-cart-shopping me-1"></i> Shop</a>
-                                </li>
-                                <li>
-                                    <a href="contact.html" style="color: #333;"><i class="fas fa-envelope me-1"></i> Contact</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col-lg-2 col-6 text-end">
-                        <div class="header-actions d-flex justify-content-end align-items-center">
-                            <button class="search-toggle me-3" style="background: none; border: none; color: #333;">
-                                <i class="fas fa-search"></i>
-                            </button>
-                            <button class="vs-menu-toggle d-inline-block d-lg-none" style="background: none; border: none; padding: 0;">
-                                <i class="fas fa-bars" style="color: black; font-size: 1.5rem;"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Search Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: #BA0909; color: white;">
-                        <h5 class="modal-title" style="color:white;">Search Events</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="searchForm">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" name="query" id="searchInput" placeholder="Search for events..." autocomplete="off">
-                                <button class="btn btn-danger" type="submit">Search</button>
-                            </div>
-                        </form>
-                        <div id="searchResults" class="mt-3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Breadcrumb -->
-    <div class="breadcumb-wrapper background-image" style="background-image: url('assets/img/breadcumb/breadcumb-bg.jpg');">
-        <div class="container z-index-common">
+    <!-- Compact Breadcrumb -->
+    <div class="breadcumb-wrapper" style="background-image: url('assets/img/breadcumb/breadcumb-bg.jpg');">
+        <div class="container mx-auto px-4">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Kalenjin Vibes Talents</h1>
+                <h3 class="breadcumb-title" id="currentTalentName">Loading...</h3>
                 <div class="breadcumb-menu-wrap">
                     <ul class="breadcumb-menu">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="talentlist.html">Talents</a></li>
-                        <li id="currentTalentName">Loading...</li>
+                        <li id="currentTalentRole">Details</li>
                     </ul>
                 </div>
             </div>
@@ -243,263 +206,396 @@
     </div>
 
     <!-- Talent Details Section -->
-    <section class="space-bottom">
-        <div class="outer-wrap">
-            <div class="container">
-                <div class="shadow-content1">
-                    <div class="row mx-auto">
-                        <div class="col-lg-8">
-                            <!-- Loading Spinner -->
-                            <div id="loadingDetails" class="text-center py-5">
-                                <div class="spinner-border text-danger" role="status">
-                                    <span class="visually-hidden">Loading talent details...</span>
+    <main class="py-5">
+        <div class="container mx-auto px-4">
+            <!-- Loading Spinner -->
+            <div id="loadingDetails" class="text-center py-10">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading talent details...</span>
+                </div>
+                <p class="mt-3 text-gray-600">Loading talent information...</p>
+            </div>
+            
+            <!-- Error Message -->
+            <div id="errorMessage" class="text-center py-10" style="display: none;">
+                <i class="fas fa-exclamation-circle text-4xl text-red-500 mb-3"></i>
+                <h4 class="text-xl font-semibold text-gray-700 mb-2">Talent Not Found</h4>
+                <p class="text-gray-600 mb-4">The requested talent could not be found.</p>
+                <a href="talentlist.html" class="bg-primary text-white px-4 py-2 rounded hover:bg-red-800 transition-colors">
+                    Browse All Talents
+                </a>
+            </div>
+            
+            <!-- Talent Details Content -->
+            <div id="talentDetails" style="display: none;">
+                <div class="row g-5">
+                    <!-- Talent Image and Basic Info -->
+                    <div class="col-lg-4">
+                        <div class="talent-detail-image mb-4">
+                            <img id="talentImage" src="" alt="Talent Image">
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow p-4">
+                            <h3 class="text-2xl font-bold mb-2" id="talentName"></h3>
+                            <div class="text-primary font-semibold text-lg mb-3" id="talentRole"></div>
+                            
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>5.0 Rating</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-check text-primary mr-2"></i>
+                                    <span>Available for Booking</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-clock text-primary mr-2"></i>
+                                    <span>Flexible Schedule</span>
                                 </div>
                             </div>
                             
-                            <!-- Error Message -->
-                            <div id="errorMessage" class="alert alert-danger" style="display: none;">
-                                Talent not found. Please go back to the <a href="talentlist.html">talents list</a>.
+                            <div class="mt-4 pt-4 border-t">
+                                <h4 class="font-bold mb-2">Quick Actions</h4>
+                                <button onclick="scrollToBooking()" class="w-full bg-primary text-white py-2 rounded mb-2 hover:bg-red-800 transition-colors">
+                                    <i class="fas fa-calendar-plus mr-2"></i> Book Now
+                                </button>
+                                <button onclick="contactTalent()" class="w-full bg-secondary text-white py-2 rounded hover:bg-gray-800 transition-colors">
+                                    <i class="fas fa-envelope mr-2"></i> Contact Talent
+                                </button>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Talent Description and Booking Form -->
+                    <div class="col-lg-8">
+                        <div class="bg-white rounded-lg shadow p-5">
+                            <h4 class="font-bold text-xl mb-4">About the Talent</h4>
+                            <p class="text-gray-700 mb-6" id="talentDescription"></p>
                             
-                            <!-- Talent Details Content (will be populated dynamically) -->
-                            <div id="talentDetails" style="display: none;">
-                                <div class="filter-active tour-booking-active">
-                                    <div class="filter-item tab-content1">
-                                        <div class="info-image">
-                                            <img id="talentImage" src="" alt="Talent Image">
+                            <!-- Booking Form -->
+                            <div class="border-t pt-6">
+                                <h4 class="font-bold text-xl mb-4">Book This Talent</h4>
+                                
+                                <form id="bookingForm">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                            <input type="text" name="first_name" class="w-full border rounded-lg px-4 py-2" required>
                                         </div>
-                                        
-                                        <div class="row justify-content-between align-items-center">
-                                            <div class="col-md-6">
-                                                <h2 class="tab-title" id="talentName"></h2>
-                                            </div>
-                                            <div class="col-auto">
-                                                <p class="tour-price"><strong id="talentRole"></strong></p>
-                                            </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                            <input type="text" name="last_name" class="w-full border rounded-lg px-4 py-2" required>
                                         </div>
-                                        
-                                        <p id="talentDescription"></p>
-                                        
-                                        <!-- Booking Form -->
-                                        <form id="bookingForm" action="#" method="POST">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <h2 class="h4">Booking Details</h2>
-                                                    <div class="row">
-                                                        <div class="col-md-6 form-group">
-                                                            <input type="text" class="form-control" placeholder="First Name" name="first_name" required>
-                                                        </div>
-                                                        <div class="col-md-6 form-group">
-                                                            <input type="text" class="form-control" placeholder="Last Name" name="last_name" required>
-                                                        </div>
-                                                        <div class="col-12 form-group">
-                                                            <input type="text" class="form-control" placeholder="Event Name" name="event_name" required>
-                                                        </div>
-                                                        <div class="col-12 form-group">
-                                                            <input type="text" class="form-control" placeholder="Location" name="location" required>
-                                                        </div>
-                                                        <div class="col-md-6 form-group">
-                                                            <input type="date" class="form-control" placeholder="Event Schedule" name="event_date" required>
-                                                        </div>
-                                                        <div class="col-md-6 form-group">
-                                                            <input type="number" class="form-control" placeholder="Budget in Ksh" name="amount" required>
-                                                        </div>
-                                                        <div class="col-12 form-group">
-                                                            <input type="text" class="form-control" placeholder="Phone number" name="phone_number" required>
-                                                        </div>
-                                                        <div class="col-12 form-group">
-                                                            <input type="email" class="form-control" placeholder="Email Address" name="email" required>
-                                                        </div>
-                                                        <input type="hidden" id="talentIdInput" name="talent_id" value="">
-                                                        <input type="hidden" id="talentNameInput" name="talent_name" value="">
-                                                        <div class="col-12 form-group">
-                                                            <textarea rows="5" class="form-control" placeholder="Notes about your Bookings" name="notes"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row place-order pt-lg-2">
-                                                    <button type="submit" class="vs-btn style4">SUBMIT</button>
-                                                </div>
-                                            </div>
-                                        </form>
                                     </div>
-                                </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                        <input type="email" name="email" class="w-full border rounded-lg px-4 py-2" required>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                                        <input type="tel" name="phone_number" class="w-full border rounded-lg px-4 py-2" required>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Event Name *</label>
+                                        <input type="text" name="event_name" class="w-full border rounded-lg px-4 py-2" required>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Event Location *</label>
+                                        <input type="text" name="location" class="w-full border rounded-lg px-4 py-2" required>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Event Date *</label>
+                                            <input type="date" name="event_date" class="w-full border rounded-lg px-4 py-2" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Budget (Ksh) *</label>
+                                            <input type="number" name="amount" class="w-full border rounded-lg px-4 py-2" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-6">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
+                                        <textarea name="notes" rows="4" class="w-full border rounded-lg px-4 py-2"></textarea>
+                                    </div>
+                                    
+                                    <input type="hidden" id="talentIdInput" name="talent_id" value="">
+                                    <input type="hidden" id="talentNameInput" name="talent_name" value="">
+                                    
+                                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-red-800 transition-colors w-full text-lg font-semibold">
+                                        <i class="fas fa-calendar-check mr-2"></i> Submit Booking Request
+                                    </button>
+                                    
+                                    <p class="text-sm text-gray-500 mt-3">
+                                        By submitting this form, you agree to our terms and conditions.
+                                        Our team will contact you within 24 hours to confirm your booking.
+                                    </p>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer-wrapper footer-layout1 shape-mockup-wrap">
-        <div class="container ">
-            <div class="footer-newsletter2 py-5">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="newsletter-style2">
-                            <div class="newsletter-img">
-                                <img src="assets/img/call.png" style="width:80%" alt="image">
-                            </div>
-                            <h3 class="newsletter-text">Call Us 24/7</h3>
-                            <a href="tel:+254797265275">+254797265275</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="newsletter-style2">
-                            <div class="newsletter-img">
-                                <img src="assets/img/share.png" style="width:80%" alt="image">
-                            </div>
-                            <h3 class="newsletter-text">Write To Us</h3>
-                            <a href="mailto:kalenjinvibezke@gmail.com">kalenjinvibezke@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <form class="form-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <button class="vs-btn style4" type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="widget-area2">
-            <div class="container">
-                <div class="row g-5 justify-content-between">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="widget footer-widget">
-                            <div class="vs-widget-about">
-                                <div class="footer-logo">
-                                    <a href="#"><img src="assets/img/lg.png" alt="Kalenjin Vibes" style="width:60%" class="logo"></a>
-                                </div>
-                                <p class="footer-text">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
-                                <div class="social-style1">
-                                    <a href="https://www.facebook.com/share/1ShpdQ2gxc/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                    <a href="https://www.tiktok.com/@kalenjinvibes" target="_blank"><i class="fab fa-tiktok"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-2">
-                        <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Useful Links</h3>
-                            <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="index.html"><i class="far fa-angle-right"></i> Home</a></li>
-                                    <li><a href="eventslist.html"><i class="far fa-angle-right"></i> Events</a></li>
-                                    <li><a href="talentlist.html"><i class="far fa-angle-right"></i> Talents</a></li>
-                                    <li><a href="contact.html"><i class="far fa-angle-right"></i> Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-2">
-                        <div class="widget widget_nav_menu footer-widget footer-contact">
-                            <h3 class="widget_title">Contact</h3>
-                            <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi - Kenya</a></li>
-                                    <li><a href="mailto:kalenjinvibezke@gmail.com"><i class="fas fa-envelope"></i> kalenjinvibezke@gmail.com</a></li>
-                                    <li>
-                                        <a href="tel:+254797265275"><i class="fas fa-phone-alt"></i> +254701 576 004</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright-wrap">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-auto">
-                        <p class="copyright-text">Copyright <i class="fal fa-copyright"></i>
-                            <script>document.write(new Date().getFullYear())</script> <a href="#">Kalenjin Vibes</a>.
-                            All Rights Reserved
-                        </p>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <div class="copyright-menu">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
 
     <!-- Scroll To Top -->
-    <a href="#" class="scrollToTop scroll-btn show"><i class="far fa-arrow-up"></i></a>
+    <a href="#" class="scrollToTop scroll-btn fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-red-800 transition-colors duration-300 z-50 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </a>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+254797265275" class="whatsapp-button" target="_blank">
+    <a href="https://wa.me/+254797265275" class="whatsapp-button-talent-details" target="_blank" title="Chat with us on WhatsApp">
         <img src="assets/img/WhatsApp.svg" alt="WhatsApp">
     </a>
 
     <!-- JavaScript Files -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    <!-- Theme JS Files -->
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    
-    <!-- Universal JS -->
-    <script src="assets/js/main.js"></script>
-    
-    <!-- Talent System JS -->
-    <script src="assets/js/talents.js"></script>
-
+    <!-- Load Header and Footer -->
     <script>
-        // Mobile menu functionality
+        // Load header from partials folder
+        fetch('partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                
+                // Initialize mobile menu after header is loaded
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const menuToggle = document.querySelector('.vs-menu-toggle');
+                const closeBtn = document.querySelector('.menu-close');
+                const overlay = document.querySelector('.menu-overlay');
+                
+                if (menuToggle && mobileMenu) {
+                    menuToggle.addEventListener('click', function() {
+                        mobileMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
+                
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+                
+                if (overlay) {
+                    overlay.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+                
+                // Close menu when clicking links
+                const menuLinks = document.querySelectorAll('.menu-link');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            })
+            .catch(error => console.error('Error loading header:', error));
+            
+        // Load footer from partials folder
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                
+                // Initialize footer functionality
+                const yearElements = document.querySelectorAll('.current-year');
+                yearElements.forEach(element => {
+                    element.textContent = new Date().getFullYear();
+                });
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+    
+    <!-- Scroll to Top Script -->
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Toggle menu
-            const menuToggle = document.querySelector('.vs-menu-toggle');
-            const mobileMenu = document.querySelector('.mobile-menu');
+            const scrollToTopBtn = document.querySelector('.scrollToTop');
             
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-
-            // Close menu
-            const closeBtn = document.querySelector('.menu-close');
-            const overlay = document.querySelector('.menu-overlay');
-            
-            function closeMenu() {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-            
-            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-            if (overlay) overlay.addEventListener('click', closeMenu);
-            
-            // Close menu when clicking links
-            const menuLinks = document.querySelectorAll('.menu-link');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
             });
-
-            // Search modal functionality
-            const searchModal = new bootstrap.Modal(document.getElementById('searchModal'));
-            const searchToggle = document.querySelector('.search-toggle');
             
-            if (searchToggle) {
-                searchToggle.addEventListener('click', function() {
-                    searchModal.show();
-                    document.getElementById('searchInput').focus();
+            scrollToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
+            });
+            
+            // Load talent details
+            loadTalentDetails();
+        });
+    </script>
+    
+    <!-- Talent Details JavaScript - DYNAMIC LOADING FROM JSON -->
+    <script>
+        // Fetch talents from JSON file
+        async function fetchTalents() {
+            try {
+                const response = await fetch('talents.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                return data.talents || [];
+            } catch (error) {
+                console.error('Error loading talents:', error);
+                return [];
             }
+        }
+        
+        // Function to load talent details
+        async function loadTalentDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const talentId = parseInt(urlParams.get('talent'));
+            
+            if (!talentId) {
+                showError();
+                return;
+            }
+            
+            try {
+                // Fetch talents from JSON
+                const talents = await fetchTalents();
+                
+                if (talents.length === 0) {
+                    showError();
+                    return;
+                }
+                
+                // Find the talent by ID
+                const talent = talents.find(t => t.id === talentId);
+                
+                if (talent) {
+                    // Update page content
+                    document.getElementById('talentName').textContent = talent.name;
+                    document.getElementById('talentRole').textContent = talent.role;
+                    document.getElementById('talentDescription').textContent = talent.description;
+                    document.getElementById('currentTalentName').textContent = talent.name;
+                    document.getElementById('currentTalentRole').textContent = talent.role;
+                    document.getElementById('talentImage').src = talent.image;
+                    document.getElementById('talentImage').alt = talent.name;
+                    document.getElementById('talentIdInput').value = talentId;
+                    document.getElementById('talentNameInput').value = talent.name;
+                    
+                    // Update page title
+                    document.title = `Kalenjin Vibes | ${talent.name} - ${talent.role}`;
+                    
+                    // Show content and hide loading
+                    setTimeout(() => {
+                        document.getElementById('loadingDetails').style.display = 'none';
+                        document.getElementById('talentDetails').style.display = 'block';
+                    }, 500);
+                } else {
+                    showError();
+                }
+            } catch (error) {
+                console.error('Error loading talent details:', error);
+                showError();
+            }
+        }
+        
+        // Show error message
+        function showError() {
+            document.getElementById('loadingDetails').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+        
+        // Scroll to booking form
+        function scrollToBooking() {
+            document.getElementById('bookingForm').scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('input[name="first_name"]').focus();
+        }
+        
+        // Contact talent function
+        function contactTalent() {
+            const talentName = document.getElementById('talentName').textContent;
+            Swal.fire({
+                title: `Contact ${talentName}`,
+                text: `Would you like to contact ${talentName} directly?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Contact Now',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open(`https://wa.me/+254797265275?text=Hello, I would like to inquire about booking ${talentName}`, '_blank');
+                }
+            });
+        }
+        
+        // Handle booking form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Basic validation
+            if (!data.first_name || !data.last_name || !data.email || !data.phone_number || !data.event_name || !data.location || !data.event_date || !data.amount) {
+                Swal.fire({
+                    title: 'Incomplete Form',
+                    text: 'Please fill in all required fields marked with *',
+                    icon: 'warning',
+                    confirmButtonColor: '#BA0909'
+                });
+                return;
+            }
+            
+            // Show loading
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Prepare data for redirect to payments page
+                const params = new URLSearchParams();
+                params.append('type', 'talent_booking');
+                params.append('talent_id', data.talent_id);
+                params.append('talent_name', data.talent_name);
+                params.append('first_name', data.first_name);
+                params.append('last_name', data.last_name);
+                params.append('email', data.email);
+                params.append('phone_number', data.phone_number);
+                params.append('event_name', data.event_name);
+                params.append('location', data.location);
+                params.append('event_date', data.event_date);
+                params.append('amount', data.amount);
+                if (data.notes) {
+                    params.append('notes', data.notes);
+                }
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Redirect to payments page
+                window.location.href = `payments.html?${params.toString()}`;
+            }, 1000);
         });
     </script>
 </body>

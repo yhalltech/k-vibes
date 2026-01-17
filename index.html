@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html class="no-js" lang="zxx">
+<head>
+  <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Kalenjin Vibes | Official Website | [Event Planning, Artist, Dj, Producer, Mcs, Events, Kalenjin night, Kikuyu night, Mugithi night, Luo Night]</title>
+  <title>Kalenjin Vibes | Official Website</title>
   <meta name="author" content="Taitab Gaa">
-  <meta name="description" content="Welcome to the official website of Taitab Gaa. Find our events schedule, mcs, djs, ticketing and contact information here.">
-
-  <!-- Mobile Specific Metas -->
+  <meta name="description" content="Welcome to Kalenjin Vibes - Event Planning, Artists, DJs, Producers, MCs, and Events">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Favicons - Place favicon.ico in the root directory -->
-
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
-
-  <!--==============================
-	  Google Fonts
-	============================== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -48,7 +43,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z93DQW5D1S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -57,413 +52,207 @@
     gtag('config', 'G-Z93DQW5D1S');
   </script>
 
-  <!--==============================
-	    All CSS File
-	============================== -->
   <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- Magnific Popup CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SknMBTht55CbmwOn4sAwmu68+4dVVFqQ6XvL4Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  
-  <!-- Slick Slider CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
-  
-  <!-- Theme Custom CSS -->
+  <!-- Custom CSS Files -->
   <link rel="stylesheet" href="assets/css/style.css">
-  
-  <!-- Universal Styles -->
   <link rel="stylesheet" href="assets/css/main.css">
-  
-  <!-- Index Page Specific CSS -->
   <link rel="stylesheet" href="assets/css/index.css">
-  
-  <!-- Cart Component CSS -->
   <link rel="stylesheet" href="assets/css/cart.css">
-
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/header.js"></script>
+  
+  <style>
+    /* WhatsApp Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .whatsapp-button:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .whatsapp-button img {
+      width: 35px;
+      height: 35px;
+      filter: brightness(0) invert(1);
+    }
+    
+    .scrollToTop {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 1000;
+      background: #BA0909;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .scrollToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scrollToTop:hover {
+      background: #9c0707;
+      transform: translateY(-3px);
+    }
+  </style>
 </head>
 <body>
+  <!-- Header will be loaded here -->
+  <div id="header-container"></div>
 
-  <!--********************************
-  Code Start From Here 
-	******************************** -->
-
-<!--==============================
-    Mobile Menu
-==============================-->
-<div class="mobile-menu">
-  <div class="menu-overlay"></div>
-  <div class="menu-container">
-    <!-- Menu Header -->
-    <div class="menu-header">
-      <button class="menu-close">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    
-    <!-- Menu Navigation -->
-    <nav class="menu-nav">
-      <ul>
-        <li>
-          <a href="index.html" class="menu-link">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="eventslist.html" class="menu-link">
-            <i class="fas fa-calendar"></i>
-            <span>Events</span>
-          </a>
-        </li>
-        <li>
-          <a href="talentlist.html" class="menu-link">
-            <i class="fas fa-users"></i>
-            <span>Talents</span>
-          </a>
-        </li>
-        <li>
-          <a href="shop.html" class="menu-link">
-            <i class="fas fa-shopping-cart"></i>
-            <span>Shop</span>
-          </a>
-        </li>
-        <li>
-          <a href="contact.html" class="menu-link">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    
-    <!-- Menu Footer -->
-    <div class="menu-footer">
-      <div class="social-icons">
-        <a href="#" class="social-icon">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://wa.me/+254797265275" class="social-icon">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-      <p class="copyright">© <script>document.write(new Date().getFullYear())</script> Kalenjin Vibes</p>
-    </div>
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Toggle menu
-  const menuToggle = document.querySelector('.vs-menu-toggle');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  
-  if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  }
-
-  // Close menu
-  const closeBtn = document.querySelector('.menu-close');
-  const overlay = document.querySelector('.menu-overlay');
-  
-  function closeMenu() {
-    mobileMenu.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-  if (overlay) overlay.addEventListener('click', closeMenu);
-  
-  // Close menu when clicking links
-  const menuLinks = document.querySelectorAll('.menu-link');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-});
-</script>
-
-  <!--==============================
-    Sidemenu
-  ============================== -->
-  <div class="sidemenu-wrapper offcanvas-wrapper d-none d-lg-block">
-    <div class="sidemenu-content">
-      <button class="closeButton sideMenuCls">
-        <i class="far fa-times"></i>
-      </button>
-      <div class="widget">
-        <div class="vs-widget-about">
-          <div class="footer-logo">
-          </div>
-          <p class="footer-text">
-           Welcome to Kalenjin Vibes, your one-stop solution for all your entertainment and event needs. We specialize in connecting you with top-notch DJs, producers, artists, and event planning services to bring your vision to life.
-          </p>
-          <div class="info-social style2">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--==============================
-    Popup Search Box
-  ============================== -->
-  <div class="popup-search-box d-none d-lg-block">
-    <button class="searchClose"><i class="fal fa-times"></i></button>
-    <form action="#">
-      <input type="text" class="border-theme" placeholder="What are you looking for">
-      <button type="submit"><i class="fal fa-search"></i></button>
-    </form>
-  </div>
-  
-  <!--==============================
-    Header Area
-  ==============================-->
-
-<header class="vs-header header-layout4">
-  <!-- Top Bar - Black Background -->
-  <div class="header-top-bar">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- For mobile: Social icons on left -->
-        <div class="col-6 d-lg-none">
-          <div class="header-social">
-            <a href="#" class=""><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class=""><i class="fab fa-instagram"></i></a>
-            <a href="#" class=""><i class="fab fa-tiktok"></i></a>
-          </div>
-        </div>
-        
-        <!-- For mobile: Auth links on right -->
-        <div class="col-6 d-lg-none text-end">
-          <div class="header-auth-links ms-auto" style="display: flex; justify-content: flex-end;">
-            <a href="app/index.html" class="auth-btn mobile-auth-btn">
-              <i class="fas fa-sign-in-alt me-1"></i> Login
-            </a>
-          </div>
-        </div>
-        
-        <!-- Desktop version (hidden on mobile) -->
-        <div class="col-md-6 d-none d-lg-block">
-          <div class="header-contact-info">
-            <ul>
-              <li>
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:kalenjinvibezke@gmail.com">kalenjinvibezke@gmail.com</a>
-              </li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Nairobi, Kenya</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 d-none d-lg-block text-md-end">
-          <div class="header-top-right">
-            <div class="header-social">
-              <a href="#" class=""><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class=""><i class="fab fa-instagram"></i></a>
-              <a href="#" class=""><i class="fab fa-tiktok"></i></a>
-            </div>
-            <div class="header-auth-links ms-3">
-              <a href="app/index.html" class="auth-btn primary">
-                <i class="fas fa-sign-in-alt me-1"></i> Login
+  <!-- Hero Section -->
+  <section class="hero-layout1">
+    <div class="hero-image-container">
+      <div class="hero-image-inner">
+        <div class="container-fluid p-0">
+          <div class="row g-0">
+            <div class="col-12">
+              <a href="eventslist.html">
+                <img src="./assets/img/slider/dsk1.png" alt="Hero Image - Desktop" class="d-none d-md-block w-100">
+                <img src="./assets/img/slider/dskt.png" alt="Hero Image - Mobile" class="d-md-none w-100">
               </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Main Header -->
-  <div class="main-header">
-    <div class="container">
+  <!-- Upcoming Events Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="sec-title">Upcoming Events</h2>
+        <p class="sec-subtitle">Discover our exciting upcoming events</p>
+      </div>
+      
+      <div class="search-container">
+        <div class="search-input-container">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            id="eventSearch" 
+            class="search-input" 
+            placeholder="Search upcoming events by name, location, or date..."
+            autocomplete="off"
+          >
+          <button class="clear-search" id="clearSearch">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="search-results-container">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+      
+      <div class="row" id="upcomingEventsContainer">
+        <div class="col-12 text-center">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading upcoming events...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="sec-title">Past Events</h2>
+        <p class="sec-subtitle">Relive our memorable past events</p>
+      </div>
+      
+      <div class="row" id="pastEventsContainer">
+        <div class="col-12 text-center">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading past events...</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="past-events.html" class="vs-btn style4">
+          <i class="fas fa-history me-2"></i> View All Past Events
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
       <div class="row align-items-center">
-        <div class="col-lg-2 col-6">
-          <div class="logo">
-            <!-- Logo content here -->
-          </div>
-        </div>
-        <div class="col-lg-8 d-none d-lg-block">
-          <nav class="main-menu">
-            <ul>
-              <li class="active">
-                <a href="index.html"><i class="fas fa-home me-1"></i> Home</a>
-              </li>
-              <li>
-                <a href="eventslist.html"><i class="fas fa-calendar-alt me-1"></i> Events</a>
-              </li>
-              <li>
-                <a href="talentlist.html"><i class="fas fa-users me-1"></i> Talents</a>
-              </li>
-              <li>
-                <a href="shop.html"><i class="fas fa-cart-shopping me-1"></i> Shop</a>
-              </li>
-              <li>
-                <a href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
-              </li>
+        <div class="col-lg-6 mb-10 lg:mb-0">
+          <div class="about-content">
+            <div class="title-area mb-6">
+              <h2 class="sec-title h1">Elevate Your Event With Premium Talent!</h2>
+              <p class="sec-text text-gray-600">Welcome to Kalenjin Vibes, your one-stop solution for all your entertainment and event needs. We specialize in event ticketing, connecting you with top-notch DJs, Producers, Artists, Mcs, Videographers and Photographers to bring your vision to life.</p>
+            </div>
+            <ul class="about-list1">
+              <li><i class="fas fa-check-circle"></i> Creative Producers – Sound architects for your vision</li>
+              <li><i class="fas fa-check-circle"></i> World-Class DJs – Non-stop energy, flawless mixes</li>
+              <li><i class="fas fa-check-circle"></i> Top Artists – Stage-ready star power</li>
+              <li><i class="fas fa-check-circle"></i> Dynamic MCs – Your event's perfect host</li>
+              <li><i class="fas fa-check-circle"></i> Quality Visuals – Moments captured brilliantly</li>
+              <li><i class="fas fa-check-circle"></i> Event Ticketing – Easy access, zero stress</li>
             </ul>
-          </nav>
-        </div>
-        <div class="col-lg-2 col-6 text-end">
-          <div class="header-actions d-flex justify-content-end align-items-center">
-            <button class="search-toggle me-3">
-              <i class="fas fa-search"></i>
-            </button>
-            <!-- Cart Icon -->
-            <div class="cart-icon-wrapper me-3">
-              <i class="fas fa-shopping-bag"></i>
-              <span class="cart-badge" style="display: none;">0</span>
-            </div>
-            <button class="vs-menu-toggle d-inline-block d-lg-none">
-              <i class="fas fa-bars"></i>
-            </button>
+            <a href="talentlist.html" class="vs-btn style4 mt-6">Book A Talent</a>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-  <!--==============================
-      Hero Area Start 
-    ==============================-->
-<!-- Hero Image Section - Single Static Image -->
-<section class="hero-layout1">
-  <div class="hero-image-container">
-    <div class="hero-image-inner">
-      <div class="container-fluid p-0">
-        <div class="row g-0">
-          <div class="col-12">
-            <!-- Desktop Image (shown on screens 768px and wider) -->
-            <a href="eventslist.html">
-            <img src="./assets/img/slider/dsk1.png" alt="Hero Image - Desktop" class="d-none d-md-block w-100">
-            <!-- Mobile Image (shown on screens smaller than 768px) -->
-            <img src="./assets/img/slider/dskt.png" alt="Hero Image - Mobile" class="d-md-none w-100">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Upcoming Events Section -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="sec-title">Upcoming Events</h2>
-      <p class="sec-subtitle">Discover our exciting upcoming events</p>
-    </div>
-    
-    <!-- Search Bar -->
-    <div class="search-container">
-      <div class="search-input-container">
-        <i class="fas fa-search search-icon"></i>
-        <input 
-          type="text" 
-          id="eventSearch" 
-          class="search-input" 
-          placeholder="Search upcoming events by name, location, or date..."
-          autocomplete="off"
-        >
-        <button class="clear-search" id="clearSearch">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="search-results-container">
-        <div class="search-results" id="searchResults"></div>
-      </div>
-    </div>
-    
-    <div class="row" id="upcomingEventsContainer">
-      <!-- Upcoming events will be loaded here -->
-      <div class="col-12 text-center">
-        <div class="loading-spinner">
-          <i class="fas fa-spinner fa-spin"></i>
-          <p>Loading upcoming events...</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Past Events Section -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="sec-title">Past Events</h2>
-      <p class="sec-subtitle">Relive our memorable past events</p>
-    </div>
-    
-    <div class="row" id="pastEventsContainer">
-      <!-- First 4 past events will be loaded here from JSON -->
-      <div class="col-12 text-center">
-        <div class="loading-spinner">
-          <i class="fas fa-spinner fa-spin"></i>
-          <p>Loading past events...</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- View All Past Events Button -->
-    <div class="text-center mt-12">
-      <a href="past-events.html" class="vs-btn style4">
-        <i class="fas fa-history me-2"></i> View All Past Events
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-10 lg:mb-0">
-        <div class="about-content">
-          <div class="title-area mb-6">
-            <h2 class="sec-title h1">Elevate Your Event With Premium Talent!</h2>
-            <p class="sec-text text-gray-600">Welcome to Kalenjin Vibes, your one-stop solution for all your entertainment and event needs. We specialize in event ticketing, connecting you with top-notch DJs, Producers, Artists, Mcs, Videographers and Photographers to bring your vision to life.</p>
-          </div>
-          <ul class="about-list1">
-            <li><i class="fas fa-check-circle"></i> Creative Producers – Sound architects for your vision</li>
-            <li><i class="fas fa-check-circle"></i> World-Class DJs – Non-stop energy, flawless mixes</li>
-            <li><i class="fas fa-check-circle"></i> Top Artists – Stage-ready star power</li>
-            <li><i class="fas fa-check-circle"></i> Dynamic MCs – Your event's perfect host</li>
-            <li><i class="fas fa-check-circle"></i> Quality Visuals – Moments captured brilliantly</li>
-            <li><i class="fas fa-check-circle"></i> Event Ticketing – Easy access, zero stress</li>
-          </ul>
-          <a href="talentlist.html" class="vs-btn style4 mt-6">Book A Talent</a>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="img-box3">
-          <div class="grid grid-cols-2 gap-6">
-            <div class="mb-6">
-              <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/vd.webp" alt="Video Production">
-            </div>
-            <div class="mb-6">
-              <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/dj.webp" alt="DJ Performance">
-            </div>
-            <div>
-              <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/p.webp" alt="Event Photography">
-            </div>
-            <div>
-              <div class="bg-primary rounded-lg h-full flex items-center justify-center p-8 shadow-lg">
-                <div class="text-center">
-                  <h3 class="text-white text-2xl font-bold mb-3">Need Help?</h3>
-                  <p class="text-white mb-6">Contact our event specialists</p>
-                  <a href="contact.html" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300">
-                    Contact Us
-                  </a>
+        <div class="col-lg-6">
+          <div class="img-box3">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="mb-6">
+                <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/vd.webp" alt="Video Production">
+              </div>
+              <div class="mb-6">
+                <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/dj.webp" alt="DJ Performance">
+              </div>
+              <div>
+                <img class="w-full h-auto rounded-lg shadow-lg" src="./index_files/p.webp" alt="Event Photography">
+              </div>
+              <div>
+                <div class="bg-primary rounded-lg h-full flex items-center justify-center p-8 shadow-lg">
+                  <div class="text-center">
+                    <h3 class="text-white text-2xl font-bold mb-3">Need Help?</h3>
+                    <p class="text-white mb-6">Contact our event specialists</p>
+                    <a href="contact.html" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300">
+                      Contact Us
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -471,185 +260,131 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer Section (from payments.html) -->
-<footer class="bg-gray-900 text-white pt-16">
-    <div class="container mx-auto px-4">
-      <div class="py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          <div class="text-center">
-            <div class="mb-4">
-              <img src="./index_files/call.png" alt="Call Us" class="w-16 mx-auto">
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Call Us 24/7</h3>
-            <a href="tel:+254797265275" class="text-primary font-semibold hover:text-red-400 transition-colors duration-300">+254797265275</a>
-          </div>
-          
-          <div class="text-center">
-            <div class="mb-4">
-              <img src="./index_files/share.png" alt="Email Us" class="w-16 mx-auto">
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Write To Us</h3>
-            <a href="mailto:kalenjinvibezke@gmail.com" class="text-primary font-semibold hover:text-red-400 transition-colors duration-300">kalenjinvibezke@gmail.com</a>
-          </div>
-          
-          <div>
-            <form class="flex">
-              <input type="email" class="flex-grow px-4 py-3 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-primary" placeholder="Enter your email">
-              <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-lg font-semibold hover:bg-red-800 transition-colors duration-300">
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="bg-gray-800 py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <h2 class="text-primary text-2xl font-bold mb-4">KALENJIN VIBES</h2>
-            <p class="text-gray-300 mb-6">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
-            <div class="flex space-x-4">
-              <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
-                <i class="fab fa-tiktok"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div>
-            <h3 class="text-xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-primary">Useful Links</h3>
-            <ul class="space-y-3">
-              <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-home mr-3 text-primary"></i> Home</a></li>
-              <li><a href="eventslist.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-calendar-alt mr-3 text-primary"></i> Events</a></li>
-              <li><a href="talentlist.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-users mr-3 text-primary"></i> Talents</a></li>
-              <li><a href="shop.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-shopping-cart mr-3 text-primary"></i> Shop</a></li>
-              <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-envelope mr-3 text-primary"></i> Contact Us</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 class="text-xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-primary">Contact</h3>
-            <ul class="space-y-4">
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
-                <span class="text-gray-300">Nairobi - Kenya</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-envelope text-primary mr-3 mt-1"></i>
-                <a href="mailto:kalenjinvibezke@gmail.com" class="text-gray-300 hover:text-primary transition-colors duration-300">kalenjinvibezke@gmail.com</a>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-phone-alt text-primary mr-3 mt-1"></i>
-                <a href="tel:+254797265275" class="text-gray-300 hover:text-primary transition-colors duration-300">+254797265275</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="border-t border-gray-700 py-6">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <p class="text-gray-400 text-sm">
-              Copyright <i class="fal fa-copyright"></i>
-              <script>document.write(new Date().getFullYear())</script>
-              <a href="index.html" class="text-primary hover:text-red-400"> Kalenjin Vibes</a>.
-              All Rights Reserved
-            </p>
-          </div>
-          <div class="hidden md:block">
-            <div class="flex space-x-6">
-              <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors duration-300">Privacy</a>
-              <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors duration-300">Terms &amp; Conditions</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ********************************
-    Code Ends Here 
-	********************************* -->
+  <!-- Footer will be loaded here -->
+  <div id="footer-container"></div>
 
   <!-- Scroll To Top -->
-  <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
+  <a href="#" class="scrollToTop scroll-btn">
+    <i class="fas fa-arrow-up"></i>
+  </a>
   
-<!-- WhatsApp Button -->
-<a href="https://wa.me/+254797265275" class="whatsapp-button" target="_blank">
-    <img src="./index_files/WhatsApp.svg" alt="WhatsApp">
-</a>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/+254797265275" class="whatsapp-button" target="_blank">
+    <img src="assets/img/WhatsApp.svg" alt="WhatsApp">
+  </a>
 
-
-  <!-- ==============================
->>>>>>> 1c9b756927f2f645ac5cf23b5f1d290058f4b452
-    All Js File
-  ================================ -->
-  <!-- Bootstrap JS CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Slick Slider CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  
-  <!-- Magnific Popup CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SknMBTht55CbmwOn4sAwmu68+4dVVFqQ6XvL4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
-  <!-- jQuery UI CDN -->
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-  
-  <!-- Circle Progress CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/circle-progress@1.2.2/dist/circle-progress.min.js"></script>
-  
-  <!-- ImagesLoaded CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
-  
-  <!-- Isotope CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-  
-  <!-- WOW.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/wow.js@1.2.2/dist/wow.min.js"></script>
-  
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  
-  <!-- Cart Component JavaScript -->
-  <script src="assets/js/cart.js"></script>
-  
-  <!-- Index Page Specific JavaScript -->
-  <script src="assets/js/index.js"></script>
-
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function() {
-    let form_1 = document.getElementById('event');
-    if (form_1) {
-      let selectElement = form_1.querySelector('select[name="name"]');
-      if (selectElement) {
-        selectElement.addEventListener("change", function() {
-          let value = this.value;
-          if (value === 'events') {
-            window.location.href = "eventslist";
-          } else if (value === 'talent') {
-            window.location.href = "talentlist";
-          } else if (value === 'shop') {
-            window.location.href = "shop";
+  <!-- Load Header and Footer -->
+  <script>
+    // Load header
+    fetch('partials/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        initHeader();
+      })
+      .catch(error => console.error('Error loading header:', error));
+      
+    // Load footer
+    fetch('partials/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+        initFooter();
+      })
+      .catch(error => console.error('Error loading footer:', error));
+      
+    // Initialize header functionality
+    function initHeader() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const menuToggle = document.querySelector('.vs-menu-toggle');
+      const closeBtn = document.querySelector('.menu-close');
+      const overlay = document.querySelector('.menu-overlay');
+      
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      
+      // Close menu when clicking links
+      const menuLinks = document.querySelectorAll('.menu-link');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+    
+    // Initialize footer functionality
+    function initFooter() {
+      // Set current year
+      const yearElements = document.querySelectorAll('.current-year');
+      yearElements.forEach(element => {
+        element.textContent = new Date().getFullYear();
+      });
+      
+      // Newsletter form
+      const newsletterForm = document.querySelector('form .form-group');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const emailInput = newsletterForm.querySelector('input[type="email"]');
+          const email = emailInput.value.trim();
+          
+          if (email) {
+            // Save subscription
+            localStorage.setItem('subscribed_email', email);
+            alert('Thank you for subscribing!');
+            emailInput.value = '';
           }
         });
       }
     }
-  });
-</script>
-<div id="extension-ebdbc"></div>
+    
+    // Scroll to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollBtn = document.querySelector('.scrollToTop');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          scrollBtn.classList.add('show');
+        } else {
+          scrollBtn.classList.remove('show');
+        }
+      });
+      
+      scrollBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  
+  <!-- Index Page JS -->
+  <script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -1,222 +1,715 @@
 <!DOCTYPE html>
-<html>
-	
-<!-- Mirrored from taitabgaa.com/app/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Jan 2026 17:43:19 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<html lang="en">
 <head>
-		<title>index</title>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z93DQW5D1S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z93DQW5D1S');
-</script>
-				<meta name="theme-color" content="#000000" />
-			<meta name="author" content="" />
-			<meta name="keyword" content="" />
-			<meta name="description" content="" />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-			<link rel="stylesheet" href="assets/css/animate.css" />
-			<link rel="stylesheet" href="assets/css/blueimp-gallery.css" />
-							<link rel="stylesheet" href="assets/css/bootstrap-theme-pulse-darkblue.css" />
-			<link rel="stylesheet" href="assets/css/custom-style.css" />
-					<link rel="stylesheet" href="assets/css/flatpickr.min.css" />
-			<link rel="stylesheet" href="assets/css/summernote.min.css" />
-			<link rel="stylesheet" href="assets/css/dropzone.min.css" />
-			<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-			</head>
-		<body id="index" class="with-login index-index">
-		<div id="page-wrapper">
-			<!-- Show progress bar when ajax upload-->
-			<div class="progress ajax-progress-bar">
-				<div class="progress-bar"></div>
-			</div>
-			<div id="topbar" class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color:#b61927">
-    <div class="container-fluid">
-        <a class="navbar-brand text-white" href="Home.html">
-            <img class="img-responsive" src="./assets/images/logo.jpg" /> <b>TAITAB GAA </b>        </a>
-            </div>
-</div>
-			<div id="main-content">
-				<!-- Page Main Content Start -->
-					<div id="page-content">
-						
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-sm-4">
-            <div class="my-4 p-3 bg-light">
-                
-                <div>
-                                       <div class="text-center mb-4">
-                        <h2 class="fw-bold text-gradient-primary">Welcome Back</h2>
-                        <p class="text-muted">Sign in to access your account</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Kalenjin Vibes</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #8A2387 0%, #E94057 50%, #F27121 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path fill="%23ffffff" fill-opacity="0.03" d="M0,0L1000,0L1000,1000L0,1000Z"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8A2387 0%, #E94057 50%, #F27121 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, #8A2387 0%, #E94057 50%, #F27121 100%);
+            color: white;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(138, 35, 135, 0.4);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(138, 35, 135, 0.6);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.6);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 25px;
+            left: 25px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #8A2387 0%, #E94057 50%, #F27121 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 25px rgba(138, 35, 135, 0.5);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+        
+        .input-field {
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+        }
+        
+        .input-field:focus {
+            border-color: #8A2387;
+            box-shadow: 0 0 0 4px rgba(138, 35, 135, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .input-field.valid {
+            border-color: #10b981;
+        }
+        
+        .input-field.invalid {
+            border-color: #ef4444;
+        }
+        
+        .footer-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #8A2387 !important;
+            transform: translateY(-2px);
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #8A2387 0%, #E94057 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+            background: radial-gradient(circle, rgba(138, 35, 135, 0.15) 0%, transparent 70%);
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(233, 64, 87, 0.15) 0%, transparent 70%);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .login-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .login-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .login-card:hover .login-card-inner {
+            transform: rotateY(10deg);
+        }
+        
+        .password-toggle {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .password-toggle:hover {
+            color: #8A2387;
+            transform: scale(1.1);
+        }
+        
+        .security-badge {
+            background: linear-gradient(135deg, rgba(138, 35, 135, 0.1) 0%, rgba(233, 64, 87, 0.1) 50%, rgba(242, 113, 33, 0.1) 100%);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #8A2387, #E94057, #F27121) 1;
+        }
+    </style>
+</head>
+<body class="relative">
+    
+    <!-- Floating Background Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+254797265275?text=Hello,%20I%20need%20help%20with%20login%20on%20Kalenjin%20Vibes" 
+       class="whatsapp-float pulse" 
+       target="_blank">
+        <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
+    
+    <!-- Header -->
+    <header class="py-4 px-6 bg-white/90 backdrop-blur-md shadow-xl sticky top-0 z-50">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center space-x-3 group">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500">
+                        <i class="fas fa-music text-white text-2xl"></i>
                     </div>
-                    <hr />
-                                        <form name="loginForm" action="Home.html" class="needs-validation form page-form" method="post">
-                        <div class="input-group form-group">
-                            <input placeholder="Username Or Email" name="username"  required="required" class="form-control" type="text"  />
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="form-control-feedback fa fa-user"></i></span>
+                    <div>
+                        <h1 class="text-2xl font-bold gradient-text">KALENJIN VIBES</h1>
+                        <p class="text-xs text-gray-500 tracking-wider">PREMIUM ENTERTAINMENT</p>
+                    </div>
+                </a>
+                
+                <!-- Navigation Links -->
+                <nav class="hidden lg:flex space-x-10">
+                    <a href="../index.html" class="text-gray-700 hover:text-purple-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        <i class="fas fa-home mr-2"></i>Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="index/register.html" class="text-gray-700 hover:text-purple-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        <i class="fas fa-user-plus mr-2"></i>Register
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="eventslist.html" class="text-gray-700 hover:text-purple-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        <i class="fas fa-calendar-star mr-2"></i>Events
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="text-gray-700 hover:text-purple-600 font-semibold transition-all duration-300 hover:scale-105 relative group">
+                        <i class="fas fa-headset mr-2"></i>Support
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl hover:text-purple-600 transition-colors duration-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden mt-6 bg-white p-8 rounded-2xl shadow-2xl absolute left-4 right-4 z-50">
+            <div class="flex flex-col space-y-6">
+                <a href="../index.html" class="text-gray-700 hover:text-purple-600 font-semibold py-3 px-6 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-home mr-4 text-lg"></i>Home
+                </a>
+                <a href="index/register.html" class="text-gray-700 hover:text-purple-600 font-semibold py-3 px-6 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-user-plus mr-4 text-lg"></i>Register
+                </a>
+                <a href="eventslist.html" class="text-gray-700 hover:text-purple-600 font-semibold py-3 px-6 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-calendar-star mr-4 text-lg"></i>Events
+                </a>
+                <a href="contact.html" class="text-gray-700 hover:text-purple-600 font-semibold py-3 px-6 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-headset mr-4 text-lg"></i>Support
+                </a>
+                <div class="pt-4 border-t border-gray-200">
+                    <a href="index/register.html" class="block w-full py-4 text-center bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-user-plus mr-2"></i>Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-lg mx-auto">
+            <!-- Login Card -->
+            <div class="glass-effect p-10 login-card">
+                <div class="login-card-inner">
+                    <!-- Header Section -->
+                    <div class="text-center mb-10">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 flex items-center justify-center mx-auto mb-6 shadow-2xl transform hover:rotate-12 transition-transform duration-500">
+                            <i class="fas fa-user-lock text-white text-3xl"></i>
+                        </div>
+                        <h1 class="text-4xl font-bold gradient-text mb-4">Welcome Back!</h1>
+                        <p class="text-gray-600 text-lg">Sign in to access your premium account</p>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form name="loginForm" action="https://taitabgaa.com/app/index/login/?csrf_token=15d1b4b862a0700d6063f92161ebeb72" method="post" class="space-y-8">
+                        <!-- Username/Email Field -->
+                        <div class="form-group">
+                            <label for="username" class="block text-gray-700 font-semibold mb-3">
+                                <i class="fas fa-user-circle mr-2 text-purple-500"></i>
+                                Username or Email
+                            </label>
+                            <div class="relative">
+                                <input 
+                                    type="text" 
+                                    name="username" 
+                                    placeholder="Enter username or email" 
+                                    required 
+                                    class="w-full pl-12 pr-4 py-4 input-field focus:outline-none"
+                                />
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-purple-500"></i>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="input-group form-group">
-                            
-                            <input  placeholder="Password" required="required" v-model="user.password" name="password" class="form-control " type="password" />
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="form-control-feedback fa fa-key"></i></span>
+                        <!-- Password Field -->
+                        <div class="form-group">
+                            <label for="password" class="block text-gray-700 font-semibold mb-3">
+                                <i class="fas fa-lock mr-2 text-purple-500"></i>
+                                Password
+                            </label>
+                            <div class="relative">
+                                <input 
+                                    type="password" 
+                                    name="password" 
+                                    placeholder="Enter your password" 
+                                    required 
+                                    id="passwordInput"
+                                    class="w-full pl-12 pr-12 py-4 input-field focus:outline-none"
+                                />
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i class="fas fa-key text-purple-500"></i>
+                                </div>
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center password-toggle" id="togglePassword">
+                                    <i class="fas fa-eye text-gray-500"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row clearfix mt-3 mb-3">
-                            
-                            <div class="col-6">
-                                <label class="">
-                                    <input value="true" type="checkbox" name="rememberme" />
-                                    Remember Me
-                                </label>
-                            </div>
-                            
-                            <div class="col-6">
-                                <a href="passwordmanager.html" class="text-danger"> Reset Password?</a>
-                            </div>
-                            
                         </div>
                         
-                        <div class="form-group text-center">
-                            <button class="btn btn-primary btn-block btn-md" type="submit"> 
-                                <i class="load-indicator">
-                                    <clip-loader :loading="loading" color="#fff" size="20px"></clip-loader> 
-                                </i>
-                                Login <i class="fa fa-key"></i>
+                        <!-- Remember Me & Forgot Password -->
+                        <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <div class="relative">
+                                    <input type="checkbox" name="rememberme" value="true" class="sr-only peer"/>
+                                    <div class="w-5 h-5 bg-gray-200 rounded peer-checked:bg-gradient-to-r peer-checked:from-purple-600 peer-checked:to-pink-500 transition-all duration-300"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-0 peer-checked:opacity-100 transition-opacity duration-300">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                </div>
+                                <span class="text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Remember Me</span>
+                            </label>
+                            <a href="passwordmanager.html" class="text-purple-600 hover:text-purple-800 font-semibold transition-all duration-300 hover:scale-105">
+                                <i class="fas fa-key mr-2"></i>Forgot Password?
+                            </a>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full py-5 rounded-xl btn-gradient font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-400">
+                            <i class="fas fa-sign-in-alt mr-3"></i>SIGN IN NOW
+                        </button>
+                        
+                        <!-- Divider -->
+                        <div class="relative my-8">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center">
+                                <span class="px-6 bg-white text-gray-500 text-sm font-medium">OR CONTINUE WITH</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Login Options -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <button type="button" class="py-4 rounded-xl bg-gray-100 hover:bg-gray-200 font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                                <i class="fab fa-google text-red-500 mr-3"></i> Google
+                            </button>
+                            <button type="button" class="py-4 rounded-xl bg-blue-100 hover:bg-blue-200 font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                                <i class="fab fa-facebook text-blue-600 mr-3"></i> Facebook
                             </button>
                         </div>
-                        <hr />
-                        
-                        <div class="text-center">
-                            Don't Have an Account? <a href="index/register.html" class="btn btn-success">Register
-                            <i class="fa fa-user"></i></a>
-                        </div>
-                        <!-- Back to Home Button -->
-<div class="text-center mt-3 position-relative" style="z-index: 10;">
-    <a href="../index.html" class="btn btn-outline-secondary btn-sm position-relative">
-        <i class="fa fa-arrow-left me-1"></i> Back to Home
-    </a>
-</div>
                     </form>
+                    
+                    <!-- Register Link -->
+                    <div class="text-center mt-10 pt-8 border-t border-gray-200">
+                        <p class="text-gray-600 mb-6">Don't have an account yet?</p>
+                        <a href="index/register.html" class="inline-block w-full py-5 btn-success rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-400">
+                            <i class="fas fa-user-plus mr-3"></i>CREATE NEW ACCOUNT
+                        </a>
+                    </div>
+                    
+                    <!-- Back to Home -->
+                    <div class="text-center mt-8">
+                        <a href="../index.html" class="inline-flex items-center text-gray-600 hover:text-purple-600 transition-all duration-300 hover:scale-105">
+                            <i class="fas fa-arrow-left mr-3"></i>
+                            Back to Homepage
+                        </a>
+                    </div>
                 </div>
-                
-                
+            </div>
+            
+            <!-- Security Note -->
+            <div class="mt-10 security-badge p-8 rounded-2xl text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Secure Login</h3>
+                    <p class="text-gray-700">Your credentials are protected with 256-bit SSL encryption and two-factor authentication.</p>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                <a href="eventslist.html" class="p-6 bg-white/80 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <i class="fas fa-calendar-alt text-3xl text-purple-600 mb-4"></i>
+                    <h4 class="font-bold text-gray-800">Upcoming Events</h4>
+                    <p class="text-gray-600 text-sm mt-2">Browse & Book Events</p>
+                </a>
+                <a href="talentlist.html" class="p-6 bg-white/80 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <i class="fas fa-star text-3xl text-purple-600 mb-4"></i>
+                    <h4 class="font-bold text-gray-800">Featured Talent</h4>
+                    <p class="text-gray-600 text-sm mt-2">Book Artists & DJs</p>
+                </a>
+                <a href="contact.html" class="p-6 bg-white/80 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <i class="fas fa-headset text-3xl text-purple-600 mb-4"></i>
+                    <h4 class="font-bold text-gray-800">Support</h4>
+                    <p class="text-gray-600 text-sm mt-2">Get Help 24/7</p>
+                </a>
             </div>
         </div>
     </div>
-</div>
-					</div>	
-				<!-- Page Main Content [End] -->
-				<!-- Page Footer Start -->
-					<footer class="footer border-top">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="copyright">All Rights Reserved | &copy; <b>Kalenjin Vibes </b> - 2026</div>
-			</div><!--
-		
-<a href="https://wa.me/+254797265275?text=Hello,%20I%20would%20like%20to%20know%20more%20information%20about%20ticket%20booking" class="whatsapp-button" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 60px; height: 60px; border-radius: 50%;">
-</a>
 
-<!-- Add this to the styles section -->
-<style>
-    .whatsapp-button {
-        position: fixed;
-        bottom: 15px;
-        right: 16px;
-        z-index: 9999; /* To ensure it stays on top */
-    }
-</style>
-		</div>
-	</div>
-</footer>				<!-- Page Footer Ends -->
-				<div class="flash-msg-container"></div>
-				<!-- Modal page for displaying ajax page -->
-				<div id="main-page-modal" class="modal fade" role="dialog">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-body p-0 reset-grids inline-page">
-							</div>
-							<div style="top: 5px; right:5px; z-index: 999;" class="position-absolute">
-								<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">&times;</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Modal page for displaying record delete prompt -->
-				<div class="modal fade" id="delete-record-modal-confirm" tabindex="-1" role="dialog" aria-labelledby="delete-record-modal-confirm" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Delete record</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-									<span aria-hidden="true">&times;</span> 
-								</button>
-							</div>
-							<div id="delete-record-modal-msg" class="modal-body"></div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-								<a href="#" id="delete-record-modal-btn" class="btn btn-primary">Delete</a> 
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Image Preview Component [Start] -->
-				<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-					<div class="slides"></div>
-					<h3 class="title"></h3>
-					<a class="prev">‹</a>
-					<a class="next">›</a>
-					<a class="close">×</a>
-					<a class="play-pause"></a>
-					<ol class="indicator"></ol>
-				</div>
-				<!-- Image Preview Component [End] -->
-				<template id="page-loading-indicator">
-					<div class="p-2 text-center m-2 text-muted m-auto">
-						<div class="ajax-loader"></div>
-						<h4 class="p-3 mt-2 font-weight-light">Loading...</h4>
-					</div>
-				</template>
-				<template id="page-saving-indicator">
-					<div class="p-2 text-center m-2 text-muted">
-						<div class="lds-dual-ring"></div>
-						<h4 class="p-3 mt-2 font-weight-light">Saving...</h4>
-					</div>
-				</template>
-				<template id="inline-loading-indicator">
-					<div class="p-2 text-center d-flex justify-content-center">
-						<span class="loader mr-3"></span>
-						<span class="font-weight-bold">Loading...</span>
-					</div>
-				</template>
-			</div>
-		</div>
-		<script>
-			var siteAddr = 'index.html';
-			var defaultPageLimit = 20;
-			var csrfToken = '15d1b4b862a0700d6063f92161ebeb72';
-		</script>
-				<script type="text/javascript" src="assets/js/popper.js"></script>
-				<script type="text/javascript" src="assets/js/bootstrap-4.3.1.min.js"></script>
-						<script type="text/javascript" src="assets/js/flatpickr.min.js"></script>
-				<script type="text/javascript" src="assets/js/summernote.min.js"></script>
-				<script type="text/javascript" src="assets/js/dropzone.min.js"></script>
-				<script type="text/javascript" src="assets/js/plugins.js"></script>
-				<script type="text/javascript" src="assets/js/plugins-init.js"></script>
-				<script type="text/javascript" src="assets/js/page-scripts.js"></script>
-			</body>
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900 text-white py-16 mt-16 relative overflow-hidden">
+        <!-- Footer Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0,0L100,0L100,100L0,100Z" fill="white"/%3E%3C/svg%3E'); background-size: 50px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 flex items-center justify-center mr-5 shadow-xl">
+                            <i class="fas fa-music text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">KALENJIN VIBES</h2>
+                            <p class="text-gray-400 tracking-wider">PREMIUM ENTERTAINMENT & EVENTS</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-xl text-lg">
+                        Your gateway to unforgettable entertainment experiences. Connecting audiences with premium DJs, artists, performers, and the most exciting events in Kenya.
+                    </p>
+                    <div class="flex space-x-5">
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-2">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-2">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 flex items-center">
+                        <span class="w-10 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 mr-4"></span>
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="../index.html" class="text-gray-400 hover:text-white footer-link inline-block text-lg">
+                                <i class="fas fa-chevron-right text-sm mr-3 text-purple-400"></i>Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index/register.html" class="text-gray-400 hover:text-white footer-link inline-block text-lg">
+                                <i class="fas fa-chevron-right text-sm mr-3 text-purple-400"></i>Register
+                            </a>
+                        </li>
+                        <li>
+                            <a href="eventslist.html" class="text-gray-400 hover:text-white footer-link inline-block text-lg">
+                                <i class="fas fa-chevron-right text-sm mr-3 text-purple-400"></i>Events
+                            </a>
+                        </li>
+                        <li>
+                            <a href="talentlist.html" class="text-gray-400 hover:text-white footer-link inline-block text-lg">
+                                <i class="fas fa-chevron-right text-sm mr-3 text-purple-400"></i>Talent
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="text-gray-400 hover:text-white footer-link inline-block text-lg">
+                                <i class="fas fa-chevron-right text-sm mr-3 text-purple-400"></i>Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 flex items-center">
+                        <span class="w-10 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 mr-4"></span>
+                        Contact Us
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-purple-400 text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-400">Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-purple-400 text-xl mr-4"></i>
+                            <span class="text-gray-400">+254 797 265 275</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-purple-400 text-xl mr-4"></i>
+                            <span class="text-gray-400">support@kalenjinvibes.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-purple-400 text-xl mr-4"></i>
+                            <span class="text-gray-400">Mon - Sat: 8AM - 10PM</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8 pt-8 border-t border-gray-800">
+                        <h4 class="font-bold text-gray-300 mb-4">Download Our App</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 px-4 py-3 rounded-lg transition-colors duration-300 w-full">
+                                <i class="fab fa-google-play text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Get it on</div>
+                                    <div class="font-bold">Google Play</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 px-4 py-3 rounded-lg transition-colors duration-300 w-full">
+                                <i class="fab fa-apple text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Download on</div>
+                                    <div class="font-bold">App Store</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-500">&copy; <span id="currentYear"></span> KALENJIN VIBES. All Rights Reserved.</p>
+                <p class="text-gray-600 text-sm mt-2">Premium Entertainment & Events Platform • Connecting Talent with Audiences</p>
+                <div class="flex justify-center space-x-8 mt-6 text-gray-500 text-sm">
+                    <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">DMCA</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        
+        // Scroll to Top Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Password Toggle Functionality
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('passwordInput');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+        
+        // Form Submission Animation
+        const form = document.querySelector('form[name="loginForm"]');
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>SIGNING IN...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Input validation
+        const inputs = form.querySelectorAll('input[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim()) {
+                    this.classList.add('valid');
+                    this.classList.remove('invalid');
+                } else {
+                    this.classList.add('invalid');
+                    this.classList.remove('valid');
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.classList.remove('invalid');
+                }
+            });
+        });
+    </script>
+</body>
 </html>

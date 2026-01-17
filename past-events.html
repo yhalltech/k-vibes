@@ -1,3 +1,5 @@
+[file name]: past-events.html
+[file content begin]
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <head>
@@ -47,207 +49,60 @@
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Header and Footer CSS -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/past-events.css">
+    
+    <style>
+        /* WhatsApp Button Styles for Past Events Page */
+        .whatsapp-button-past-events {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-button-past-events:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .whatsapp-button-past-events img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-button-past-events {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                left: 15px;
+            }
+            
+            .whatsapp-button-past-events img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Mobile Menu (COPY FROM index.html) -->
-    <div class="mobile-menu">
-        <div class="menu-overlay"></div>
-        <div class="menu-container">
-            <div class="menu-header">
-                <button class="menu-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <nav class="menu-nav">
-                <ul>
-                    <li>
-                        <a href="index.html" class="menu-link">
-                            <i class="fas fa-home"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="eventslist.html" class="menu-link">
-                            <i class="fas fa-calendar"></i>
-                            <span>Events</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="talentlist.html" class="menu-link">
-                            <i class="fas fa-users"></i>
-                            <span>Talents</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html" class="menu-link">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>Shop</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html" class="menu-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <div class="menu-footer">
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://wa.me/+254797265275" class="social-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-                <p class="copyright">© <script>document.write(new Date().getFullYear())</script> Kalenjin Vibes</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile Menu JavaScript -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Toggle menu
-        const menuToggle = document.querySelector('.vs-menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                mobileMenu.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        }
-
-        // Close menu
-        const closeBtn = document.querySelector('.menu-close');
-        const overlay = document.querySelector('.menu-overlay');
-        
-        function closeMenu() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-        if (overlay) overlay.addEventListener('click', closeMenu);
-        
-        // Close menu when clicking links
-        const menuLinks = document.querySelectorAll('.menu-link');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-    });
-    </script>
-
-    <!-- Header Area (FIXED - Tailwind compatible) -->
-    <header class="vs-header header-layout4">
-        <!-- Top Bar -->
-        <div class="header-top-bar bg-black text-white py-2">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <!-- Desktop Contact Info -->
-                    <div class="hidden md:flex items-center space-x-6">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-envelope text-primary"></i>
-                            <a href="mailto:kalenjinvibezke@gmail.com" class="text-sm hover:text-primary transition-colors">kalenjinvibezke@gmail.com</a>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-map-marker-alt text-primary"></i>
-                            <span class="text-sm">Nairobi, Kenya</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Desktop Right Side -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <div class="flex items-center space-x-3">
-                            <a href="#" class="text-white hover:text-primary transition-colors">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="text-white hover:text-primary transition-colors">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="text-white hover:text-primary transition-colors">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
-                        <a href="app/index.html" class="bg-primary text-white px-4 py-2 rounded text-sm font-semibold hover:bg-red-800 transition-colors ml-4">
-                            <i class="fas fa-sign-in-alt mr-1"></i> Login
-                        </a>
-                    </div>
-                    
-                    <!-- Mobile Social & Login -->
-                    <div class="flex md:hidden w-full justify-between items-center">
-                        <div class="flex items-center space-x-3">
-                            <a href="#" class="text-white hover:text-primary">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="text-white hover:text-primary">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="text-white hover:text-primary">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
-                        <a href="app/index.html" class="text-white hover:text-primary text-sm">
-                            <i class="fas fa-sign-in-alt mr-1"></i> Login
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Header -->
-        <div class="main-header bg-white shadow-sm">
-            <div class="container mx-auto px-4">
-                <div class="flex justify-between items-center py-4">
-                    <!-- Logo -->
-                    <div class="w-1/4">
-                        <div class="logo">
-                            <!-- Add your logo here -->
-                        </div>
-                    </div>
-                    
-                    <!-- Desktop Navigation -->
-                    <nav class="hidden md:flex items-center space-x-8">
-                        <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">
-                            <i class="fas fa-home mr-2"></i> Home
-                        </a>
-                        <a href="eventslist.html" class="text-gray-700 hover:text-primary transition-colors">
-                            <i class="fas fa-calendar-alt mr-2"></i> Events
-                        </a>
-                        <a href="talentlist.html" class="text-gray-700 hover:text-primary transition-colors">
-                            <i class="fas fa-users mr-2"></i> Talents
-                        </a>
-                        <a href="shop.html" class="text-gray-700 hover:text-primary transition-colors">
-                            <i class="fas fa-cart-shopping mr-2"></i> Shop
-                        </a>
-                        <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors">
-                            <i class="fas fa-envelope mr-2"></i> Contact
-                        </a>
-                    </nav>
-                    
-                    <!-- Header Actions -->
-                    <div class="flex items-center space-x-4">
-                        <button class="search-toggle text-gray-700 hover:text-primary">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="cart-icon-wrapper relative">
-                            <i class="fas fa-shopping-bag text-gray-700 hover:text-primary cursor-pointer"></i>
-                            <span class="cart-badge absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" style="display: none;">0</span>
-                        </div>
-                        <button class="vs-menu-toggle md:hidden text-gray-700">
-                            <i class="fas fa-bars text-xl"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- Include Header -->
+    <div id="header-container"></div>
 
     <!-- Past Events Page Content -->
     <div class="min-h-screen">
@@ -333,120 +188,17 @@
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16">
-        <div class="container mx-auto px-4">
-            <div class="py-12">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                    <div class="text-center">
-                        <div class="mb-4">
-                            <img src="./index_files/call.png" alt="Call Us" class="w-16 mx-auto">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Call Us 24/7</h3>
-                        <a href="tel:+254797265275" class="text-primary font-semibold hover:text-red-400 transition-colors duration-300">+254797265275</a>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="mb-4">
-                            <img src="./index_files/share.png" alt="Email Us" class="w-16 mx-auto">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Write To Us</h3>
-                        <a href="mailto:kalenjinvibezke@gmail.com" class="text-primary font-semibold hover:text-red-400 transition-colors duration-300">kalenjinvibezke@gmail.com</a>
-                    </div>
-                    
-                    <div>
-                        <form class="flex">
-                            <input type="email" class="flex-grow px-4 py-3 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-primary" placeholder="Enter your email">
-                            <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r-lg font-semibold hover:bg-red-800 transition-colors duration-300">
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-gray-800 py-12">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div>
-                        <h2 class="text-primary text-2xl font-bold mb-4">KALENJIN VIBES</h2>
-                        <p class="text-gray-300 mb-6">Your trusted source for top-tier event creatives and professionals, all ready to make your event extraordinary.</p>
-                        <div class="flex space-x-4">
-                            <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 relative pb-3 border-b border-gray-700">Useful Links</h3>
-                        <ul class="space-y-3">
-                            <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-home mr-3 text-primary"></i> Home</a></li>
-                            <li><a href="eventslist.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-calendar-alt mr-3 text-primary"></i> Events</a></li>
-                            <li><a href="talentlist.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-users mr-3 text-primary"></i> Talents</a></li>
-                            <li><a href="shop.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-shopping-cart mr-3 text-primary"></i> Shop</a></li>
-                            <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-envelope mr-3 text-primary"></i> Contact Us</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 relative pb-3 border-b border-gray-700">Contact</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
-                                <span class="text-gray-300">Nairobi - Kenya</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-envelope text-primary mr-3 mt-1"></i>
-                                <a href="mailto:kalenjinvibezke@gmail.com" class="text-gray-300 hover:text-primary transition-colors duration-300">kalenjinvibezke@gmail.com</a>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-phone-alt text-primary mr-3 mt-1"></i>
-                                <a href="tel:+254797265275" class="text-gray-300 hover:text-primary transition-colors duration-300">+254797265275</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="border-t border-gray-700 py-6">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="mb-4 md:mb-0">
-                        <p class="text-gray-400 text-sm">
-                            Copyright <i class="fal fa-copyright"></i>
-                            <script>document.write(new Date().getFullYear())</script>
-                            <a href="index.html" class="text-primary hover:text-red-400"> Kalenjin Vibes</a>.
-                            All Rights Reserved
-                        </p>
-                    </div>
-                    <div class="hidden md:block">
-                        <div class="flex space-x-6">
-                            <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors duration-300">Privacy</a>
-                            <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors duration-300">Terms & Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
 
     <!-- Scroll To Top -->
-    <a href="#" class="scrollToTop scroll-btn fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-red-800 transition-colors duration-300 z-50">
+    <a href="#" class="scrollToTop scroll-btn fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-red-800 transition-colors duration-300 z-50 hidden">
         <i class="fas fa-arrow-up"></i>
     </a>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+254797265275" class="whatsapp-button fixed bottom-8 left-8 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50" target="_blank">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <a href="https://wa.me/+254797265275" class="whatsapp-button-past-events" target="_blank" title="Chat with us on WhatsApp">
+        <img src="assets/img/WhatsApp.svg" alt="WhatsApp">
     </a>
 
     <!-- JavaScript Files -->
@@ -455,6 +207,126 @@
     
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    
+    <!-- Load Header and Footer -->
+    <script>
+        // Load header from partials folder
+        fetch('partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                
+                // Initialize mobile menu after header is loaded
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const menuToggle = document.querySelector('.vs-menu-toggle');
+                const closeBtn = document.querySelector('.menu-close');
+                const overlay = document.querySelector('.menu-overlay');
+                
+                if (menuToggle && mobileMenu) {
+                    menuToggle.addEventListener('click', function() {
+                        mobileMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
+                
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+                
+                if (overlay) {
+                    overlay.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+                
+                // Close menu when clicking links
+                const menuLinks = document.querySelectorAll('.menu-link');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            })
+            .catch(error => console.error('Error loading header:', error));
+            
+        // Load footer from partials folder
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                
+                // Initialize footer functionality
+                const yearElements = document.querySelectorAll('.current-year');
+                yearElements.forEach(element => {
+                    element.textContent = new Date().getFullYear();
+                });
+                
+                // Newsletter form submission
+                const newsletterForm = document.getElementById('newsletter-form');
+                if (newsletterForm) {
+                    newsletterForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const emailInput = newsletterForm.querySelector('input[type="email"]');
+                        const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+                        const email = emailInput.value.trim();
+                        
+                        // Simple email validation
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email)) {
+                            alert('Please enter a valid email address');
+                            return;
+                        }
+                        
+                        // Show loading state
+                        const originalText = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+                        submitBtn.disabled = true;
+                        
+                        // Simulate API call
+                        setTimeout(() => {
+                            // Save to localStorage
+                            localStorage.setItem('kalenjin_vibes_subscribed', JSON.stringify({
+                                email: email,
+                                date: new Date().toISOString()
+                            }));
+                            
+                            // Update UI
+                            emailInput.value = email;
+                            emailInput.disabled = true;
+                            submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed';
+                            submitBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+                            
+                            // Show success message
+                            alert('Successfully subscribed to our newsletter!');
+                        }, 1000);
+                    });
+                }
+                
+                // Check if already subscribed
+                const isSubscribed = localStorage.getItem('kalenjin_vibes_subscribed');
+                if (isSubscribed) {
+                    const newsletterForm = document.getElementById('newsletter-form');
+                    if (newsletterForm) {
+                        const input = newsletterForm.querySelector('input[type="email"]');
+                        const button = newsletterForm.querySelector('button[type="submit"]');
+                        if (input && button) {
+                            const data = JSON.parse(isSubscribed);
+                            input.value = data.email;
+                            input.disabled = true;
+                            button.textContent = 'Subscribed ✓';
+                            button.disabled = true;
+                            button.classList.add('bg-green-600', 'hover:bg-green-700');
+                        }
+                    }
+                }
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
     
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
@@ -490,3 +362,4 @@
 
 </body>
 </html>
+[file content end]
