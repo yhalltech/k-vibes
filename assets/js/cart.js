@@ -1,35 +1,43 @@
-// Cart Component - Fixed to work with header.html
-
-class CartComponent {
+// cart.js - SIMPLE WORKING VERSION
+class ShoppingCart {
     constructor() {
-        // Use in-memory storage instead of localStorage
-        this.cart = [];
+        this.items = [];
         this.init();
     }
 
     init() {
-        // Don't create cart structure - use existing from header.html
+        console.log('🛒 Cart initializing...');
+        
+        // Load cart from localStorage
+        this.loadFromStorage();
+        
+        // Bind events
         this.bindEvents();
-        this.updateCartBadge();
-        this.renderCart();
+        
+        // Update display
+        this.updateCartDisplay();
+        
+        // Make available globally
+        window.cart = this;
+        
+        console.log('🛒 Cart ready!');
     }
 
     bindEvents() {
-        // Cart elements from header.html
-        const cartIconBtn = document.getElementById('kvCartIconBtn');
-        const cartClose = document.getElementById('kvCartClose');
-        const cartOverlay = document.getElementById('kvCartOverlay');
-
-        // Toggle cart
-        if (cartIconBtn) {
-            cartIconBtn.addEventListener('click', (e) => {
+        console.log('Binding cart events...');
+        
+        // Cart icon click
+        const cartIcon = document.getElementById('cartIconBtn');
+        if (cartIcon) {
+            cartIcon.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 this.openCart();
             });
         }
 
-        // Close cart
+        // Close button
+        const cartClose = document.getElementById('cartClose');
         if (cartClose) {
             cartClose.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -38,11 +46,17 @@ class CartComponent {
             });
         }
 
-        if (cartOverlay) {
-            cartOverlay.addEventListener('click', () => this.closeCart());
+        // Overlay click
+        const overlay = document.getElementById('cartOverlay');
+        if (overlay) {
+            overlay.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.closeCart();
+            });
         }
 
-        // Close cart with Escape key
+        // Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeCart();
@@ -51,229 +65,252 @@ class CartComponent {
     }
 
     openCart() {
-        const cartSidebar = document.getElementById('kvCartSidebar');
-        const cartOverlay = document.getElementById('kvCartOverlay');
+        console.log('Opening cart...');
         
-        if (cartSidebar && cartOverlay) {
-            cartSidebar.classList.add('active');
-            cartOverlay.classList.add('active');
+        const sidebar = document.getElementById('cartSidebar');
+        const overlay = document.getElementById('cartOverlay');
+        
+        if (sidebar && overlay) {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
-            this.renderCart(); // Refresh cart view
         }
     }
 
     closeCart() {
-        const cartSidebar = document.getElementById('kvCartSidebar');
-        const cartOverlay = document.getElementById('kvCartOverlay');
+        console.log('Closing cart...');
         
-        if (cartSidebar && cartOverlay) {
-            cartSidebar.classList.remove('active');
-            cartOverlay.classList.remove('active');
+        const sidebar = document.getElementById('cartSidebar');
+        const overlay = document.getElementById('cartOverlay');
+        
+        if (sidebar && overlay) {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
             document.body.style.overflow = '';
         }
     }
 
-    updateCartBadge() {
-        const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
-        const badge = document.getElementById('kvCartBadge');
+    addItem(item) {
+        console.log('Adding item:', item);
         
-        if (badge) {
-            badge.textContent = totalItems;
-            if (totalItems > 0) {
-                badge.style.display = 'flex';
-            } else {
-                badge.style.display = 'none';
-            }
+        // Validate item
+        if (!item || !item.id || !item.name || !item.price) {
+            console.error('Invalid item:', item);
+            return false;
         }
-    }
 
-    renderCart() {
-        const cartBody = document.getElementById('kvCartBody');
-        const cartFooter = document.getElementById('kvCartFooter');
-        const cartTotal = document.getElementById('kvCartTotal');
-        
-        if (!cartBody) return;
-        
-        if (this.cart.length === 0) {
-            cartBody.innerHTML = `
-                <div class="cart-empty">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p>Your cart is empty</p>
-                    <a href="shop.html" class="vs-btn style4 mt-3">Browse Shop</a>
-                </div>
-            `;
-            if (cartFooter) cartFooter.style.display = 'none';
-            return;
-        }
-        
-        if (cartFooter) cartFooter.style.display = 'block';
-        let total = 0;
-        
-        cartBody.innerHTML = this.cart.map((item, index) => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            return `
-                <div class="cart-item">
-                    <img src="${item.image || 'assets/img/placeholder.jpg'}" 
-                         alt="${item.name}" 
-                         class="cart-item-image"
-                         onerror="this.src='assets/img/placeholder.jpg'">
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-price">Ksh ${item.price.toLocaleString()}</div>
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn" onclick="cart.updateQuantity(${index}, -1)">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span>${item.quantity}</span>
-                            <button class="quantity-btn" onclick="cart.updateQuantity(${index}, 1)">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <button class="cart-item-remove" onclick="cart.removeFromCart(${index})">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
-            `;
-        }).join('');
-        
-        if (cartTotal) {
-            cartTotal.textContent = `Ksh ${total.toLocaleString()}`;
-        }
-    }
-
-    updateQuantity(index, change) {
-        this.cart[index].quantity += change;
-        
-        if (this.cart[index].quantity <= 0) {
-            this.cart.splice(index, 1);
-        }
-        
-        this.updateCartBadge();
-        this.renderCart();
-        
-        if (change > 0) {
-            this.showNotification('Item quantity updated');
-        } else if (this.cart[index]) {
-            this.showNotification('Item quantity updated');
-        }
-    }
-
-    removeFromCart(index) {
-        const itemName = this.cart[index].name;
-        this.cart.splice(index, 1);
-        this.updateCartBadge();
-        this.renderCart();
-        this.showNotification(`${itemName} removed from cart`);
-    }
-
-    addToCart(item) {
-        const existingItem = this.cart.find(cartItem => cartItem.id === item.id);
+        // Check if item already exists
+        const existingItem = this.items.find(i => i.id === item.id);
         
         if (existingItem) {
-            existingItem.quantity += item.quantity || 1;
-            this.showNotification(`${item.name} quantity updated`);
+            existingItem.quantity++;
         } else {
-            this.cart.push({
+            this.items.push({
                 ...item,
-                quantity: item.quantity || 1
+                quantity: 1,
+                image: item.image || 'https://via.placeholder.com/80'
             });
-            this.showNotification(`${item.name} added to cart`);
-            
-            // Bounce animation for badge
-            const badge = document.getElementById('kvCartBadge');
-            if (badge) {
-                badge.classList.add('bounce');
-                setTimeout(() => badge.classList.remove('bounce'), 300);
-            }
         }
+
+        // Update display and storage
+        this.updateCartDisplay();
+        this.saveToStorage();
         
-        this.updateCartBadge();
-        this.renderCart();
+        // Show notification
+        this.showNotification(`Added ${item.name} to cart!`);
         
         // Auto-open cart on mobile
         if (window.innerWidth < 768) {
             setTimeout(() => this.openCart(), 300);
         }
+        
+        return true;
+    }
+
+    removeItem(index) {
+        if (this.items[index]) {
+            const itemName = this.items[index].name;
+            this.items.splice(index, 1);
+            
+            this.updateCartDisplay();
+            this.saveToStorage();
+            
+            this.showNotification(`Removed ${itemName} from cart`);
+        }
+    }
+
+    updateQuantity(index, change) {
+        if (this.items[index]) {
+            const newQuantity = this.items[index].quantity + change;
+            
+            if (newQuantity < 1) {
+                this.removeItem(index);
+            } else {
+                this.items[index].quantity = newQuantity;
+                this.updateCartDisplay();
+                this.saveToStorage();
+            }
+        }
+    }
+
+    updateCartDisplay() {
+        const body = document.getElementById('cartBody');
+        const footer = document.getElementById('cartFooter');
+        const totalEl = document.getElementById('cartTotal');
+        const badge = document.getElementById('cartBadge');
+
+        if (!body || !footer || !totalEl || !badge) {
+            console.error('Cart elements not found!');
+            return;
+        }
+
+        // Update badge
+        const totalItems = this.getTotalItems();
+        badge.textContent = totalItems;
+        badge.style.display = totalItems > 0 ? 'flex' : 'none';
+
+        // Update body
+        if (this.items.length === 0) {
+            body.innerHTML = `
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <p class="text-muted">Add items from the shop to get started</p>
+                    <a href="shop.html" class="btn-browse">Browse Shop</a>
+                </div>
+            `;
+            footer.style.display = 'none';
+            return;
+        }
+
+        // Show footer
+        footer.style.display = 'block';
+
+        // Calculate total
+        let total = 0;
+        let itemsHTML = '';
+
+        this.items.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+
+            itemsHTML += `
+                <div class="cart-item" data-id="${item.id}">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">Ksh ${item.price.toLocaleString()}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn decrease" onclick="cart.updateQuantity(${index}, -1)">-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn increase" onclick="cart.updateQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="cart-item-remove" onclick="cart.removeItem(${index})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+        });
+
+        body.innerHTML = itemsHTML;
+        totalEl.textContent = `Ksh ${total.toLocaleString()}`;
+    }
+
+    getTotalItems() {
+        return this.items.reduce((total, item) => total + item.quantity, 0);
+    }
+
+    getTotalPrice() {
+        return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
     }
 
     clearCart() {
-        this.cart = [];
-        this.updateCartBadge();
-        this.renderCart();
-        this.showNotification('Cart cleared');
-    }
-
-    getCartTotal() {
-        return this.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    }
-
-    getItemCount() {
-        return this.cart.reduce((sum, item) => sum + item.quantity, 0);
+        this.items = [];
+        this.updateCartDisplay();
+        this.saveToStorage();
+        this.showNotification('Cart cleared!');
     }
 
     showNotification(message) {
+        // Remove existing notification
+        const existing = document.querySelector('.cart-notification');
+        if (existing) existing.remove();
+
+        // Create new notification
         const notification = document.createElement('div');
         notification.className = 'cart-notification';
         notification.innerHTML = `
             <i class="fas fa-check-circle"></i>
             <span>${message}</span>
         `;
-        
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 10000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            animation: slideIn 0.3s ease;
-            font-weight: 500;
-        `;
-        
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        if (!document.getElementById('cart-notification-styles')) {
-            style.id = 'cart-notification-styles';
-            document.head.appendChild(style);
-        }
-        
+
         document.body.appendChild(notification);
-        
+
+        // Remove after 3 seconds
         setTimeout(() => {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
         }, 3000);
+    }
+
+    saveToStorage() {
+        try {
+            localStorage.setItem('kalenjinCart', JSON.stringify(this.items));
+        } catch (e) {
+            console.error('Failed to save cart:', e);
+        }
+    }
+
+    loadFromStorage() {
+        try {
+            const saved = localStorage.getItem('kalenjinCart');
+            if (saved) {
+                this.items = JSON.parse(saved);
+            }
+        } catch (e) {
+            console.error('Failed to load cart:', e);
+            this.items = [];
+        }
     }
 }
 
 // Initialize cart when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        window.cart = new CartComponent();
-    });
-} else {
-    window.cart = new CartComponent();
-}
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing cart...');
+    
+    // Wait for cart elements to be loaded
+    function initCart() {
+        const cartIcon = document.getElementById('cartIconBtn');
+        const cartSidebar = document.getElementById('cartSidebar');
+        
+        if (cartIcon && cartSidebar) {
+            console.log('Cart elements found, creating cart...');
+            window.cartInstance = new ShoppingCart();
+            console.log('Cart created successfully:', window.cartInstance);
+            
+            // Add global function to add items
+            window.addToCart = function(item) {
+                if (window.cartInstance) {
+                    return window.cartInstance.addItem(item);
+                }
+                return false;
+            };
+            
+        } else {
+            console.log('Waiting for cart elements...');
+            setTimeout(initCart, 100);
+        }
+    }
+    
+    initCart();
+});
 
-// Make cart functions available globally
-window.addToCart = (item) => window.cart && window.cart.addToCart(item);
-window.clearCart = () => window.cart && window.cart.clearCart();
-window.openCart = () => window.cart && window.cart.openCart();
-window.closeCart = () => window.cart && window.cart.closeCart();
+// Add this to your shop page to test:
+// <button onclick="addToCart({id: 1, name: 'Test Product', price: 1000, image: 'https://via.placeholder.com/80'})">
+//     Add to Cart
+// </button>

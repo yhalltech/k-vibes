@@ -1,138 +1,100 @@
-// File: mobile-menu-enhanced.js (Updated)
-[file content begin]
-// Enhanced Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Social Dropdown
-    const mobileSocialToggle = document.getElementById('mobileSocialToggle');
-    const mobileSocialMenu = document.getElementById('mobileSocialMenu');
+    console.log('Mobile Menu Initializing...');
     
-    if (mobileSocialToggle && mobileSocialMenu) {
-        mobileSocialToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileSocialMenu.classList.toggle('show');
-        });
+    // Initialize function
+    function initMobileMenu() {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const cartSidebar = document.getElementById('cartSidebar');
         
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileSocialToggle.contains(e.target) && !mobileSocialMenu.contains(e.target)) {
-                mobileSocialMenu.classList.remove('show');
+        console.log('Mobile menu elements:', { mobileMenuToggle, mobileMenu, mobileClose });
+        
+        if (!mobileMenuToggle || !mobileMenu) {
+            console.error('Mobile menu elements not found!');
+            return;
+        }
+        
+        // Open mobile menu
+        function openMobileMenu() {
+            console.log('Opening mobile menu');
+            
+            // Close cart if open
+            if (cartSidebar && cartSidebar.classList.contains('active')) {
+                if (window.cart && typeof window.cart.closeCart === 'function') {
+                    window.cart.closeCart();
+                }
             }
-        });
-    }
-    
-    // Mobile Menu Elements
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    const mobileLinks = document.querySelectorAll('.mobile-nav a');
-    
-    // Search Elements
-    const searchToggle = document.getElementById('searchToggle');
-    const searchModal = document.getElementById('searchModal');
-    const searchClose = document.getElementById('searchClose');
-    const searchToggleMobile = document.querySelector('.search-toggle-mobile');
-    
-    // Mobile Menu Functionality
-    function openMobileMenu() {
-        if (mobileMenu) {
+            
             mobileMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-    }
-    
-    function closeMobileMenu() {
-        if (mobileMenu) {
+        
+        // Close mobile menu
+        function closeMobileMenu() {
+            console.log('Closing mobile menu');
             mobileMenu.classList.remove('active');
             document.body.style.overflow = '';
         }
-    }
-    
-    // Search Modal Functionality
-    function openSearchModal() {
-        if (searchModal) {
-            searchModal.classList.add('active');
-            document.getElementById('searchInput')?.focus();
-        }
-    }
-    
-    function closeSearchModal() {
-        if (searchModal) {
-            searchModal.classList.remove('active');
-        }
-    }
-    
-    // Event Listeners
-    if (mobileMenuToggle) {
+        
+        // Event listeners
         mobileMenuToggle.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             openMobileMenu();
         });
-    }
-    
-    if (mobileClose) {
-        mobileClose.addEventListener('click', closeMobileMenu);
-    }
-    
-    if (searchToggle) {
-        searchToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            openSearchModal();
-        });
-    }
-    
-    if (searchClose) {
-        searchClose.addEventListener('click', closeSearchModal);
-    }
-    
-    if (searchToggleMobile) {
-        searchToggleMobile.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeMobileMenu();
-            setTimeout(openSearchModal, 300);
-        });
-    }
-    
-    // Close mobile menu when clicking links
-    mobileLinks.forEach(link => {
-        if (!link.classList.contains('search-toggle-mobile')) {
-            link.addEventListener('click', closeMobileMenu);
-        }
-    });
-    
-    // Close modals when clicking outside
-    if (searchModal) {
-        searchModal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeSearchModal();
-            }
-        });
-    }
-    
-    // Keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-        // Escape key closes modals
-        if (e.key === 'Escape') {
-            closeMobileMenu();
-            closeSearchModal();
-            if (mobileSocialMenu) {
-                mobileSocialMenu.classList.remove('show');
-            }
-        }
         
-        // Ctrl/Cmd + K opens search
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        mobileClose.addEventListener('click', function(e) {
             e.preventDefault();
-            openSearchModal();
-        }
-    });
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+        
+        // Close menu when clicking links
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+        
+        // Close menu when clicking outside (on overlay)
+        document.addEventListener('click', function(e) {
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(e.target) && 
+                e.target !== mobileMenuToggle) {
+                closeMobileMenu();
+            }
+        });
+        
+        console.log('Mobile menu initialized successfully');
+    }
     
-    // Set active navigation item
-    const currentPage = window.location.pathname.split('/').pop();
-    const navItems = document.querySelectorAll('.main-menu a, .mobile-nav a');
-    navItems.forEach(item => {
-        if (item.getAttribute('href') === currentPage) {
-            item.parentElement.classList.add('active');
+    // Wait for header to be loaded
+    let attempts = 0;
+    const maxAttempts = 20;
+    
+    function checkAndInit() {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuToggle && mobileMenu) {
+            console.log('Mobile menu elements found, initializing...');
+            initMobileMenu();
+        } else if (attempts < maxAttempts) {
+            attempts++;
+            console.log(`Waiting for mobile menu elements... attempt ${attempts}`);
+            setTimeout(checkAndInit, 100);
+        } else {
+            console.error('Mobile menu elements not found after waiting');
         }
-    });
+    }
+    
+    // Start checking
+    checkAndInit();
 });
-[file content end]

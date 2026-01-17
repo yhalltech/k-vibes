@@ -1,5 +1,4 @@
 /* File: header.css (Updated with your requested changes) */
-[file content begin]
 /* Header Styles */
 .header-top-bar {
   padding: 10px 0;
@@ -633,4 +632,20 @@
     font-size: 14px;
   }
 }
-[file content end]
+
+/* ===== FIX Z-INDEX STACK ===== */
+.mobile-menu {
+  z-index: 10001;
+}
+
+.cart-sidebar {
+  z-index: 9999;
+}
+
+.cart-overlay {
+  z-index: 9998;
+}
+
+.search-modal {
+  z-index: 10002;
+}
